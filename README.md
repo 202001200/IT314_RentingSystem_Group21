@@ -1,1 +1,2 @@
 # IT314_RentingSystem_Group21
+RentBuddy.png
