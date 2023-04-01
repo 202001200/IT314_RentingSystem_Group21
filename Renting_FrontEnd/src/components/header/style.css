@@ -1,28 +1,44 @@
-.Header {
-    background-color: coral;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.DashboardHeader {
+    background-color: black;
+    padding: 1%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-.begin {
+.DashboardHeader-body {
     display: flex;
-    border: solid 3px darkgreen;
-    justify-content: start;
+    background-color: #2C3333;
+    width: 50%;
+    margin-left: 5%;
     align-items: center;
+    border-radius: 4px;
 }
 
-.end {
-    display: flex;
-    border: solid 3px red;
-    justify-content: end;
-    align-items: center;
+.DashboardHeader-search {
+    flex: 9;
+    background-color: #333333;
+    color: white;
+    font-size: 18px;
+    padding: 1.25%;
+    letter-spacing: 1px;
+    font-family: Roboto;
+    border: none;
+    outline: none;
+    margin-left: 4px;
 }
 
-h1 {
-    border: 2px solid black;
+.DashboardHeader-search:focus {
+    outline: none;
+    border: none;
 }
 
-h2 {
-    border: 2px solid blue;
+.DashboardHeader-search-icon {
+    font-size: 2rem;
+    color: #0E8388;
+    flex: 1;
+}
+
+.DashboardHeader-search-icon:hover {
+    cursor: pointer;
 }

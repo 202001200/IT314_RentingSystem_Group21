@@ -1,5 +1,5 @@
 .Footer {
-    background-color: darkseagreen;
+    background-color: #2C3333;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -8,6 +8,8 @@
     width: 100%;
 }
 
-h1 {
-    border: solid 3px crimson;
+.Footer-text {
+    margin: 5px;
+    color: white;
+    font-family: Roboto;
 }
