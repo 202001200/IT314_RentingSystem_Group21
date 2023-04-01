@@ -1,0 +1,28 @@
+.Header {
+    background-color: coral;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.begin {
+    display: flex;
+    border: solid 3px darkgreen;
+    justify-content: start;
+    align-items: center;
+}
+
+.end {
+    display: flex;
+    border: solid 3px red;
+    justify-content: end;
+    align-items: center;
+}
+
+h1 {
+    border: 2px solid black;
+}
+
+h2 {
+    border: 2px solid blue;
+}

@@ -1,0 +1,13 @@
+.Footer {
+    background-color: darkseagreen;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+h1 {
+    border: solid 3px crimson;
+}

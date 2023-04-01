@@ -1,4 +1,6 @@
 .App {
-  background-color: aqua;
-  color: blue;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  border: solid 5px blue;
 }
