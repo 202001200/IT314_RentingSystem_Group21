@@ -21,7 +21,7 @@ git pull upstream main
 ```
 
 - You need Node & Yarn to start the development environment. Download them here - [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com).
-
+- Node package v14.17.1 preferable
 - Install Packages using:
 
 ```bash
