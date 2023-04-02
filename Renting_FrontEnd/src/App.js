@@ -1,6 +1,6 @@
 import './App.css';
 import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
-import Drawer from './components/Drawer/Drawer';
+import Drawer from './Components/Drawer/Drawer';
 import Dashboard from './Pages/General/Dashboard';
 
 function App() {
