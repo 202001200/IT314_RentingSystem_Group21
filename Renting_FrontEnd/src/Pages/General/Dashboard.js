@@ -1,6 +1,6 @@
 import React from 'react';
-import DashboardHeader from '../../Components/Header/DashboardHeader';
-import ProductCard from '../../Components/Cardview/ProductCard';
+import DashboardHeader from '../../components/header/DashboardHeader';
+import ProductCard from '../../components/Cardview/ProductCard';
 import './style.css';
 
 const Dashboard = () => {
