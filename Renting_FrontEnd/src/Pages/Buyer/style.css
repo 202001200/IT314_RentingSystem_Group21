@@ -105,3 +105,71 @@
   hr {
     border-color: #383838;
   }
+    /* Buyer checkout page */
+  
+    .BuyerCheckout-main {
+      margin: auto;
+      margin-top: 3%;
+      width: 90%;
+      font-family: Roboto;
+      color: white;
+      background-color: #222222;
+      border-radius: 4px;
+      padding: 2%;
+    }
+  
+    .BuyerCheckout-title {
+      font-size: 36px;
+      padding: 1%;
+    }
+  
+    .BuyerCheckout-description {
+      padding: 1%;
+      font-size: 18px;
+    }
+  
+    .BuyerCheckout-address {
+      font-size: 24px;
+      padding: 1%;
+      margin-top: 1%;
+      display: flex;
+    }
+  
+    .BuyerCheckout-add {
+      flex: 1;
+    }
+  
+    .BuyerCheckout-Buyeraddress {
+      flex: 5;
+    }
+  
+    .BuyerCheckout-confirmdiv {
+      display: flex;
+      font-size: larger;
+      padding: 1%;
+      margin-top: 2%;
+    }
+  
+    .BuyerCheckout-confirmdiv input {
+      flex: 1;
+      cursor: pointer;
+      font-size: 22px;
+      height: 20px;
+      width: 20px;
+    }
+  
+    .BuyerCheckout-confirm {
+      flex: 15;
+    }
+  
+    .BuyerCheckoutPrice {
+      flex: 5;
+      color: #bb86fc;
+      font-size: 36px;
+    }
+  
+    .BuyerCheckout-buttons {
+      margin-top: 2%;
+      color: #994af1;
+      display: flex;
+    }
