@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { Icon } from '@iconify/react';
 const Button = (props) => {
-  return (
+    return (
         <div className='Button-main'>
             <div className='Button-body'>
                 <div className='Button-icon-body'>
@@ -13,6 +13,7 @@ const Button = (props) => {
         </div>
     );
 };
+
 
 Button.defaultProps = {
   name: 'Add to cart',

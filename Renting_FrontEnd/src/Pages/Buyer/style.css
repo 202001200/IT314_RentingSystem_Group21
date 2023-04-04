@@ -15,6 +15,7 @@
 
 .BuyerViewProduct-body {
   display: flex;
+
 }
 
 .BuyerViewProduct-sub {
@@ -186,6 +187,7 @@ hr {
 }
 .BuyerCheckout-add {
   flex: 1;
+  color: #cfabfd;
 }
 .BuyerCheckout-Buyeraddress {
   flex: 5;
@@ -231,5 +233,87 @@ hr {
   display: flex;
   width: 90%;
   margin-left: 5%;
-  padding: 2% 0%;
+  padding : 2% 0%;
 }
+
+
+.BuyerCheckout-button {
+  flex: 1;
+}
+
+/* Buyer Profile Page */
+
+.BuyerProfile-page {
+  font-family: Roboto;
+}
+.BuyerProfile-mainbody {
+  background-color: #222222;
+  margin: 2%;
+}
+.BuyerProfile-main {
+  margin-bottom: 2%;
+  padding: 1%;
+}
+.BuyerProfile-div {
+  font-size: 30px;
+  margin: 1%;
+  display: flex;
+  color: #cfabfd;
+}
+.BuyerProfile-image {
+  font-size: 2rem;
+}
+.BuyerProfile-title {
+  margin-left: 1%;
+}
+.BuyerProfile-sub {
+  width: 90%;
+  margin-left: 5%;
+  font-size: 24px;
+  margin-top: 1%;
+}
+.BuyerProfile-namediv {
+  font-size: 24px;
+  display: flex;
+  margin: 2% 0%;
+}
+.BuyerProfile-hello {
+  flex: 2;
+}
+.BuyerProfile-name {
+  flex: 30;
+}
+.BuyerProfile-details {
+  display: flex;
+  width: 100%;
+}
+.BuyerProfile-addressdiv {
+  flex: 2;
+}
+.BuyerProfile-mobilenumberdiv {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.BuyerProfile-sub2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.BuyerProfile-dis {
+  color: #cfabfd;
+  font-size: 18px;
+}
+.BuyerProfile-buttons {
+  margin-top: 3%;
+  display: flex;
+  width: 90%;
+  margin: auto;
+  color: #994af1;
+  justify-self: center;
+  align-items: center;
+  padding-bottom: 2%;
+}
+.BuyerProfile-button {
+    flex: 1;
+  }
