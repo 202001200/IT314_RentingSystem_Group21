@@ -11,20 +11,29 @@ const BuyerCheckout = (props) => {
         <TitleHeader name={'Checkout Product'} />
         <div className='BuyerCheckout-main'>
             <div className='BuyerCheckout-title'>{props.title}</div>
-            <div className='BuyerCheckout-description'>
-                {props.description}
+            <hr />
+                <div className='BuyerChekout-description'>
+                    <div className='BuyerCheckout-description-title'>
+                        {'Description'}
+                    </div>
+                    <div className='BuyerCheckout-description-content'>
+                        {props.description}
+                    </div>
             </div>
+            <hr />
             <div className='BuyerCheckout-address'>
                 <div className='BuyerCheckout-add'>Address</div>
                 <div className='BuyerCheckout-Buyeraddress'>
                     {props.address}
                 </div>
             </div>
+            <hr />
             <div className='BuyerCheckout-confirmdiv'>
                 <input type='checkbox' className='BuyerCheckout-check' />
                 <span className='BuyerCheckout-confirm'>
                     Confirm Paymant
                 </span>
+                <span className='BuyerCheckout-total'>{'Total'}</span>
                 <div className='BuyerCheckoutPrice'>{props.price}</div>
             </div>
 
@@ -42,7 +51,7 @@ const BuyerCheckout = (props) => {
 
 BuyerCheckout.defaultProps = {
   address: 'abc , dhrol',
-  title: 'Sony camera',
+  title: 'Sony Camera',
   description: 'best in segment',
   price: 50000,
 };

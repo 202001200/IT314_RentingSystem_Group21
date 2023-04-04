@@ -5,7 +5,7 @@ import './style.css';
 
 const Dashboard = () => {
     const cards = [];
-    for (var i = 0; i < 25; i++) {
+    for (var i = 0; i < 8; i++) {
         cards.push(<ProductCard key={i} />);
     }
 

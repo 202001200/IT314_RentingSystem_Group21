@@ -5,6 +5,7 @@ import logo from '../../Assets/logo512.png';
 import Button from '../../components/Button/Button';
 import heartIcon from '@iconify-icons/mdi/heart';
 import cartIcon from '@iconify-icons/mdi/cart';
+import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
 
 const BuyerViewProduct = (props) => {
   return (
@@ -36,18 +37,33 @@ const BuyerViewProduct = (props) => {
                 </div>
                 <hr />
                 <div className='BuyerViewProduct-category'>
-                    {props.category}
+                    <div className='BuyerViewProduct-category-text'>
+                            {'Category'}
+                        </div>
+                        <div className='BuyerViewProduct-category-type'>
+                            {props.category}
+                        </div>
                 </div>
                 <hr />
                 <div className='BuyerViewProduct-seller-details'>
-                    <div className='BuyerViewProduct-seller'>Seller</div>
+                    <div className='BuyerViewProduct-seller'>
+                            {'Seller'}
+                        </div>
                     <div className='BuyerViewProduct-sellername'>
                         {props.seller}
                     </div>
+                    <div className='BuyerViewProduct-seller-button'>
+                            <Button icon={mapMarkerPlus} name={'Request'} />
+                        </div>
                 </div>
                 <hr />
                 <div className='BuyerViewProduct-description'>
-                    {props.description}
+                    <div className='BuyerViewProduct-description-title'>
+                            {'Description'}
+                        </div>
+                        <div className='BuyerViewProduct-description-content'>
+                            {props.description}
+                        </div>
                 </div>
             </div>
           </div>
@@ -56,12 +72,12 @@ const BuyerViewProduct = (props) => {
   };
   
   BuyerViewProduct.defaultProps = {
-    title: 'Sony camera',
+    title: 'Sony Camera',
     price: 50000,
     formatofPrice: '/month',
-    category: 'camera',
-    seller: 'deep',
-    description: 'best camera in segment ',
+    category: 'Camera',
+    seller: 'Deep',
+    description: 'Best camera in segment.',
 };
 
 export default BuyerViewProduct;

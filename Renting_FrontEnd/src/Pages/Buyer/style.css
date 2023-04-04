@@ -6,24 +6,28 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-BuyerViewProduct-body {
+.BuyerAddresses-main-card {
+  padding-bottom: 1%;
   display: flex;
-  flex-direction: row;
-  margin-top: 1%;
-  padding: 2%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.BuyerViewProduct-body {
+  display: flex;
 }
 
 .BuyerViewProduct-sub {
   flex: 7;
   background-color: #222222;
   border-radius: 4px;
-  margin: 0% auto;
+  margin: 1%;
 }
 .BuyerViewProduct-imagediv {
   flex: 5;
   display: flex;
   flex-direction: column;
-  padding: 1%;
+  margin: 1%;
 }
 .BuyerViewProduct-imagesub {
   position: sticky;
@@ -45,61 +49,83 @@ BuyerViewProduct-body {
 
 .BuyerViewProduct-pricediv {
   font-family: Roboto;
-  padding: 1%;
-  padding-right: 50%;
   display: flex;
   margin-top: 2%;
+  align-items: baseline;
+  justify-content: space-around;
 }
 .BuyerViewProduct-price {
   font-size: 30px;
   color: #cfabfd;
   font-family: Roboto;
-  padding: 1%;
-  flex: 1;
 }
 
 .BuyerViewProduct-formatprice {
   font-size: 24px;
   font-family: Roboto;
   color: #bb86fc;
-  flex: 1;
-  padding: 1%;
 }
 
 .BuyerViewProduct-category {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  align-items: baseline;
+  }
+  
+  .BuyerViewProduct-category-text {
+    font-size: 16px;
+    font-family: Roboto;
+    color: #cfabfd;
+      flex: 1;
+}
+
+.BuyerViewProduct-category-type {
   font-size: 24px;
   font-family: Roboto;
   color: white;
-  padding: 1%;
-}
-
-.BuyerViewProduct-description {
-  font-size: large;
-  font-family: Roboto;
-  color: white;
-  padding: 1%;
+  flex: 3;
 }
 
 .BuyerViewProduct-seller-details {
-  font-size: larger;
   font-family: Roboto;
-  color: white;
-  padding: 1%;
+  width: 90%;
   display: flex;
+  margin-left: 5%;
+  align-items: baseline;
 }
 .BuyerViewProduct-seller {
-  font-size: larger;
+  font-size: 16px;
   font-family: Roboto;
-  color: white;
-  padding: 0% 1%;
-  flex: 1;
+  color: #cfabfd;
+    flex: 3;
 }
 .BuyerViewProduct-sellername {
-  font-size: larger;
+  font-size: 24px;
   font-family: Roboto;
   color: white;
-  padding: 0% 1%;
+  flex: 5;
+}
+
+.BuyerViewProduct-seller-button {
   flex: 4;
+}
+
+.BuyerViewProduct-description-title {
+  font-size: 16px;
+  font-family: Roboto;
+  color: #cfabfd;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.BuyerViewProduct-description-content {
+  font-size: large;
+  font-family: Roboto;
+  color: white;
+  margin-top: 2%;
+  width: 90%;
+  margin-left: 5%;
 }
 
 .BuyerViewProduct-buttons {
@@ -114,47 +140,65 @@ hr {
   border-color: #383838;
 }
 
+
 /* Buyer checkout page */
 
 .BuyerCheckout-main {
-  margin: auto;
   margin-top: 3%;
   margin-bottom: 3%;
-  width: 90%;
+  margin-left: 3%;
+  width: 94%;
   font-family: Roboto;
   color: white;
   background-color: #222222;
   border-radius: 4px;
-  padding: 2%;
 }
 
 .BuyerCheckout-title {
   font-size: 36px;
-  padding: 1%;
+  padding: 2%;
 }
 
-.BuyerCheckout-description {
-  padding: 1%;
-  font-size: 18px;
+.BuyerCheckout-description-title {
+  font-size: 16px;
+  font-family: Roboto;
+  color: #cfabfd;
+  width: 94%;
+  margin-left: 3%;
+  margin-top: 1%;
+}
+
+.BuyerCheckout-description-content {
+  font-size: 20px;
+  font-family: Roboto;
+  color: white;
+  margin-top: 1%;
+  width: 94%;
+  margin-left: 3%;
 }
 
 .BuyerCheckout-address {
-  font-size: 24px;
-  padding: 1%;
   margin-top: 1%;
   display: flex;
+  width: 94%;
+  margin-left: 3%;
+  align-items: baseline;
 }
 .BuyerCheckout-add {
   flex: 1;
 }
 .BuyerCheckout-Buyeraddress {
   flex: 5;
+  font-size: 22px;
+  color: white;
 }
 .BuyerCheckout-confirmdiv {
   display: flex;
   font-size: larger;
-  padding: 1%;
-  margin-top: 2%;
+  margin-top: 1%;
+  align-items: center;
+  width: 94%;
+  margin-left: 3%;
 }
 
 .BuyerCheckout-confirmdiv input {
@@ -167,16 +211,25 @@ hr {
 
 .BuyerCheckout-confirm {
   flex: 15;
+  font-size: 20px;
+  }
+  
+  .BuyerCheckout-total {
+    flex: 2;
+    color: #cfabfd;
+    font-size: 16px;
 }
 
 .BuyerCheckoutPrice {
   flex: 5;
-  color: #bb86fc;
+  color: white;
   font-size: 36px;
 }
 
 .BuyerCheckout-buttons {
-  margin-top: 2%;
   color: #994af1;
   display: flex;
+  width: 90%;
+  margin-left: 5%;
+  padding: 2% 0%;
 }
