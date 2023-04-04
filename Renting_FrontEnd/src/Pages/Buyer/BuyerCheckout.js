@@ -1,7 +1,8 @@
 import React from 'react';
 
-const BuyerCheckout = () => {
-    return <div></div>;
+import './style.css';
+const BuyerCheckout = (props) => {
+  return <div></div>;
 };
 
 export default BuyerCheckout;
