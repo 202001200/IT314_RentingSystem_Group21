@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SellerManageProduct = () => {
-    return <div></div>;
+    return <div>Seller Manage Products</div>;
 };
 
 export default SellerManageProduct;

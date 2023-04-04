@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import './style.css';
 import { Icon } from '@iconify/react';
-import baselineSearch from '@iconify-icons/ic/baseline-search';
-import React, { useState } from 'react';
+import layersSearch from '@iconify-icons/mdi/layers-search';
 
-const Header = () => {
+const SearchHeader = () => {
     const [value, setValue] = useState('');
 
     const handleInputChanges = (event) => {
@@ -16,23 +16,23 @@ const Header = () => {
     };
 
     return (
-        <div className='DashboardHeader'>
-            <div className='DashboardHeader-body'>
+        <div className='SearchHeader'>
+            <div className='SearchHeader-body'>
                 <input
                     type='text'
                     value={value}
                     onChange={handleInputChanges}
                     placeholder='Search'
-                    className='DashboardHeader-search'
+                    className='SearchHeader-search'
                 />
                 <Icon
-                    icon={baselineSearch}
+                    icon={layersSearch}
                     onClick={handleOnClick}
-                    className='DashboardHeader-search-icon'
+                    className='SearchHeader-search-icon'
                 />
             </div>
         </div>
     );
 };
 
-export default Header;
+export default SearchHeader;

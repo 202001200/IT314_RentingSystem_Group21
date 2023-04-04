@@ -105,6 +105,7 @@ BuyerViewProduct-body {
 .BuyerViewProduct-buttons {
   margin-top: 3%;
   display: flex;
+  color: #994af1;
   justify-content: center;
   align-items: center;
 }
@@ -118,6 +119,7 @@ hr {
 .BuyerCheckout-main {
   margin: auto;
   margin-top: 3%;
+  margin-bottom: 3%;
   width: 90%;
   font-family: Roboto;
   color: white;

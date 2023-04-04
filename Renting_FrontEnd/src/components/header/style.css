@@ -1,4 +1,4 @@
-.DashboardHeader {
+.SearchHeader {
     background-color: #272727;
   padding: 1%;
   position: sticky;
@@ -6,7 +6,7 @@
   z-index: 1;
 }
 
-.DashboardHeader-body {
+.SearchHeader-body {
     display: flex;
   background-color: #333333;
   width: 50%;
@@ -15,7 +15,7 @@
   border-radius: 4px;
 }
 
-.DashboardHeader-search {
+.SearchHeader-search {
     flex: 9;
   background-color: #333333;
   color: white;
@@ -28,33 +28,32 @@
   margin-left: 4px;
 }
 
-.DashboardHeader-search:focus {
+.SearchHeader-search:focus {
     outline: none;
   border: none;
 }
 
-.DashboardHeader-search-icon {
+.SearchHeader-search-icon {
     font-size: 2rem;
   color: #bb86fc;
   flex: 1;
 }
 
-.DashboardHeader-search-icon:hover {
+.SearchHeader-search-icon:hover {
     cursor: pointer;
 }
-.ProductHeader-main {
-  background-color: #272727;
-  padding: 1%;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  min-height: 5%;
+.TitleHeader-main {
+    background-color: #272727;
+    padding: 0.75%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-.ProductHeader-body {
-  width: 100%;
-  text-align: center;
+.TitleHeader-body {
+  width: 90%;
+  margin: auto;
   font-family: Roboto;
-  font-size: 36px;
+  font-size: 32px;
   color: #bb86fc;
 }
