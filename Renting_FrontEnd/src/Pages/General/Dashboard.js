@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardHeader from '../../components/header/DashboardHeader';
+import SearchHeader from '../../components/header/SearchHeader';
 import ProductCard from '../../components/Cardview/ProductCard';
 import './style.css';
 
@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     return (
         <div className='Dashboard'>
-            <DashboardHeader />
+            <SearchHeader />
             <div className='Main-card'>{cards}</div>
         </div>
     );

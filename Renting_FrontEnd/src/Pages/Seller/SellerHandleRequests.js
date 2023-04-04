@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SellerHandleRequests = () => {
-    return <div></div>;
+    return <div>Seller Handle Request</div>;
 };
 
 export default SellerHandleRequests;
