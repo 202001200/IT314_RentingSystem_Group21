@@ -1,0 +1,9 @@
+{
+  "name": "Renting_Backend",
+  "version": "1.0.0",
+  "description": "Server for handling API calls for Renting Management System",
+  "main": "app.js",
+  "repository": "https://github.com/202001200/IT314_RentingSystem_Group21/tree/Backend/Renting_backend",
+  "author": "Backend-Team",
+  "license": "MIT"
+}
