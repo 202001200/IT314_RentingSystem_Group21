@@ -81,3 +81,52 @@
     margin-top: 8px;
     color: white;
 }
+
+/************** General card(for wishlist)***********************/
+
+.GeneralCardview{
+    background-color: #383838;
+    height: 200px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    /*border-radius: 6px;*/
+    margin-bottom: 50px;
+    color: white;
+    box-shadow:  0 0 7px 0 rgba(0,0,0,0.5);
+    padding: 2px;
+    /*border: 1px solid lightseagreen;*/
+}
+
+.GeneralCardview:hover{
+    /*transform: translateY(-5px);*/
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0.9);
+
+}
+
+.GeneralCardview-title{
+
+    font-weight: bold;
+    font-size: 20px !important;
+    margin-left: 20px !important;
+}
+.GeneralCardview-image{
+    height: 200px;
+
+}
+.ProductInfo{
+    margin-bottom: 2%;
+    overflow-y: scroll;
+
+}
+
+.ProductInfo li{    
+    color:lavender;
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+b{
+    font-size: 16px;
+}
