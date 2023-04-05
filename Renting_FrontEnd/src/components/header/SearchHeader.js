@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Icon } from '@iconify/react';
-import layersSearch from '@iconify-icons/mdi/layers-search';
+import magnifyIcon from '@iconify-icons/mdi/magnify';
 
 const SearchHeader = () => {
     const [value, setValue] = useState('');
@@ -17,22 +17,22 @@ const SearchHeader = () => {
 
     return (
         <div className='SearchHeader'>
-            <div className='SearchHeader-body'>
-                <input
-                    type='text'
-                    value={value}
-                    onChange={handleInputChanges}
-                    placeholder='Search'
-                    className='SearchHeader-search'
-                />
-                <Icon
-                    icon={layersSearch}
-                    onClick={handleOnClick}
-                    className='SearchHeader-search-icon'
-                />
-            </div>
+          <div className='SearchHeader-body'>
+            <input
+              type='text'
+              value={value}
+              onChange={handleInputChanges}
+              placeholder='Search'
+              className='SearchHeader-search'
+            />
+            <Icon
+              icon={magnifyIcon}
+              onClick={handleOnClick}
+              className='SearchHeader-search-icon'
+            />
+          </div>
         </div>
-    );
-};
+      );
+    };
 
 export default SearchHeader;

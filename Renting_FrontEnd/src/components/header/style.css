@@ -8,7 +8,7 @@
 
 .SearchHeader-body {
     display: flex;
-  background-color: #333333;
+  background-color: #121212;
   width: 50%;
   margin-left: 5%;
   align-items: center;
@@ -17,10 +17,10 @@
 
 .SearchHeader-search {
     flex: 9;
-  background-color: #333333;
+  background-color: #121212;
   color: white;
-  font-size: 18px;
-  padding: 1.25%;
+  font-size: 16px;
+  padding: 1%;
   letter-spacing: 1px;
   font-family: Roboto;
   border: none;
@@ -34,7 +34,7 @@
 }
 
 .SearchHeader-search-icon {
-    font-size: 2rem;
+    font-size: 1.75rem;
   color: #bb86fc;
   flex: 1;
 }
