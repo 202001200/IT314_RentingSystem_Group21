@@ -1,8 +1,0 @@
-{
-  "name": "Renting-System-backend",
-  "version": "1.0.0",
-  "description": "Backend for Renting System",
-  "main": "app.js",
-  "author": "G21",
-  "license": "MIT"
-}
