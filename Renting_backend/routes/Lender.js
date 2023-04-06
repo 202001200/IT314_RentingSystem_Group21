@@ -2,13 +2,11 @@ const dotenv = require('dotenv');
 const express = require('express');
 const router = express.Router;
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const Borrower = require('../models/Borrower.js');
 const Lender = require('../models/Lender.js');
 const Product = require('../models/Product.js');
-const authlender = require('../middleware/authlender.js');
 dotenv.config();
 
 router.post(
