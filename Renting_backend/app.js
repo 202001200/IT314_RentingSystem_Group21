@@ -1,9 +1,36 @@
-require("dotenv").config();
-const mongoose = require('mongoose');
+const express = require('express');
+const dotenv = require('dotenv');
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+const cors = require('cors');
+const connectDB = require('./config/app')
+
+dotenv.config({path:'./config/config.env'});
+
+connectDB();
+
+const app = express();
+
+app.use(cors());
+
+app.use(
+  express.urlencoded({
+    extended:false
   })
-.then(() => console.log("Connected to server..."))
-.catch((err) => console.log(err));
+);
+app.use(express.json());
+
+app.get('/',(req,res)=>{
+  const response = {
+    error:false,
+    msg:'Welcome to Renting System!',
+  };
+  res.send(response);
+})
+
+app.use('/products',require('./routes/Product'));
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(
+  PORT, console.log('Server is running at port '+process.env.PORT)
+);
