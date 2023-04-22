@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from '../../Assets/Constant';
 import DrawerButton from './DrawerButton';
 import shoppingIcon from '@iconify-icons/mdi/shopping';

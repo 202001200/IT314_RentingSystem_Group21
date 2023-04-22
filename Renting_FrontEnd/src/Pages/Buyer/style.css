@@ -3,9 +3,8 @@
 .BuyerAddresses-main {
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
 }
+
 .BuyerAddresses-main-card {
   padding-bottom: 1%;
   display: flex;
@@ -13,9 +12,10 @@
   justify-content: center;
 }
 
+/* Buyer view product page */
+
 .BuyerViewProduct-body {
   display: flex;
-
 }
 
 .BuyerViewProduct-sub {
@@ -72,13 +72,13 @@
   margin-left: 5%;
   display: flex;
   align-items: baseline;
-  }
-  
-  .BuyerViewProduct-category-text {
-    font-size: 16px;
-    font-family: Roboto;
-    color: #cfabfd;
-      flex: 1;
+}
+
+.BuyerViewProduct-category-text {
+  font-size: 16px;
+  font-family: Roboto;
+  color: #cfabfd;
+  flex: 1;
 }
 
 .BuyerViewProduct-category-type {
@@ -95,12 +95,14 @@
   margin-left: 5%;
   align-items: baseline;
 }
+
 .BuyerViewProduct-seller {
   font-size: 16px;
   font-family: Roboto;
   color: #cfabfd;
-    flex: 3;
+  flex: 3;
 }
+
 .BuyerViewProduct-sellername {
   font-size: 24px;
   font-family: Roboto;
@@ -136,11 +138,13 @@
   justify-content: center;
   align-items: center;
 }
+.BuyerViewProduct-button {
+  flex: 1;
+}
 
 hr {
   border-color: #383838;
 }
-
 
 /* Buyer checkout page */
 
@@ -185,15 +189,18 @@ hr {
   margin-left: 3%;
   align-items: baseline;
 }
+
 .BuyerCheckout-add {
   flex: 1;
   color: #cfabfd;
 }
+
 .BuyerCheckout-Buyeraddress {
   flex: 5;
   font-size: 22px;
   color: white;
 }
+
 .BuyerCheckout-confirmdiv {
   display: flex;
   font-size: larger;
@@ -214,12 +221,12 @@ hr {
 .BuyerCheckout-confirm {
   flex: 15;
   font-size: 20px;
-  }
-  
-  .BuyerCheckout-total {
-    flex: 2;
-    color: #cfabfd;
-    font-size: 16px;
+}
+
+.BuyerCheckout-total {
+  flex: 2;
+  color: #cfabfd;
+  font-size: 16px;
 }
 
 .BuyerCheckoutPrice {
@@ -233,14 +240,12 @@ hr {
   display: flex;
   width: 90%;
   margin-left: 5%;
-  padding : 2% 0%;
+  padding: 2% 0%;
 }
-
 
 .BuyerCheckout-button {
   flex: 1;
 }
-
 /* Buyer Profile Page */
 
 .BuyerProfile-page {
@@ -314,108 +319,136 @@ hr {
   align-items: center;
   padding-bottom: 2%;
 }
-.BuyerProfile-button {
-    flex: 1;
-  }
 
-  body {
-    width:100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  
-    background-color: #222222;
-  }
-  
-  
-  .mainSignin {
-    background-color: #2e2e2e;
-    width: 400px;
-    height: 450px;
-    position: center center;
-    margin: 8em auto;
-    border-radius: 1.5em;
-  
-  }
-  
-  .mainSignup {
-    background-color: #2e2e2e;
-    width: 400px;
-    height: 600px;
-    position: center center;
-    margin: 3em auto;
-    border-radius: 1.5em;
-  
-  }
-  
-  .sign {
-    padding-top: 30px;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  .UserName {
-  width: 76%;
-  color: rgb(38, 50, 56);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1px;
-  background: #e2cdfd;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 50px;
-  margin-left: 46px;
+.BuyerProfile-button {
+  flex: 1;
+}
+
+/* Buyer Login */
+.BuyerLogin-body {
+  width: 70%;
+  height: 75vh;
+  margin: auto;
+  display: flex;
+  padding: 1%;
+  border-radius: 12px;
+  background-color: #222222;
+}
+
+.BuyerLogin-content {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.BuyerLogin-logo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.BuyerLogin-poster {
+  width: 90%;
+  margin: auto;
+}
+.BuyerLogin-text-body {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+.BuyerLogin-text {
+  font-size: 36px;
+  width: 90%;
+  margin-left: 5%;
+  font-family: Roboto;
+  font-weight: 500;
   text-align: center;
-  margin-bottom: 27px;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  form.form1 {
-    padding-top: 40px;
-  }
-  
-  .Password {
-  width: 76%;
-  color: rgb(38, 50, 56);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1px;
-  background: #e2cdfd;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 50px;
-  margin-left: 46px;
+}
+
+.BuyerLogin-input-main {
+  flex: 7;
+}
+
+.BuyerLogin-remember {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  align-items: baseline;
+  margin-top: 5%;
+}
+
+.BuyerLogin-checkbox {
+  flex: 1;
+}
+
+.BuyerLogin-remember-text {
+  flex: 9;
+  font-family: Roboto;
+  color: #cfabfd;
+}
+
+.BuyerLogin-login {
+  width: 20%;
+  margin: auto;
+  background-color: #cfabfd;
+  color: black;
+  border-radius: 6px;
   text-align: center;
-  margin-bottom: 27px;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .un:focus, .pass:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;
-  
-  }
-  
-  .submit-buttons {
-    margin-top: 3%;
-    margin-bottom: 3%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    color: #994af1;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .submit-button {
-    flex: 0.5;
-  }
+  padding: 2%;
+  font-family: Roboto;
+  margin-top: 8%;
+  opacity: 0.9;
+}
+
+.BuyerLogin-login:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.BuyerLogin-create {
+  text-decoration: underline 1px solid;
+  font-family: Roboto;
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 1%;
+  color: white;
+}
+
+.BuyerLogin-create > a {
+  color: white;
+}
+
+.BuyerLogin-create:hover {
+  cursor: pointer;
+}
+
+.BuyerLogin-create2 {
+  text-decoration: underline 1px solid;
+  font-family: Roboto;
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 1%;
+  color: #cfabfd;
+  margin-top: 2%;
+}
+
+.BuyerLogin-create2 > a {
+  color: #cfabfd;
+}
+
+.BuyerLogin-create2:hover {
+  cursor: pointer;
+}
+
+.BuyerSignup-text-body {
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+
+.BuyerSignup-input-main {
+  flex: 7;
+}

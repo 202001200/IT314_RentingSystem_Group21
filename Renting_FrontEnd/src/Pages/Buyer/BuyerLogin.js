@@ -1,36 +1,57 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import TitleHeader from '../../components/header/TitleHeader';
-import logo from '../../Assets/logo512.png';
-import Button from '../../components/Button/Button';
-import { Icon, InlineIcon } from '@iconify/react';
-import applicationImport from '@iconify-icons/mdi/application-import';
+import emailOutline from '@iconify-icons/mdi/email-outline';
+import lockOutline from '@iconify-icons/mdi/lock-outline';
+import signinposter from '../../Assets/signinposter.png';
+import LoginInput from '../../components/Input/LoginInput';
 
 
 const BuyerLogin = () => {
     return (
-    <body>
-
-    <div className='mainSignin'>
-        <p className="sign" align="center">Sign In</p>
-        <form className="form1"></form>     
-        <input className="UserName" type="text" align="center" placeholder="Enter e-mail"></input>
-        <input className="Password" type="Password" align="center" placeholder="Password"></input>
-        <div className='submit-buttons'>
-              <div className='submit-button'>
-                <Link to=''>
-                  <Button icon={applicationImport} name={'Sign in as Buyer'} />
-                </Link>
-              </div>
-              <div className='submit-button'>
-                <Link to=''>
-                  <Button icon={applicationImport} name={'Sign in as Seller'} />
-                </Link>
-              </div>
+      <div className='BuyerLogin-body'>
+            <div className='BuyerLogin-content'>
+                <div className='BuyerLogin-text-body'>
+                    <div className='BuyerLogin-text'>Sign in</div>
+                </div>
+                <div className='BuyerLogin-input-main'>
+                    <LoginInput
+                        icon={emailOutline}
+                        placeholder={'E-mail'}
+                        type={'text'}
+                    />
+                    <LoginInput
+                        icon={lockOutline}
+                        placeholder={'Password'}
+                        type={'password'}
+                    />
+                    <div className='BuyerLogin-remember'>
+                        <input
+                            type='checkbox'
+                            className='BuyerLogin-checkbox'
+                        />
+                        <span className='BuyerLogin-remember-text'>
+                            Remember me
+                        </span>
+                    </div>
+                    <div className='BuyerLogin-login'>Log in</div>
+                </div>
+                <div className='BuyerLogin-create'>
+                    <Link to='./register'>Create an account</Link>
+                </div>
             </div>
-    </div>
-   </body>
+            <div className='BuyerLogin-logo'>
+                <img
+                    src={signinposter}
+                    alt={'SignInPoster'}
+                    className='BuyerLogin-poster'
+                />
+                <div className='BuyerLogin-create2'>
+                    <Link to='../seller/login'>Sign in as a Seller</Link>
+                </div>
+            </div>
+
+      </div>
     );
 };
 

@@ -29,100 +29,98 @@ import SellerSignup from './Pages/Seller/SellerSignup';
 import SellerLogin from './Pages/Seller/SellerLogin';
 
 function App() {
-    return (
-        <div className='App'>
-          <Router>
+  return (
+    <div className='App'>
+        <Router>
             <div className='Drawer'>
-              <Drawer page={NOT_LOGIN} />
+                <Drawer page={NOT_LOGIN} />
             </div>
             <div className='Main-body'>
-              <Switch>
-                {/* general route  */}
-                <Route exact path='/'>
-                  <Dashboard />
-                </Route>
-                <Route path='/category'>
-                  <Category />
-                </Route>
-                <Route path='/help'>
-                  <HelFAQ />
-                </Route>
-                <Route path='/contactus'>
-                  <ContactUs />
-                </Route>
+                <Switch>
+                    {/* general route  */}
+                    <Route exact path='/'>
+                        <Dashboard />
+                    </Route>
+                    <Route path='/category'>
+                        <Category />
+                    </Route>
+                    <Route path='/help'>
+                        <HelFAQ />
+                    </Route>
+                    <Route path='/contactus'>
+                        <ContactUs />
+                    </Route>
+                    {/* buyer route  */}
+                    <Route path='/buyer/wishlist'>
+                        <BuyerWishlist />
+                    </Route>
+                    <Route path='/buyer/order'>
+                        <BuyerMyOrder />
+                    </Route>
+                    <Route path='/buyer/liveorder'>
+                        <BuyerLiveProduct />
+                    </Route>
+                    <Route path='/buyer/address'>
+                        <BuyerAddresses />
+                    </Route>
+                    <Route path='/buyer/profile'>
+                        <BuyerProfile />
+                    </Route>
+                    <Route path='/buyer/signout'>
+                        <SignOut />
+                        {/* we will implement function here  */}
+                    </Route>
+                    <Route path='/buyer/login'>
+                        <BuyerLogin />
+                    </Route>
+                    <Route path='/buyer/register'>
+                        <BuyerSignup />
+                    </Route>
+                    {/* below are not in button  */}
+                    <Route path='/buyer/product'>
+                        <BuyerViewProduct />
+                    </Route>
+                    <Route path='/buyer/checkout'>
+                        <BuyerCheckout />
+                    </Route>
 
-                        {/* buyer route  */}
-            <Route path='/buyer/wishlist'>
-              <BuyerWishlist />
-            </Route>
-            <Route path='/buyer/order'>
-              <BuyerMyOrder />
-            </Route>
-            <Route path='/buyer/liveorder'>
-              <BuyerLiveProduct />
-            </Route>
-            <Route path='/buyer/address'>
-              <BuyerAddresses />
-            </Route>
-            <Route path='/buyer/profile'>
-              <BuyerProfile />
-            </Route>
-            <Route path='/buyer/signout'>
-              <SignOut />
-              {/* we will implement function here  */}
-            </Route>
-            <Route path='/buyer/login'>
-              <BuyerLogin />
-            </Route>
-            <Route path='/buyer/register'>
-              <BuyerSignup />
-            </Route>
-            {/* below are not in button  */}
-            <Route path='/buyer/product'>
-              <BuyerViewProduct />
-            </Route>
-            <Route path='/buyer/checkout'>
-              <BuyerCheckout />
-            </Route>
-
-                       {/* SellerRoutes */}
-            <Route path='/seller/addproduct'>
-              <SellerAddProduct />
-            </Route>
-            <Route path='/seller/manage'>
-              <SellerManageProduct />
-            </Route>
-            <Route path='/seller/active'>
-              <SellerActiveProduct />
-            </Route>
-            <Route path='/seller/myproducts'>
-              <SellerAllProducts />
-            </Route>
-            <Route path='/seller/request'>
-              <SellerHandleRequests />
-            </Route>
-            <Route path='/seller/profile'>
-              <SellerProfile />
-            </Route>
-            <Route path='/seller/signout'>
-              <SignOut />
-              {/* we will implement function here  */}
-            </Route>
-            <Route path='/seller/login'>
-              <SellerLogin />
-            </Route>
-            <Route path='/seller/register'>
-              <SellerSignup />
-            </Route>
-            {/* below are not in button  */}
-            <Route path='/seller/product'>
-              <SellerViewProduct />
-            </Route>
-          </Switch>
+                    {/* SellerRoutes */}
+                    <Route path='/seller/addproduct'>
+                            <SellerAddProduct />
+                        </Route>
+                        <Route path='/seller/manage'>
+                            <SellerManageProduct />
+                        </Route>
+                        <Route path='/seller/active'>
+                            <SellerActiveProduct />
+                        </Route>
+                        <Route path='/seller/myproducts'>
+                            <SellerAllProducts />
+                        </Route>
+                        <Route path='/seller/request'>
+                            <SellerHandleRequests />
+                        </Route>
+                        <Route path='/seller/profile'>
+                            <SellerProfile />
+                        </Route>
+                        <Route path='/seller/signout'>
+                            <SignOut />
+                            {/* we will implement function here  */}
+                        </Route>
+                        <Route path='/seller/login'>
+                            <SellerLogin />
+                        </Route>
+                        <Route path='/seller/register'>
+                            <SellerSignup />
+                        </Route>
+                        {/* below are not in button  */}
+                        <Route path='/seller/product'>
+                            <SellerViewProduct />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
         </div>
-    
-      </Router>
-    </div>
   );
 }
 export default App;

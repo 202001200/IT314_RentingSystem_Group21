@@ -1,34 +1,64 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import TitleHeader from '../../components/header/TitleHeader';
-import logo from '../../Assets/logo512.png';
-import Button from '../../components/Button/Button';
-import { Icon, InlineIcon } from '@iconify/react';
-import applicationImport from '@iconify-icons/mdi/application-import';
+import emailOutline from '@iconify-icons/mdi/email-outline';
+import lockOutline from '@iconify-icons/mdi/lock-outline';
+import signupposter from '../../Assets/signupposter.png';
+import accountOutline from '@iconify-icons/mdi/account-outline';
+import mapIcon from '@iconify-icons/mdi/map';
+import LoginInput from '../../components/Input/LoginInput';
 
 const BuyerSignup = () => {
     return (
-      <body>
-        <div className='mainSignup'>
-            <p class="sign" align="center">Sign Up</p>
-            <form class="form1"></form>     
-            <input class="UserName" type="text" align="center" placeholder="Firstname"></input>
-            <input class="UserName" type="text" align="center" placeholder="Lastame"></input>
-            <input class="UserName" type="text" align="center" placeholder="Address"></input>
-            <input class="UserName" type="text" align="center" placeholder="E-mail"></input>
-            <input class="Password" type="Password" align="center" placeholder="Password"></input>
-            <div className='submit-buttons'>
-              <div className='submit-button'>
-                <Link to=''>
-                  <Button icon={applicationImport} name={'Sign Up as Buyer'} />
-                </Link>
-              </div>
-
+        <div className='BuyerLogin-body'>
+            <div className='BuyerLogin-logo'>
+                <img
+                    src={signupposter}
+                    alt={'SigninPoster'}
+                    className='BuyerLogin-poster'
+                />
+                <div className='BuyerLogin-create'>
+                    <Link to='./login'>Existing user? Log in</Link>
+                </div>
+                <div className='BuyerLogin-create2'>
+                    <Link to='../seller/register'>Sign up as a Seller</Link>
+                </div>
+            </div>
+            <div className='BuyerLogin-content'>
+                <div className='BuyerSignup-text-body'>
+                    <div className='BuyerLogin-text'>Sign up</div>
+                </div>
+                <div className='BuyerSignup-input-main'>
+                    <LoginInput
+                        icon={accountOutline}
+                        placeholder={'Firstname'}
+                        type={'text'}
+                    />
+                    <LoginInput
+                        icon={accountOutline}
+                        placeholder={'Lastname'}
+                        type={'text'}
+                    />
+                    <LoginInput
+                        icon={mapIcon}
+                        placeholder={'Address'}
+                        type={'text'}
+                    />
+                    <LoginInput
+                        icon={emailOutline}
+                        placeholder={'E-mail'}
+                        type={'text'}
+                    />
+                    <LoginInput
+                        icon={lockOutline}
+                        placeholder={'Password'}
+                        type={'password'}
+                    />
+                    <div className='BuyerLogin-login'>Sign up</div>
+                </div>
             </div>
         </div>
-        </body>
-        );
+    );
 };
 
 export default BuyerSignup;
