@@ -317,3 +317,105 @@ hr {
 .BuyerProfile-button {
     flex: 1;
   }
+
+  body {
+    width:100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  
+    background-color: #222222;
+  }
+  
+  
+  .mainSignin {
+    background-color: #2e2e2e;
+    width: 400px;
+    height: 450px;
+    position: center center;
+    margin: 8em auto;
+    border-radius: 1.5em;
+  
+  }
+  
+  .mainSignup {
+    background-color: #2e2e2e;
+    width: 400px;
+    height: 600px;
+    position: center center;
+    margin: 3em auto;
+    border-radius: 1.5em;
+  
+  }
+  
+  .sign {
+    padding-top: 30px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .UserName {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: #e2cdfd;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  form.form1 {
+    padding-top: 40px;
+  }
+  
+  .Password {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: #e2cdfd;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .un:focus, .pass:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  
+  }
+  
+  .submit-buttons {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    color: #994af1;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .submit-button {
+    flex: 0.5;
+  }

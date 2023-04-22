@@ -1,0 +1,89 @@
+body {
+    width:100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #222222;
+  }
+  
+    .mainSeller {
+      background-color: #2e2e2e;
+      width: 400px;
+      height: 650px;
+      position: center center;
+      margin: 1em auto;
+      border-radius: 1.5em;
+  
+    }
+  
+    .signSeller {
+      padding-top: 30px;
+      color: #994af1;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  
+    .UserNameSeller {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: #e2cdfd;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    form.form1Seller {
+      padding-top: 40px;
+    }
+  
+    .PasswordSeller {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: #e2cdfd;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    .un:focus, .pass:focus {
+      border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  
+    }
+    .submit-buttonsSeller {
+      margin-top: 3%;
+      margin-bottom: 3%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: flex;
+      color: #994af1;
+      justify-content: center;
+      align-items: left;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    .submit-buttonSeller {
+      flex: 0.5;
+    }
