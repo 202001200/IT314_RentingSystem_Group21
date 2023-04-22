@@ -1,19 +1,18 @@
-import React from 'react'
+import React from 'react';
 import GeneralCard from '../../components/Cardview/GeneralCard';
-
+import TitleHeader from '../../components/header/TitleHeader';
 
 const BuyerMyOrder = () => {
-   
-        const cards = [];
-        for (var i = 0; i < 5; i++) {
-            cards.push(<GeneralCard key={i} />);
-        }
-        return (
-            <div className='main-body' >
-                <div className='Main-card'>{cards}</div>
-            </div>
-        )
-    
-}
+  const cards = [];
+  for (var i = 0; i < 5; i++) {
+    cards.push(<GeneralCard key={i} />);
+  }
+  return (
+    <div className='BuyerMyOrder-page'>
+      <TitleHeader name={'My Order'} />
+      <div className='BuyerMyOrder-card'>{cards}</div>
+    </div>
+  );
+};
 
-export default BuyerMyOrder
+export default BuyerMyOrder;
