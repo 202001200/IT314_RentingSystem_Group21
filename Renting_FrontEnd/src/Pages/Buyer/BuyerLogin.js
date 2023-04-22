@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import TitleHeader from '../../Components/Header/TitleHeader';
+import TitleHeader from '../../components/header/TitleHeader';
 import logo from '../../Assets/logo512.png';
-import Button from '../../Components/Button/Button';
+import Button from '../../components/Button/Button';
 import { Icon, InlineIcon } from '@iconify/react';
 import applicationImport from '@iconify-icons/mdi/application-import';
 
