@@ -1,28 +1,33 @@
 import './style.css';
 import { Link } from 'react-router-dom';
-import logo from '../../Assets/logo512.png';
+import logo from '../../Assets/signinposter2.png';
 
 const Cardview = (props) => {
-    return (
-        <Link to='/buyer/product'>
-          <div className='ProductCardview'>
+  return (
+    <div className='ProductCardview'>
+      <Link to='/buyer/product'>
+        <div className='ProductCardview-sub'>
+          <div className='ProductCardview-imagediv'>
             <img src={logo} className='ProductCardview-image' alt={'logo'} />
-            <p className='ProductCardview-title'>{props.title}</p>
-            <div className='ProductCardview-price-body'>
-              <p className='ProductCardview-price'>{props.price}</p>
-              <p className='ProductCardview-formatprice'>{props.format}</p>
-            </div>
-        
           </div>
-        </Link>
-      );
-    };
+          <div className='ProductCardview-details'>
+            <div className='ProductCardview-title'>{props.title}</div>
+            <div className='ProductCardview-price-body'>
+              {props.price + ' ' + props.format}
+            </div>
+          </div>
+        </div>
+
+      </Link>
+    </div>
+  );
+};
 
 Cardview.defaultProps = {
-    title: 'Sony Camera',
-    price: '25$',
-    format: '/month',
-  };
-  
+  title: 'Sony Camera',
+  price: '25$',
+  format: '/month',
+};
+
 
 export default Cardview;

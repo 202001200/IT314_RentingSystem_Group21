@@ -16,6 +16,7 @@
 
 .BuyerViewProduct-body {
     display: flex;
+  font-family: Roboto;
 }
 
 .BuyerViewProduct-sub {
@@ -43,28 +44,31 @@
 }
 .BuyerViewProduct-title {
     font-size: 36px;
-    font-family: Roboto;
     color: white;
-    padding: 2%;
-}
+    padding: 3%;}
 
 .BuyerViewProduct-pricediv {
-    font-family: Roboto;
-    display: flex;
-    margin-top: 2%;
-    align-items: baseline;
-    justify-content: space-around;
-}
-.BuyerViewProduct-price {
-    font-size: 30px;
     color: #cfabfd;
-    font-family: Roboto;
+  flex: 1;
+  margin-left: 5%;
+  width: 90%;
+  display: flex;
+  font-size: 22px;
+  align-items: baseline;
+}
+
+    BuyerViewProduct-pricedivsub {
+        flex: 1;
 }
 
 .BuyerViewProduct-formatprice {
-    font-size: 24px;
     font-family: Roboto;
-    color: #bb86fc;
+  flex: 3;
+  display: inline;
+}
+.BuyerViewProduct-price {
+  font-size: 28px;
+  color: white;
 }
 
 .BuyerViewProduct-category {
@@ -76,16 +80,13 @@
 
 .BuyerViewProduct-category-text {
     font-size: 16px;
-    font-family: Roboto;
     color: #cfabfd;
-    flex: 1;
-}
+    flex: 1}
 
 .BuyerViewProduct-category-type {
     font-size: 24px;
-    font-family: Roboto;
-    color: white;
-    flex: 3;
+  color: white;
+  flex: 3;
 }
 
 .BuyerViewProduct-seller-details {
@@ -98,17 +99,14 @@
 
 .BuyerViewProduct-seller {
     font-size: 16px;
-    font-family: Roboto;
-    color: #cfabfd;
-    flex: 3;
+  color: #cfabfd;
+  flex: 3;
 }
 
 .BuyerViewProduct-sellername {
     font-size: 24px;
-    font-family: Roboto;
     color: white;
-    flex: 5;
-}
+    flex: 5;}
 
 .BuyerViewProduct-seller-button {
     flex: 4;
@@ -116,15 +114,13 @@
 
 .BuyerViewProduct-description-title {
     font-size: 16px;
-    font-family: Roboto;
-    color: #cfabfd;
-    width: 90%;
-    margin-left: 5%;
+  color: #cfabfd;
+  width: 90%;
+  margin-left: 5%;
 }
 
 .BuyerViewProduct-description-content {
     font-size: large;
-    font-family: Roboto;
     color: white;
     margin-top: 2%;
     width: 90%;
@@ -166,7 +162,6 @@ hr {
 
 .BuyerCheckout-description-title {
     font-size: 16px;
-    font-family: Roboto;
     color: #cfabfd;
     width: 94%;
     margin-left: 3%;
@@ -175,7 +170,6 @@ hr {
 
 .BuyerCheckout-description-content {
     font-size: 20px;
-    font-family: Roboto;
     color: white;
     margin-top: 1%;
     width: 94%;
@@ -249,21 +243,33 @@ hr {
 /* Buyer Profile Page */
 
 .BuyerProfile-page {
-    font-family: Roboto;
-}
-.BuyerProfile-mainbody {
-    background-color: #222222;
-    margin: 2%;
-}
+    font-family: Roboto;}
 .BuyerProfile-main {
-    margin-bottom: 2%;
+    background-color: #222222;
+    margin: 1% 2%;
     padding: 1%;
+    border-radius: 8px 8px 0px 0px;
 }
 .BuyerProfile-div {
     font-size: 30px;
     margin: 1%;
     display: flex;
     color: #cfabfd;
+  }
+  .BuyerProfile-othermain {
+    background-color: #222222;
+    margin: 1% 2%;
+  }
+  .BuyerProfile-othermain:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+  }
+  .BuyerProfile-otherdiv {
+    font-size: 30px;
+    padding: 1%;
+    padding-left: 5%;
+    display: flex;
+    color: #e8d6ff;
 }
 .BuyerProfile-image {
     font-size: 2rem;
@@ -307,22 +313,11 @@ hr {
 }
 .BuyerProfile-dis {
     color: #cfabfd;
-    font-size: 18px;
-}
-.BuyerProfile-buttons {
-    margin-top: 3%;
-    display: flex;
-    width: 90%;
-    margin: auto;
-    color: #994af1;
-    justify-self: center;
-    align-items: center;
-    padding-bottom: 2%;
+  font-size: 18px;
 }
 
-.BuyerProfile-button {
-    flex: 1;
-}
+redi {
+    border-radius: 0px 0px 8px 8px;}
 
 /* Buyer Login */
 .BuyerLogin-body {
@@ -368,9 +363,28 @@ hr {
     text-align: center;
 }
 
-.BuyerLogin-input-main {
-    flex: 7;
+.BuyerLogin-input-main { flex: 7;
 }
+
+/* BuyerWishlist-page */
+
+.BuyerWishlist-card {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* BuyerMyorder-page */
+.BuyerWishlist-page {
+  margin: 0;
+  padding: 0;
+}
+.BuyerMyOrder-card {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;}
 
 .BuyerLogin-remember {
     width: 80%;
