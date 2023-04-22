@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SellerViewProduct = () => {
-    return <div></div>;
+    return <div>Seller view Product</div>;
 };
 
 export default SellerViewProduct;

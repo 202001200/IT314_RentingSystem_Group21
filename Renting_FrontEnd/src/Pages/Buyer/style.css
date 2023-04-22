@@ -1,454 +1,454 @@
 /* Buyer Address page */
 
 .BuyerAddresses-main {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .BuyerAddresses-main-card {
-  padding-bottom: 1%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    padding-bottom: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Buyer view product page */
 
 .BuyerViewProduct-body {
-  display: flex;
+    display: flex;
 }
 
 .BuyerViewProduct-sub {
-  flex: 7;
-  background-color: #222222;
-  border-radius: 4px;
-  margin: 1%;
+    flex: 7;
+    background-color: #222222;
+    border-radius: 4px;
+    margin: 1%;
 }
 .BuyerViewProduct-imagediv {
-  flex: 5;
-  display: flex;
-  flex-direction: column;
-  margin: 1%;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
 }
 .BuyerViewProduct-imagesub {
-  position: sticky;
-  top: 10%;
+    position: sticky;
+    top: 10%;
 }
 .BuyerViewProduct-image {
-  max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .BuyerViewProduct-title {
-  font-size: 36px;
-  font-family: Roboto;
-  color: white;
-  padding: 2%;
+    font-size: 36px;
+    font-family: Roboto;
+    color: white;
+    padding: 2%;
 }
 
 .BuyerViewProduct-pricediv {
-  font-family: Roboto;
-  display: flex;
-  margin-top: 2%;
-  align-items: baseline;
-  justify-content: space-around;
+    font-family: Roboto;
+    display: flex;
+    margin-top: 2%;
+    align-items: baseline;
+    justify-content: space-around;
 }
 .BuyerViewProduct-price {
-  font-size: 30px;
-  color: #cfabfd;
-  font-family: Roboto;
+    font-size: 30px;
+    color: #cfabfd;
+    font-family: Roboto;
 }
 
 .BuyerViewProduct-formatprice {
-  font-size: 24px;
-  font-family: Roboto;
-  color: #bb86fc;
+    font-size: 24px;
+    font-family: Roboto;
+    color: #bb86fc;
 }
 
 .BuyerViewProduct-category {
-  width: 90%;
-  margin-left: 5%;
-  display: flex;
-  align-items: baseline;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-items: baseline;
 }
 
 .BuyerViewProduct-category-text {
-  font-size: 16px;
-  font-family: Roboto;
-  color: #cfabfd;
-  flex: 1;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #cfabfd;
+    flex: 1;
 }
 
 .BuyerViewProduct-category-type {
-  font-size: 24px;
-  font-family: Roboto;
-  color: white;
-  flex: 3;
+    font-size: 24px;
+    font-family: Roboto;
+    color: white;
+    flex: 3;
 }
 
 .BuyerViewProduct-seller-details {
-  font-family: Roboto;
-  width: 90%;
-  display: flex;
-  margin-left: 5%;
-  align-items: baseline;
+    font-family: Roboto;
+    width: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: baseline;
 }
 
 .BuyerViewProduct-seller {
-  font-size: 16px;
-  font-family: Roboto;
-  color: #cfabfd;
-  flex: 3;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #cfabfd;
+    flex: 3;
 }
 
 .BuyerViewProduct-sellername {
-  font-size: 24px;
-  font-family: Roboto;
-  color: white;
-  flex: 5;
+    font-size: 24px;
+    font-family: Roboto;
+    color: white;
+    flex: 5;
 }
 
 .BuyerViewProduct-seller-button {
-  flex: 4;
+    flex: 4;
 }
 
 .BuyerViewProduct-description-title {
-  font-size: 16px;
-  font-family: Roboto;
-  color: #cfabfd;
-  width: 90%;
-  margin-left: 5%;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #cfabfd;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .BuyerViewProduct-description-content {
-  font-size: large;
-  font-family: Roboto;
-  color: white;
-  margin-top: 2%;
-  width: 90%;
-  margin-left: 5%;
+    font-size: large;
+    font-family: Roboto;
+    color: white;
+    margin-top: 2%;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .BuyerViewProduct-buttons {
-  margin-top: 3%;
-  display: flex;
-  color: #994af1;
-  justify-content: center;
-  align-items: center;
+    margin-top: 3%;
+    display: flex;
+    color: #994af1;
+    justify-content: center;
+    align-items: center;
 }
 .BuyerViewProduct-button {
-  flex: 1;
+    flex: 1;
 }
 
 hr {
-  border-color: #383838;
+    border-color: #383838;
 }
 
 /* Buyer checkout page */
 
 .BuyerCheckout-main {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  margin-left: 3%;
-  width: 94%;
-  font-family: Roboto;
-  color: white;
-  background-color: #222222;
-  border-radius: 4px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    width: 94%;
+    font-family: Roboto;
+    color: white;
+    background-color: #222222;
+    border-radius: 4px;
 }
 
 .BuyerCheckout-title {
-  font-size: 36px;
-  padding: 2%;
+    font-size: 36px;
+    padding: 2%;
 }
 
 .BuyerCheckout-description-title {
-  font-size: 16px;
-  font-family: Roboto;
-  color: #cfabfd;
-  width: 94%;
-  margin-left: 3%;
-  margin-top: 1%;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #cfabfd;
+    width: 94%;
+    margin-left: 3%;
+    margin-top: 1%;
 }
 
 .BuyerCheckout-description-content {
-  font-size: 20px;
-  font-family: Roboto;
-  color: white;
-  margin-top: 1%;
-  width: 94%;
-  margin-left: 3%;
+    font-size: 20px;
+    font-family: Roboto;
+    color: white;
+    margin-top: 1%;
+    width: 94%;
+    margin-left: 3%;
 }
 
 .BuyerCheckout-address {
-  margin-top: 1%;
-  display: flex;
-  width: 94%;
-  margin-left: 3%;
-  align-items: baseline;
+    margin-top: 1%;
+    display: flex;
+    width: 94%;
+    margin-left: 3%;
+    align-items: baseline;
 }
 
 .BuyerCheckout-add {
-  flex: 1;
-  color: #cfabfd;
+    flex: 1;
+    color: #cfabfd;
 }
 
 .BuyerCheckout-Buyeraddress {
-  flex: 5;
-  font-size: 22px;
-  color: white;
+    flex: 5;
+    font-size: 22px;
+    color: white;
 }
 
 .BuyerCheckout-confirmdiv {
-  display: flex;
-  font-size: larger;
-  margin-top: 1%;
-  align-items: center;
-  width: 94%;
-  margin-left: 3%;
+    display: flex;
+    font-size: larger;
+    margin-top: 1%;
+    align-items: center;
+    width: 94%;
+    margin-left: 3%;
 }
 
 .BuyerCheckout-confirmdiv input {
-  flex: 1;
-  cursor: pointer;
-  font-size: 22px;
-  height: 20px;
-  width: 20px;
+    flex: 1;
+    cursor: pointer;
+    font-size: 22px;
+    height: 20px;
+    width: 20px;
 }
 
 .BuyerCheckout-confirm {
-  flex: 15;
-  font-size: 20px;
+    flex: 15;
+    font-size: 20px;
 }
 
 .BuyerCheckout-total {
-  flex: 2;
-  color: #cfabfd;
-  font-size: 16px;
+    flex: 2;
+    color: #cfabfd;
+    font-size: 16px;
 }
 
 .BuyerCheckoutPrice {
-  flex: 5;
-  color: white;
-  font-size: 36px;
+    flex: 5;
+    color: white;
+    font-size: 36px;
 }
 
 .BuyerCheckout-buttons {
-  color: #994af1;
-  display: flex;
-  width: 90%;
-  margin-left: 5%;
-  padding: 2% 0%;
+    color: #994af1;
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    padding: 2% 0%;
 }
 
 .BuyerCheckout-button {
-  flex: 1;
+    flex: 1;
 }
 /* Buyer Profile Page */
 
 .BuyerProfile-page {
-  font-family: Roboto;
+    font-family: Roboto;
 }
 .BuyerProfile-mainbody {
-  background-color: #222222;
-  margin: 2%;
+    background-color: #222222;
+    margin: 2%;
 }
 .BuyerProfile-main {
-  margin-bottom: 2%;
-  padding: 1%;
+    margin-bottom: 2%;
+    padding: 1%;
 }
 .BuyerProfile-div {
-  font-size: 30px;
-  margin: 1%;
-  display: flex;
-  color: #cfabfd;
+    font-size: 30px;
+    margin: 1%;
+    display: flex;
+    color: #cfabfd;
 }
 .BuyerProfile-image {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 .BuyerProfile-title {
-  margin-left: 1%;
+    margin-left: 1%;
 }
 .BuyerProfile-sub {
-  width: 90%;
-  margin-left: 5%;
-  font-size: 24px;
-  margin-top: 1%;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 24px;
+    margin-top: 1%;
 }
 .BuyerProfile-namediv {
-  font-size: 24px;
-  display: flex;
-  margin: 2% 0%;
+    font-size: 24px;
+    display: flex;
+    margin: 2% 0%;
 }
 .BuyerProfile-hello {
-  flex: 2;
+    flex: 2;
 }
 .BuyerProfile-name {
-  flex: 30;
+    flex: 30;
 }
 .BuyerProfile-details {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 .BuyerProfile-addressdiv {
-  flex: 2;
+    flex: 2;
 }
 .BuyerProfile-mobilenumberdiv {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .BuyerProfile-sub2 {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 }
 .BuyerProfile-dis {
-  color: #cfabfd;
-  font-size: 18px;
+    color: #cfabfd;
+    font-size: 18px;
 }
 .BuyerProfile-buttons {
-  margin-top: 3%;
-  display: flex;
-  width: 90%;
-  margin: auto;
-  color: #994af1;
-  justify-self: center;
-  align-items: center;
-  padding-bottom: 2%;
+    margin-top: 3%;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    color: #994af1;
+    justify-self: center;
+    align-items: center;
+    padding-bottom: 2%;
 }
 
 .BuyerProfile-button {
-  flex: 1;
+    flex: 1;
 }
 
 /* Buyer Login */
 .BuyerLogin-body {
-  width: 70%;
-  height: 75vh;
-  margin: auto;
-  display: flex;
-  padding: 1%;
-  border-radius: 12px;
-  background-color: #222222;
+    width: 70%;
+    height: 75vh;
+    margin: auto;
+    display: flex;
+    padding: 1%;
+    border-radius: 12px;
+    background-color: #222222;
 }
 
 .BuyerLogin-content {
-  flex: 1;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .BuyerLogin-logo {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .BuyerLogin-poster {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }
 .BuyerLogin-text-body {
-  flex: 3;
-  display: flex;
-  align-items: center;
+    flex: 3;
+    display: flex;
+    align-items: center;
 }
 .BuyerLogin-text {
-  font-size: 36px;
-  width: 90%;
-  margin-left: 5%;
-  font-family: Roboto;
-  font-weight: 500;
-  text-align: center;
+    font-size: 36px;
+    width: 90%;
+    margin-left: 5%;
+    font-family: Roboto;
+    font-weight: 500;
+    text-align: center;
 }
 
 .BuyerLogin-input-main {
-  flex: 7;
+    flex: 7;
 }
 
 .BuyerLogin-remember {
-  width: 90%;
-  margin-left: 5%;
-  display: flex;
-  align-items: baseline;
-  margin-top: 5%;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    align-items: baseline;
+    margin-top: 5%;
 }
 
 .BuyerLogin-checkbox {
-  flex: 1;
+    flex: 1;
 }
 
 .BuyerLogin-remember-text {
-  flex: 9;
-  font-family: Roboto;
-  color: #cfabfd;
+    flex: 9;
+    font-family: Roboto;
+    color: #cfabfd;
 }
 
 .BuyerLogin-login {
-  width: 20%;
-  margin: auto;
-  background-color: #cfabfd;
-  color: black;
-  border-radius: 6px;
-  text-align: center;
-  padding: 2%;
-  font-family: Roboto;
-  margin-top: 8%;
-  opacity: 0.9;
+    width: 20%;
+    margin: auto;
+    background-color: #cfabfd;
+    color: black;
+    border-radius: 6px;
+    text-align: center;
+    padding: 2%;
+    font-family: Roboto;
+    margin-top: 8%;
+    opacity: 0.9;
 }
 
 .BuyerLogin-login:hover {
-  cursor: pointer;
-  opacity: 1;
+    cursor: pointer;
+    opacity: 1;
 }
 
 .BuyerLogin-create {
-  text-decoration: underline 1px solid;
-  font-family: Roboto;
-  font-weight: 300;
-  text-align: center;
-  padding-bottom: 1%;
-  color: white;
+    text-decoration: underline 1px solid;
+    font-family: Roboto;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 1%;
+    color: white;
 }
 
 .BuyerLogin-create > a {
-  color: white;
+    color: white;
 }
 
 .BuyerLogin-create:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .BuyerLogin-create2 {
-  text-decoration: underline 1px solid;
-  font-family: Roboto;
-  font-weight: 300;
-  text-align: center;
-  padding-bottom: 1%;
-  color: #cfabfd;
-  margin-top: 2%;
+    text-decoration: underline 1px solid;
+    font-family: Roboto;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 1%;
+    color: #cfabfd;
+    margin-top: 2%;
 }
 
 .BuyerLogin-create2 > a {
-  color: #cfabfd;
+    color: #cfabfd;
 }
 
 .BuyerLogin-create2:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .BuyerSignup-text-body {
-  flex: 2;
-  display: flex;
-  align-items: center;
+    flex: 2;
+    display: flex;
+    align-items: center;
 }
 
 .BuyerSignup-input-main {
-  flex: 7;
+    flex: 7;
 }

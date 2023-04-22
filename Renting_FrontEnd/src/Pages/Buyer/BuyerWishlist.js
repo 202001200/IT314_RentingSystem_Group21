@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import GeneralCard from '../../components/Cardview/GeneralCard'
 
 const BuyerWishlist = () => {
@@ -13,4 +13,4 @@ const BuyerWishlist = () => {
     )
 }
 
-export default BuyerWishlist;
+export default BuyerWishlist
