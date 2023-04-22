@@ -216,5 +216,40 @@
 
 .LiveProductCard-value {
     flex: 4;
-    font-size: 22px;
+        font-size: 22px;
+    }
+    
+    .CategoryCard-main {
+        background-color: #2e2e2e;
+        height: 40vh;
+        width: 30vh;
+        border-radius: 6px;
+        margin: 1%;
+        font-family: Roboto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .CategoryCard-main-icon {
+        font-size: 4rem;
+    }
+    
+    .Category-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        margin: auto;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    
+    .CategoryCard-main:hover {
+        cursor: pointer;
+    }
+    
+    .CategoryCard-main:hover>.CategoryCard-main-icon {
+        color: #bb86fc;
 }
