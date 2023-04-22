@@ -1,7 +1,7 @@
 import React from 'react';
-import TitleHeader from '../../components/header/TitleHeader';
-import { Link } from 'react-router-dom';
 import './style.css';
+import { Link } from 'react-router-dom';
+import TitleHeader from '../../components/header/TitleHeader';
 import logo from '../../Assets/logo512.png';
 import Button from '../../components/Button/Button';
 import heartIcon from '@iconify-icons/mdi/heart';
@@ -9,24 +9,24 @@ import cartIcon from '@iconify-icons/mdi/cart';
 import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
 
 const BuyerViewProduct = (props) => {
-    return (
-        <div className='BuyerViewProduct-main'>
-          <TitleHeader name={'View Product'} />
-          <div className='BuyerViewProduct-body'>
-            <div className='BuyerViewProduct-imagediv'>
-              <div className='BuyerViewProduct-imagesub'>
-                <img src={logo} className='BuyerViewProduct-image' alt={'logo'} />
-                <div className='BuyerViewProduct-buttons'>
-                  <div className='BuyerViewProduct-button'>
-                    <Link to='./wishlist'>
-                      <Button icon={heartIcon} name={'Wishlist'} />
-                    </Link>
-                  </div>
-                  <div className='BuyerViewProduct-button'>
-                    <Link to='./checkout'>
-                      <Button icon={cartIcon} name={'Buy Now'} />
-                    </Link>
-                  </div>
+  return (
+    <div className='BuyerViewProduct-main'>
+      <TitleHeader name={'View Product'} />
+      <div className='BuyerViewProduct-body'>
+        <div className='BuyerViewProduct-imagediv'>
+          <div className='BuyerViewProduct-imagesub'>
+            <img src={logo} className='BuyerViewProduct-image' alt={'logo'} />
+            <div className='BuyerViewProduct-buttons'>
+              <div className='BuyerViewProduct-button'>
+                <Link to='./wishlist'>
+                  <Button icon={heartIcon} name={'Wishlist'} />
+                </Link>
+              </div>
+              <div className='BuyerViewProduct-button'>
+                <Link to='./checkout'>
+                  <Button icon={cartIcon} name={'Buy Now'} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -66,16 +66,15 @@ const BuyerViewProduct = (props) => {
       </div>
     </div>
   );
+};
 
-  };
-  
-  BuyerViewProduct.defaultProps = {
-    title: 'Sony Camera',
-    price: 50000,
-    formatofPrice: '/month',
-    category: 'Camera',
-    seller: 'Deep',
-    description: 'Best camera in segment.',
+BuyerViewProduct.defaultProps = {
+  title: 'Sony Camera',
+  price: 50000,
+  formatofPrice: '/month',
+  category: 'Camera',
+  seller: 'Deep',
+  description: 'Best camera in segment.',
 };
 
 export default BuyerViewProduct;

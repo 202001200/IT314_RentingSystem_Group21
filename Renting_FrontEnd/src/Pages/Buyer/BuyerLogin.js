@@ -6,10 +6,9 @@ import lockOutline from '@iconify-icons/mdi/lock-outline';
 import signinposter from '../../Assets/signinposter.png';
 import LoginInput from '../../components/Input/LoginInput';
 
-
 const BuyerLogin = () => {
     return (
-      <div className='BuyerLogin-body'>
+        <div className='BuyerLogin-body'>
             <div className='BuyerLogin-content'>
                 <div className='BuyerLogin-text-body'>
                     <div className='BuyerLogin-text'>Sign in</div>
@@ -50,8 +49,7 @@ const BuyerLogin = () => {
                     <Link to='../seller/login'>Sign in as a Seller</Link>
                 </div>
             </div>
-
-      </div>
+        </div>
     );
 };
 

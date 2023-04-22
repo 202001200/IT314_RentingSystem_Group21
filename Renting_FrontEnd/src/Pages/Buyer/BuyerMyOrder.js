@@ -3,7 +3,8 @@ import GeneralCard from '../../components/Cardview/GeneralCard';
 
 
 const BuyerMyOrder = () => {
-    const cards = [];
+   
+        const cards = [];
         for (var i = 0; i < 5; i++) {
             cards.push(<GeneralCard key={i} />);
         }
@@ -12,7 +13,7 @@ const BuyerMyOrder = () => {
                 <div className='Main-card'>{cards}</div>
             </div>
         )
-
+    
 }
 
-export default BuyerMyOrder;
+export default BuyerMyOrder

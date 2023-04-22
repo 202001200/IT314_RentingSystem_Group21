@@ -41,13 +41,13 @@ const Drawer = (props) => {
                         <Link to='/buyer/login'>
                             <DrawerButton
                                 icon={accountArrowRight}
-                                text={'SignIN'}
+                                text={'Sign in'}
                             />
                         </Link>
                         <Link to='/buyer/register'>
                             <DrawerButton
                                 icon={accountCog}
-                                text={'SignUp'}
+                                text={'Sign up'}
                             />
                         </Link>
                     </React.Fragment>
@@ -87,7 +87,7 @@ const Drawer = (props) => {
                         <Link to='/buyer/signout'>
                             <DrawerButton
                                 icon={logoutVariant}
-                                text={'SignOut'}
+                                text={'Sign out'}
                             />
                         </Link>
                     </React.Fragment>
@@ -95,7 +95,6 @@ const Drawer = (props) => {
                 {props.page === SELLER_LOGIN && (
                     <React.Fragment>
                         <Link to='/seller/addproduct'>
-                            {' '}
                             <DrawerButton
                                 icon={layersPlus}
                                 text={'Add Product'}
@@ -114,7 +113,6 @@ const Drawer = (props) => {
                             />
                         </Link>
                         <Link to='/seller/myproducts'>
-                            {' '}
                             <DrawerButton
                                 icon={walletIcon}
                                 text={'My All Products'}
@@ -135,7 +133,7 @@ const Drawer = (props) => {
                         <Link to='/seller/signout'>
                             <DrawerButton
                                 icon={logoutVariant}
-                                text={'SignOut'}
+                                text={'Sign out'}
                             />
                         </Link>
                     </React.Fragment>

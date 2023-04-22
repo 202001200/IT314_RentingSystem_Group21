@@ -1,7 +1,7 @@
 .LoginInput-input-body {
     display: flex;
     background-color: #121212;
-    width: 90%;
+    width: 80%;
     margin: auto;
     align-items: center;
     border-radius: 6px 6px 0px 0px;
@@ -29,6 +29,41 @@
 }
 
 .LoginInput-inputicon {
+    font-size: 1.25rem;
+    color: #cfabfd;
+    flex: 1;
+}
+.AddProductInput-input-body {
+    display: flex;
+    background-color: #121212;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    border-radius: 6px;
+    padding: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.AddProductInput-input {
+    flex: 9;
+    background-color: #121212;
+    color: white;
+    font-size: 16px;
+    padding: 1.2%;
+    letter-spacing: 0.75px;
+    font-family: Roboto;
+    border: none;
+    outline: none;
+    margin-left: 4px;
+}
+
+.AddProductInput-input:focus {
+    outline: none;
+    border: none;
+}
+
+.AddProductInput-inputicon {
     font-size: 1.25rem;
     color: #cfabfd;
     flex: 1;
