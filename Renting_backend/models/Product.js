@@ -33,7 +33,7 @@ const productSchema = Schema({
     },
     seller: {
         type: Schema.Types.ObjectId,
-        ref: 'Seller'
+        ref: 'Lender'
     },
     available: {
         type: Boolean,
