@@ -1,6 +1,6 @@
 import './style.css';
 import { Link } from 'react-router-dom';
-import logo from '../../Assets/signinposter2.png';
+import logo from '../../Assets/logo512.png';
 
 const Cardview = (props) => {
   return (
