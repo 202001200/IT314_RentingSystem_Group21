@@ -17,7 +17,7 @@ import layersIcon from '@iconify-icons/mdi/layers';
 import mapMarkerRadius from '@iconify-icons/mdi/map-marker-radius';
 import layersPlus from '@iconify-icons/mdi/layers-plus';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
-import layersMinus from '@iconify-icons/mdi/layers-minus';
+//import layersMinus from '@iconify-icons/mdi/layers-minus';
 
 const Drawer = (props) => {
      return (

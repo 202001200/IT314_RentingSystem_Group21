@@ -11,6 +11,7 @@ const LoginInput = (props) => {
                 type={props.type}
                 placeholder={props.placeholder}
                 className='LoginInput-input'
+                onChange={props.handleInput}
             />
         </div>
     );
