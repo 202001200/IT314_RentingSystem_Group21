@@ -84,43 +84,43 @@ function App() {
                             <BuyerCheckout />
                         </Route>
                         {/* SellerRoutes */}
-                        <Route path='/seller/addproduct'>
-                            <SellerAddProduct />
-                        </Route>
-                        <Route path='/seller/manage'>
-                            <SellerManageProduct />
-                        </Route>
-                        <Route path='/seller/active'>
-                            <SellerActiveProduct />
-                        </Route>
-                        <Route path='/seller/myproducts'>
-                            <SellerAllProducts />
-                        </Route>
-                        <Route path='/seller/request'>
-                            <SellerHandleRequests />
-                        </Route>
-                        <Route path='/seller/profile'>
-                            <SellerProfile />
-                        </Route>
-                        <Route path='/seller/signout'>
-                            <SignOut />
-                            {/* we will implement function here  */}
-                        </Route>
-                        <Route path='/seller/login'>
-                            <SellerLogin />
-                        </Route>
-                        <Route path='/seller/register'>
-                            <SellerSignup />
-                        </Route>
-                        {/* below are not in button  */}
-                        <Route path='/seller/product'>
-                            <SellerViewProduct />
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
+            <Route path='/seller/addproduct'>
+              <SellerAddProduct />
+            </Route>
+            <Route path='/seller/manage'>
+              <SellerManageProduct />
+            </Route>
+            <Route path='/seller/active'>
+              <SellerActiveProduct />
+            </Route>
+            <Route path='/seller/myproducts'>
+              <SellerAllProducts />
+            </Route>
+            <Route path='/seller/request'>
+              <SellerHandleRequests />
+            </Route>
+            <Route path='/seller/profile'>
+              <SellerProfile />
+            </Route>
+            <Route path='/seller/signout'>
+              <SignOut />
+              {/* we will implement function here  */}
+            </Route>
+            <Route path='/seller/login'>
+              <SellerLogin />
+            </Route>
+            <Route path='/seller/register'>
+              <SellerSignup />
+            </Route>
+            {/* below are not in button  */}
+            <Route path='/seller/product'>
+              <SellerViewProduct />
+            </Route>
+          </Switch>
         </div>
-    );
+     </Router>
+    </div>
+  );
 }
 
 export default App;

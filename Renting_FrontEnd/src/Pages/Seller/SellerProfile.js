@@ -97,7 +97,7 @@ const SellerProfile = (props) => {
   };
   
   SellerProfile.defaultProps = {
-    name: 'Parth',
+    name: 'Harsh',
     address: 'Dhrol , Gujarat',
     mobilenumber: 6353812362,
     email: 'abc@gmail.com',
