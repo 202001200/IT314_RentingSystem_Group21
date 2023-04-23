@@ -1,11 +1,157 @@
 .Dashboard {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .Main-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+/************ help-FAQ ************/
+
+.HelpFAQ-main {
+  padding-bottom: 3%;
+}
+
+.HelpFAQ-image {
+  height: 250px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url('../../Assets/helpposter.webp');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HelpFAQ-title {
+  font-weight: 600;
+}
+
+.HelpFAQ-body {
+  display: flex;
+}
+
+.HelpFAQ-que {
+  flex: 2;
+  padding: 1%;
+}
+
+.HelpFAQ-ans {
+  background-color: #2e2e2e;
+  flex: 3;
+  margin: 2%;
+  border-radius: 6px;
+}
+
+.HelpFAQ-question {
+  font-weight: 700;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.HelpFAQ-answer {
+  width: 94%;
+  margin-left: 3%;
+}
+
+/* Contact us page  */
+
+.ContactUs-body {
+  width: 70%;
+  height: 75vh;
+  margin: auto;
+  display: flex;
+  padding: 1%;
+  border-radius: 12px;
+  background-color: #222222;
+  font-family: Roboto;
+}
+
+.ContactUs-logo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ContactUs-poster {
+  width: 90%;
+  margin: auto;
+}
+
+.ContactUs-create {
+  text-decoration: underline 1px solid;
+  font-family: Roboto;
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 1%;
+  color: white;
+}
+
+.ContactUs-create > a {
+  color: white;
+}
+
+.ContactUs-create:hover {
+  cursor: pointer;
+}
+
+.ContactUs-content {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.ContactUs-text-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.ContactUs-text {
+  font-size: 36px;
+  width: 90%;
+  margin-left: 5%;
+  font-family: Roboto;
+  font-weight: 500;
+  text-align: center;
+}
+
+.ContactUs-details {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.ContactUs-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUs-imagediv {
+  flex: 1;
+  text-align: center;
+}
+
+.ContactUs-imagediv > a {
+  color: white;
+}
+.ContactUs-namediv {
+  flex: 1;
+  text-align: center;
+  font-size: 24px;
+  color: #cfabfd;
+}
+.ContactUs-image {
+  font-size: 3rem;
+  margin-top: 3%;
 }

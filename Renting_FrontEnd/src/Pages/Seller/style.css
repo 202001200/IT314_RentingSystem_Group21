@@ -126,8 +126,6 @@
     flex: 4;
 }
 
-.SellerAddproduct-main {
-}
 
 .SellerAddProduct-body {
     margin: auto;
@@ -211,3 +209,6 @@
     width: 80%;
     margin: auto;
 }
+.BuyerAddresses-main-card {
+    margin-top: 1%;
+  }
