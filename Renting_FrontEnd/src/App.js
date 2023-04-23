@@ -40,7 +40,7 @@ const optionsAlert = {
 function App() {
     
 
-    const [check, setCheck] = useState(0);
+    const [check, setCheck] = useState(1);
     const [buyer, setBuyer] = useState(false);
     const [seller, setSeller] = useState(false);
     const [auth_token, setAuthtoken] = useState('');
