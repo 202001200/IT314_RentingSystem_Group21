@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import cardAccountDetails from '@iconify-icons/mdi/card-account-details';
 import shoppingIcon from '@iconify-icons/mdi/shopping';
 import layersPlus from '@iconify-icons/mdi/layers-plus';
-import layersMinus from '@iconify-icons/mdi/layers-minus';
 import walletIcon from '@iconify-icons/mdi/wallet';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
 
@@ -66,14 +65,7 @@ const SellerProfile = (props) => {
             </div>
           </Link>
         </div>
-        <div className='SellerProfile-othermain'>
-          <Link to='./manage'>
-            <div className='SellerProfile-otherdiv'>
-              <Icon icon={layersMinus} className='SellerProfile-image' />
-              <div className='SellerProfile-title'>Manage Product</div>
-            </div>
-          </Link>
-        </div>
+        
         <div className='SellerProfile-changepassword redi'>
           <div className='changepassword-input-body'>
             <Icon icon={lockOutline} className='changepassword-image' />
@@ -97,8 +89,8 @@ const SellerProfile = (props) => {
   };
   
   SellerProfile.defaultProps = {
-    name: 'Harsh',
-    address: 'Dhrol , Gujarat',
+    name: 'Naman',
+    address: 'Mehsana , Gujarat',
     mobilenumber: 6353812362,
     email: 'abc@gmail.com',
 };

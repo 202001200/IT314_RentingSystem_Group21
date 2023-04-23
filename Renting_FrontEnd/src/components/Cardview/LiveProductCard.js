@@ -47,7 +47,7 @@ Cardview.defaultProps = {
   format: '/month',
   category: 'Camera',
   seller: 'john doe',
-  returnData: '21/04/2021',
+  returnData: '21/04/2023',
 };
 
 export default Cardview;

@@ -10,7 +10,7 @@ const SellerHandleRequests = (props) => {
         }
         return (
           <div className='BuyerAddresses-main'>
-            <TitleHeader name={'Seller Address'} />
+            <TitleHeader name={'Handle Request'} />
             <div className='BuyerAddresses-main-card'>{cards}</div>
           </div>
         );

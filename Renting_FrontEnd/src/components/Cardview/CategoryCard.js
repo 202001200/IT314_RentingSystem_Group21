@@ -8,7 +8,7 @@ const CategoryCard = (props) => {
          <div className='CategoryCard-main'>
             <Icon
                 icon={props.icon}
-                className='Button-main-icon'
+                //className='Button-main-icon'
                 className='CategoryCard-main-icon'
             />
             <p className='txt'>{props.category}</p>
