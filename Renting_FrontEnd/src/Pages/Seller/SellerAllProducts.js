@@ -1,7 +1,18 @@
 import React from 'react';
+import GeneralCardSeller from '../../components/Cardview/GeneralCardSeller';
+import TitleHeader from '../../components/header/TitleHeader';
 
 const SellerAllproducts = () => {
-    return <div>Seller All Products</div>;
+    const cards = [];
+  for (var i = 0; i < 6; i++) {
+    cards.push(<GeneralCardSeller key={i} />);
+  }
+  return (
+    <div>
+      <TitleHeader name={'All Product'} />
+      <div className='BuyerMyOrder-card'>{cards}</div>
+    </div>
+  );
 };
 
 export default SellerAllproducts;

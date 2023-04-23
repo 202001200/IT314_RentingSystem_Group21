@@ -212,3 +212,142 @@
 .BuyerAddresses-main-card {
     margin-top: 1%;
   }
+  /* Seller Profile Page */
+
+.SellerProfile-page {
+    font-family: Roboto;
+  }
+  .SellerProfile-main {
+    background-color: #222222;
+    margin: 1% 2%;
+    padding: 1%;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .SellerProfile-div {
+    font-size: 30px;
+    margin: 1%;
+    display: flex;
+    color: #cfabfd;
+  }
+  .SellerProfile-othermain {
+    background-color: #222222;
+    margin: 1% 2%;
+  }
+  .SellerProfile-othermain:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+  }
+  .SellerProfile-otherdiv {
+    font-size: 30px;
+    padding: 1%;
+    padding-left: 5%;
+    display: flex;
+    color: #e8d6ff;
+  }
+  .SellerProfile-image {
+    font-size: 2rem;
+  }
+  .SellerProfile-title {
+    margin-left: 1%;
+  }
+  .SellerProfile-sub {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 24px;
+    margin-top: 1%;
+  }
+  .SellerProfile-namediv {
+    font-size: 24px;
+    display: flex;
+    margin: 2% 0%;
+  }
+  .SellerProfile-hello {
+    flex: 2;
+  }
+  .SellerProfile-name {
+    flex: 30;
+  }
+  .SellerProfile-details {
+    display: flex;
+    width: 100%;
+  }
+  .SellerProfile-addressdiv {
+    flex: 2;
+  }
+  .SellerProfile-mobilenumberdiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .SellerProfile-sub2 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .SellerProfile-dis {
+    color: #cfabfd;
+    font-size: 18px;
+  }
+  
+  .redi {
+    border-radius: 0px 0px 8px 8px;
+  }
+  
+  .SellerProfile-changepassword {
+    background-color: #222222;
+    margin: 1% 2%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .changepassword-input-body {
+    font-size: 30px;
+    padding: 1%;
+    padding-left: 5%;
+    display: flex;
+    color: #e8d6ff;
+    display: flex;
+  }
+  
+  .changepassword-title {
+    margin-left: 1%;
+  }
+  .change-input {
+    flex: 2;
+  }
+  .changepassword-buttonbody {
+    display: flex;
+    justify-content: baseline;
+    margin-top: 1%;
+    padding-bottom: 2%;
+  }
+  
+  .change-input > input {
+    background-color: #e8d6ff;
+    color: black;
+    font-size: 18px;
+    padding: 1%;
+    border: none;
+    outline: none;
+    width: 74%;
+    margin-left: 16%;
+    /* height: 80%; */
+  }
+  .changepassword-button {
+    flex: 2;
+  }
+  .changepassword-btn {
+    width: 20%;
+    font-size: 18px;
+    background-color: #cfabfd;
+    color: black;
+    border-radius: 6px;
+    text-align: center;
+    padding: 1%;
+    margin-left: 0;
+    opacity: 0.9;
+  }
+  .changepassword-btn:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
