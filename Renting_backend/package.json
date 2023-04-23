@@ -6,6 +6,9 @@
   "repository": "https://github.com/202001200/IT314_RentingSystem_Group21/tree/Backend/Renting_backend",
   "author": "Backend-Team",
   "license": "MIT",
+  "scripts":{
+    "start":"node app.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
