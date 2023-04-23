@@ -80,7 +80,7 @@ const Drawer = (props) => {
                     <DrawerButton icon={shoppingIcon} text={'Active Products'} />
                   </Link>
                   <Link to='/seller/myproducts'>
-                    <DrawerButton icon={walletIcon} text={'My All Products'} />
+                    <DrawerButton icon={walletIcon} text={'My Products'} />
                   </Link>
                   <Link to='/seller/request'>
                     <DrawerButton icon={mapMarkerRadius} text={'Requests'} />

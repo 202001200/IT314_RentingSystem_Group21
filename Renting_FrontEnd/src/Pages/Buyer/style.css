@@ -316,8 +316,65 @@ hr {
   font-size: 18px;
 }
 
-redi {
+.redi {
     border-radius: 0px 0px 8px 8px;}
+    .BuyerProfile-changepassword {
+        background-color: #222222;
+        margin: 1% 2%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .changepassword-input-body {
+        font-size: 30px;
+        padding: 1%;
+        padding-left: 5%;
+        display: flex;
+        color: #e8d6ff;
+        display: flex;
+      }
+      
+      .changepassword-title {
+        margin-left: 1%;
+      }
+      .change-input {
+        flex: 2;
+      }
+      .changepassword-buttonbody {
+        display: flex;
+        justify-content: baseline;
+        margin-top: 1%;
+      }
+      
+      .change-input > input {
+        background-color: #e8d6ff;
+        color: black;
+        font-size: 18px;
+        padding: 1%;
+        border: none;
+        outline: none;
+        width: 74%;
+        margin-left: 16%;
+        /* height: 80%; */
+      }
+      .changepassword-button {
+        flex: 2;
+      }
+      .changepassword-btn {
+        width: 20%;
+        font-size: 18px;
+        background-color: #cfabfd;
+        color: black;
+        border-radius: 6px;
+        text-align: center;
+        padding: 1%;
+        margin-left: 0;
+        opacity: 0.9;
+      }
+      .changepassword-btn:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
 
 /* Buyer Login */
 .BuyerLogin-body {

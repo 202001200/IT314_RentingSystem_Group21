@@ -33,7 +33,7 @@ function App() {
         <div className='App'>
             <Router>
                 <div className='Drawer'>
-                    <Drawer page={BUYER_LOGIN} />
+                    <Drawer page={SELLER_LOGIN} />
                 </div>
                 <div className='Main-body'>
                     <Switch>
