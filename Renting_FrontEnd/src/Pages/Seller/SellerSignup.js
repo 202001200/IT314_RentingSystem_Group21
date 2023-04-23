@@ -43,7 +43,7 @@ const SellerSignup = () => {
 
   const handleOnClick = () => {
       axios
-          .post('http://localhost:5000/seller/register', {
+          .post('https://rentingsystem.herokuapp.com/seller/register', {
               firstname: firstname,
               lastname: lastname,
               address: address,

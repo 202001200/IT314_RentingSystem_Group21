@@ -24,7 +24,7 @@ const BuyerLogin = (props) => {
 
   const handleOnClick = () => {
     axios
-      .post('http://localhost:5000/buyer/login', {
+      .post('https://rentingsystem.herokuapp.com/buyer/login', {
         email: email,
         password: password,
       })
@@ -48,47 +48,52 @@ const BuyerLogin = (props) => {
   };
 
   return (
-    <div className='BuyerLogin-body'>
-      <div className='BuyerLogin-content'>
-        <div className='BuyerLogin-text-body'>
-          <div className='BuyerLogin-text'>Sign in</div>
+        <div className='BuyerLogin-body'>
+            <div className='BuyerLogin-content'>
+                <div className='BuyerLogin-text-body'>
+                    <div className='BuyerLogin-text'>Sign in</div>
+                </div>
+                <div className='BuyerLogin-input-main'>
+                    <LoginInput
+                        icon={emailOutline}
+                        placeholder={'E-mail'}
+                        type={'text'}
+                        handleInput={handleInputEmail}
+                    />
+                    <LoginInput
+                        icon={lockOutline}
+                        placeholder={'Password'}
+                        type={'password'}
+                        handleInput={handleInputPassword}
+                    />
+                    <div className='BuyerLogin-remember'>
+                        <input
+                            type='checkbox'
+                            className='BuyerLogin-checkbox'
+                        />
+                        <span className='BuyerLogin-remember-text'>
+                            Remember me
+                        </span>
+                    </div>
+                    <div className='BuyerLogin-login' onClick={handleOnClick}>
+                        Log in
+                    </div>
+                </div>
+                <div className='BuyerLogin-create'>
+                    <Link to='./register'>Create an account</Link>
+                </div>
+            </div>
+            <div className='BuyerLogin-logo'>
+                <img
+                    src={signinposter}
+                    alt={'SignInPoster'}
+                    className='BuyerLogin-poster'
+                />
+                <div className='BuyerLogin-create2'>
+                    <Link to='../seller/login'>Sign in as a Seller</Link>
+                </div>
+            </div>
         </div>
-        <div className='BuyerLogin-input-main'>
-          <LoginInput
-            icon={emailOutline}
-            placeholder={'E-mail'}
-            type={'text'}
-            handleInput={handleInputEmail}
-          />
-          <LoginInput
-            icon={lockOutline}
-            placeholder={'Password'}
-            type={'password'}
-            handleInput={handleInputPassword}
-          />
-          <div className='BuyerLogin-remember'>
-            <input type='checkbox' className='BuyerLogin-checkbox' />
-            <span className='BuyerLogin-remember-text'>Remember me</span>
-          </div>
-          <div className='BuyerLogin-login' onClick={handleOnClick}>
-            Log in
-          </div>
-        </div>
-        <div className='BuyerLogin-create'>
-          <Link to='./register'>Create an account</Link>
-        </div>
-      </div>
-      <div className='BuyerLogin-logo'>
-        <img
-          src={signinposter}
-          alt={'SignInPoster'}
-          className='BuyerLogin-poster'
-        />
-        <div className='BuyerLogin-create2'>
-          <Link to='../seller/login'>Sign in as a Seller</Link>
-        </div>
-      </div>
-    </div>
   );
 };
 
