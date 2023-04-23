@@ -109,3 +109,81 @@
     font-size: 3rem;
     margin-top: 3%;
 }
+/************ help-FAQ ************/
+.helpFAQ-main { display: flex; justify-content: center; align-items: center; flex-direction: column;}
+.helpFAQ-main a:hover{ text-decoration: none;}
+
+.helpFAQ-image{
+  height: 250px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)), url('header.webp');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.helpFAQ-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.helpFAQ-body{
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+.helpFAQ-name{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.QueAns{
+
+  background-color: #2e2e2e;
+  height: 500px;
+  overflow-y: scroll;
+  margin-top: 15px;
+  padding: 50px 40px 50px 40px;
+}
+.Question{
+  font-weight: 700;
+}
+
+h1{
+  font-weight: 600;
+}
+
+.AddQuery{
+  display: flex;
+  height: 60px;
+  width: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.Addicon:hover{
+  color: rgba(255,255,255,1);
+}
+.Addicon{
+  height: 50px;
+  width: 80px;
+  color: rgba(255,255,255,0.8);
+
+}
+.Addtext{
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 7px;
+}
+

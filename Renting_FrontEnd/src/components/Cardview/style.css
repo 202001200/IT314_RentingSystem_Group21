@@ -253,3 +253,28 @@
     .CategoryCard-main:hover>.CategoryCard-main-icon {
         color: #bb86fc;
 }
+
+/********* FAQCard ************/
+.FAQCardview {
+    background-color: #272727;
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.FAQCardview:hover {
+    cursor: pointer;
+}
+
+.FAQCardview:hover > .FAQCardview-title {
+    color: #cfabfd;
+}
+
+.FAQCardview-title {
+    font-weight: 500;
+}

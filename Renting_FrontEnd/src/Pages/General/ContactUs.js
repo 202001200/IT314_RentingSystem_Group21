@@ -17,7 +17,7 @@ const ContactUs = () => {
         />
         <div className='ContactUs-create'>
           <a href='https://github.com/202001200/IT314_RentingSystem_Group21' target='blank'>
-            Renting System <span className='Drawer-big'>&copy;</span> 2021
+            Renting Buddy <span className='Drawer-big'>&copy;</span> 2021
           </a>
         </div>
       </div>
