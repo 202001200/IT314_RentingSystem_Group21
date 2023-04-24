@@ -5,9 +5,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const router = express.Router();
-const Buyer = require("../models/Buyer.js");
-const Seller = require("../models/Seller.js");
-const authbuyer = require("../middleware/authbuyer.js");
+const Buyer = require("../models/Borrower.js");
+const Seller = require("../models/Lender.js");
+const authlender = require("../middleware/auth.js");
 const Product = require("../models/Product.js");
 
 // Load config
@@ -52,7 +52,7 @@ router.post(
         address: req.body.address,
         email: req.body.email,
         password: req.body.password,
-        username: "",
+        username: req.body.username,
         sellerdetail: [],
         liveproduct: [],
         myorder: [],
@@ -61,7 +61,7 @@ router.post(
 
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
+      console.log(hashedPassword);
       buyer.password = hashedPassword;
 
       const savedBuyer = await buyer.save();
@@ -139,3 +139,5 @@ router.post(
         }
     }
 );
+
+module.exports = router;

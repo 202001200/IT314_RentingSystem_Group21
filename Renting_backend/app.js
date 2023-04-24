@@ -28,7 +28,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/products',require('./routes/Product'));
-
+app.use('/borrower',require('./routes/Borrower'));
 const PORT = process.env.PORT || 3000;
 
 app.listen(
