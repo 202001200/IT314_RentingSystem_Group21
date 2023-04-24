@@ -139,3 +139,19 @@ router.post(
         }
     }
 );
+
+// @desc    Details | Profile, if buyer logged in already else error | buyer auth-token header
+// @route   GET /buyer/detail
+router.get("/detail", auth, async (req, res) => {
+    try {
+        const buyer = await Buyer.find(mongoose.Types.ObjectId(req.buyer._id));
+        res.send(buyer);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            msg: err.message
+        });
+    }
+});
+
+module.exports = router;
