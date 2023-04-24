@@ -42,14 +42,14 @@ router.get('/', async (req, res) => {
 
 router.get('/:id',async(req,res)=>{
     try{
-        const products = Product.findById(req.params.id);
-        res.send(products);
+        const product = Product.findById(req.params.id);
+        res.send(product);
     }
     catch(err){
         res.statusCode = 500;
         res.send({
             error:true,
-            msg:err.message
+            msg:'Product Not Found'
         })
     }
 })
