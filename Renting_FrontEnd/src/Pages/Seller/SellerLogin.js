@@ -25,7 +25,7 @@ const SellerLogin = (props) => {
 
     const handleOnClick = () => {
         axios
-            .post('https://rentingsystem.herokuapp.com/seller/login', {
+            .post('http://localhost:3001/lender/login', {
                 email: email,
                 password: password,
             })
