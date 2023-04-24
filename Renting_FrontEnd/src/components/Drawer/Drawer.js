@@ -17,90 +17,88 @@ import layersIcon from '@iconify-icons/mdi/layers';
 import mapMarkerRadius from '@iconify-icons/mdi/map-marker-radius';
 import layersPlus from '@iconify-icons/mdi/layers-plus';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
-import layersMinus from '@iconify-icons/mdi/layers-minus';
+//import layersMinus from '@iconify-icons/mdi/layers-minus';
 
 const Drawer = (props) => {
-    return (
-        <div className='Drawer-body'>
-          <div>
-            <Link to='/'>
-              <div className='Drawer-header'>
-                <p className='Drawer-logo'>RS</p>
-                <p className='Drawer-title'>Renting System</p>
-              </div>
-            </Link>
-            <div className='Drawer-menu'>
-              <Link to='/'>
-                <DrawerButton icon={layersIcon} text={'All Products'} />
+     return (
+    <div className='Drawer-body'>
+      <div>
+        <Link to='/'>
+          <div className='Drawer-header'>
+            <p className='Drawer-logo'>RS</p>
+            <p className='Drawer-title'>Renting System</p>
+          </div>
+        </Link>
+        <div className='Drawer-menu'>
+          <Link to='/'>
+            <DrawerButton icon={layersIcon} text={'All Products'} />
+          </Link>
+          <Link to='/category'>
+            <DrawerButton icon={shapeIcon} text={'Category'} />
+          </Link>
+          {props.page === NOT_LOGIN && (
+            <React.Fragment>
+              <Link to='/buyer/login'>
+                <DrawerButton icon={accountArrowRight} text={'Sign In'} />
               </Link>
-              <Link to='/category'>
-                <DrawerButton icon={shapeIcon} text={'Filter'} />
+              <Link to='/buyer/register'>
+                <DrawerButton icon={accountCog} text={'Sign Up'} />
               </Link>
-              {props.page === NOT_LOGIN && (
-                <React.Fragment>
-                  <Link to='/buyer/login'>
-                    <DrawerButton icon={accountArrowRight} text={'Sign In'} />
-                  </Link>
-                  <Link to='/buyer/register'>
-                    <DrawerButton icon={accountCog} text={'Sign Up'} />
-                  </Link>
-                </React.Fragment>
-              )}
-              {props.page === BUYER_LOGIN && (
-                <React.Fragment>
-                  <Link to='/buyer/wishlist'>
-                    <DrawerButton icon={heartIcon} text={'Wishlist'} />
-                  </Link>
-                  <Link to='/buyer/order'>
-                    <DrawerButton icon={shoppingIcon} text={'My Orders'} />
-                  </Link>
-                  <Link to='/buyer/liveorder'>
-                    <DrawerButton icon={textBoxCheck} text={'Live Orders'} />
-                  </Link>
-                  <Link to='/buyer/address'>
-                    <DrawerButton icon={mapMarkerRadius} text={'Addresses'} />
-                  </Link>
-                  <Link to='/buyer/profile'>
-                    <DrawerButton icon={accountCircle} text={'Profile'} />
-                  </Link>
-                  <Link to='/buyer/signout'>
-                    <DrawerButton icon={logoutVariant} text={'Sign Out'} />
-                  </Link>
-                </React.Fragment>
-              )}
-              {props.page === SELLER_LOGIN && (
-                <React.Fragment>
-                  <Link to='/seller/addproduct'>
-                    <DrawerButton icon={layersPlus} text={'Add Product'} />
-                  </Link>
-                  <Link to='/seller/manage'>
-                    <DrawerButton icon={layersMinus} text={'Manage Products'} />
-                  </Link>
-                  <Link to='/seller/active'>
-                    <DrawerButton icon={shoppingIcon} text={'Active Products'} />
-                  </Link>
-                  <Link to='/seller/myproducts'>
-                    <DrawerButton icon={walletIcon} text={'My All Products'} />
-                  </Link>
-                  <Link to='/seller/request'>
-                    <DrawerButton icon={mapMarkerRadius} text={'Requests'} />
-                  </Link>
-                  <Link to='/seller/profile'>
-                    <DrawerButton icon={accountCircle} text={'Profile'} />
-                  </Link>
-                  <Link to='/seller/signout'>
-                    <DrawerButton icon={logoutVariant} text={'Sign Out'} />
-                  </Link>
-                </React.Fragment>
-              )}
-              <Link to='/help'>
-                <DrawerButton icon={helpCircle} text={'Help & FAQ'} />
+            </React.Fragment>
+          )}
+          {props.page === BUYER_LOGIN && (
+            <React.Fragment>
+              <Link to='/buyer/wishlist'>
+                <DrawerButton icon={heartIcon} text={'Wishlist'} />
               </Link>
-              <Link to='/contactus'>
-                <DrawerButton icon={phoneCheck} text={'Contact Us'} />
+              <Link to='/buyer/order'>
+                <DrawerButton icon={shoppingIcon} text={'My Orders'} />
               </Link>
-            </div>
-            </div>
+              <Link to='/buyer/liveorder'>
+                <DrawerButton icon={textBoxCheck} text={'Live Orders'} />
+              </Link>
+              <Link to='/buyer/address'>
+                <DrawerButton icon={mapMarkerRadius} text={'Addresses'} />
+              </Link>
+              <Link to='/buyer/profile'>
+                <DrawerButton icon={accountCircle} text={'Profile'} />
+              </Link>
+              <Link to='/buyer/signout'>
+                <DrawerButton icon={logoutVariant} text={'Sign Out'} />
+              </Link>
+            </React.Fragment>
+          )}
+          {props.page === SELLER_LOGIN && (
+            <React.Fragment>
+              <Link to='/seller/addproduct'>
+                <DrawerButton icon={layersPlus} text={'Add Product'} />
+              </Link>
+              
+              <Link to='/seller/active'>
+                <DrawerButton icon={shoppingIcon} text={'Active Products'} />
+              </Link>
+              <Link to='/seller/myproducts'>
+                <DrawerButton icon={walletIcon} text={'My Products'} />
+              </Link>
+              <Link to='/seller/request'>
+                <DrawerButton icon={mapMarkerRadius} text={'Requests'} />
+              </Link>
+              <Link to='/seller/profile'>
+                <DrawerButton icon={accountCircle} text={'Profile'} />
+              </Link>
+              <Link to='/seller/signout'>
+                <DrawerButton icon={logoutVariant} text={'Sign Out'} />
+              </Link>
+            </React.Fragment>
+          )}
+          <Link to='/help'>
+            <DrawerButton icon={helpCircle} text={'Help & FAQ'} />
+          </Link>
+          <Link to='/contactus'>
+            <DrawerButton icon={phoneCheck} text={'Contact Us'} />
+          </Link>
+    </div>
+     </div>
       <p className='Drawer-footer-text'>
         Renting System <span className='Drawer-big'>&copy;</span> 2021
       </p>

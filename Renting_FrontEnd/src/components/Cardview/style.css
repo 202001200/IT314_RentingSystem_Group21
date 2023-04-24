@@ -94,6 +94,7 @@
     width: 47%;
     margin: auto;
     margin-bottom: 2%;
+    border-radius: 4px;
 }
 
 .GeneralCardview-main {
@@ -256,34 +257,7 @@
 
 /********* FAQCard ************/
 
-
-
-
 /* .FAQCardview {
-    background-color: #272727;
-    width: 70%;
-    margin: auto;
-    margin-top: 2%;
-    border-radius: 4px;
-    color: white;
-    text-align: center;
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-
-.FAQCardview:hover {
-    cursor: pointer;
-}
-
-.FAQCardview:hover > .FAQCardview-title {
-    color: #cfabfd;
-}
-
-.FAQCardview-title {
-    font-weight: 500;
-} */
-
-.FAQCardview {
     background-color: #272727;
     width: 70%;
     margin: auto;
@@ -305,7 +279,7 @@
   
   .FAQCardview-title {
     font-weight: 500;
-  }
+  } */
   
   /* Request card  */
   
@@ -368,4 +342,151 @@
   }
   .RequestCard-Buttons {
     flex: 1;
+  }
+
+  /* Seller Active Product card */
+
+.SellerLiveProduct {
+    background-color: #2e2e2e;
+    font-family: Roboto;
+    width: 47%;
+    margin: auto;
+    margin-bottom: 2%;
+    border-radius: 4px;
+  }
+  .SellerLiveProduct-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+  }
+  .SellerLiveProduct:hover {
+    transition: 0.4s;
+    transform: scale(1.03);
+  }
+  
+  .SellerLiveProduct-imagediv {
+    flex: 2;
+    max-height: 25vh;
+  }
+  .SellerLiveProduct-image {
+    margin: 5%;
+    height: 90%;
+    width: 90%;
+  }
+  
+  .SellerLiveProduct-info {
+    flex: 4;
+    margin-left: 5%;
+  }
+  .SellerLiveProduct-title {
+    font-size: 36px;
+    padding: 2%;
+    padding-left: 0%;
+  }
+  .SellerLiveProduct-sub {
+    margin-bottom: 1%;
+  }
+  .SellerLiveProduct-namediv {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1%;
+  }
+  .SellerLiveProduct-name {
+    flex: 2;
+    font-size: 18px;
+    color: #cfabfd;
+  }
+  .SellerLiveProduct-value {
+    flex: 4;
+    font-size: 22px;
+  }
+
+  /* Seller general card view */
+
+.GeneralCardviewSeller {
+    background-color: #2e2e2e;
+    font-family: Roboto;
+    width: 47%;
+    margin: auto;
+    margin-bottom: 2%;
+    border-radius: 4px;
+    padding-bottom: 1%;
+  }
+ 
+  .GeneralCardviewSeller-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+  }
+  .GeneralCardviewSeller-mainsub:hover {
+    transition: 0.4s;
+    transform: scale(1.01);
+  }
+  
+  .GeneralCardviewSeller-imagediv {
+    flex: 2;
+    max-height: 25vh;
+  }
+  .GeneralCardviewSeller-image {
+    margin: 5%;
+    height: 90%;
+    width: 90%;
+  }
+  
+  .GeneralCardviewSeller-info {
+    flex: 4;
+    margin-left: 5%;
+  }
+  .GeneralCardviewSeller-title {
+    font-size: 36px;
+    padding: 2%;
+    padding-left: 0%;
+  }
+  .GeneralCardviewSeller-sub {
+    margin-bottom: 1%;
+  }
+  .GeneralCardviewSeller-namediv {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1%;
+  }
+  .GeneralCardviewSeller-name {
+    flex: 1;
+    font-size: 18px;
+    color: #cfabfd;
+  }
+  .GeneralCardviewSeller-value {
+    flex: 4;
+    margin-left: 10%;
+    font-size: 22px;
+  }
+  
+  .GeneralCardviewSeller-buttons {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  .GeneralCardviewSeller-button {
+    flex: 1;
+    max-width: 35%;
+    padding: 1%;
+    border: 3px solid #994af1;
+    background-color: #cfabfd;
+    border-radius: 4px;
+  }
+  .GeneralCardviewSeller-Buttonbody {
+    display: flex;
+    color: #994af1;
+    font-size: 20px;
+    justify-content: center;
+  }
+  .GeneralCardviewSeller-iconbuttonname {
+    margin: 0%;
+    margin-left: 3%;
+  }
+  .GeneralCardviewSeller-button:hover {
+    opacity: 0.9;
   }

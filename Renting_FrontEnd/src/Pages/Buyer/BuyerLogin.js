@@ -1,13 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import emailOutline from '@iconify-icons/mdi/email-outline';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
 import signinposter from '../../Assets/signinposter.png';
 import LoginInput from '../../components/Input/LoginInput';
+import axios from 'axios';
+import { useAlert } from 'react-alert';
 
-const BuyerLogin = () => {
-    return (
+const BuyerLogin = (props) => {
+  const alert = useAlert();
+  let history = useHistory();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleInputEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleInputPassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleOnClick = () => {
+    axios
+      .post('https://rentingsystem.herokuapp.com/buyer/login', {
+        email: email,
+        password: password,
+      })
+      .then(function (response) {
+        const data = response.data;
+        if (data.error) {
+          alert.error(data.msg);
+          localStorage.removeItem('buyer');
+          localStorage.removeItem('auth_token');
+        } else {
+          alert.success('Welcome');
+          localStorage.setItem('buyer', true);
+          localStorage.setItem('auth_token', data.auth_token);
+          props.handleClick();
+          return history.push('./../');
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  return (
         <div className='BuyerLogin-body'>
             <div className='BuyerLogin-content'>
                 <div className='BuyerLogin-text-body'>
@@ -18,11 +58,13 @@ const BuyerLogin = () => {
                         icon={emailOutline}
                         placeholder={'E-mail'}
                         type={'text'}
+                        handleInput={handleInputEmail}
                     />
                     <LoginInput
                         icon={lockOutline}
                         placeholder={'Password'}
                         type={'password'}
+                        handleInput={handleInputPassword}
                     />
                     <div className='BuyerLogin-remember'>
                         <input
@@ -33,7 +75,9 @@ const BuyerLogin = () => {
                             Remember me
                         </span>
                     </div>
-                    <div className='BuyerLogin-login'>Log in</div>
+                    <div className='BuyerLogin-login' onClick={handleOnClick}>
+                        Log in
+                    </div>
                 </div>
                 <div className='BuyerLogin-create'>
                     <Link to='./register'>Create an account</Link>
@@ -50,7 +94,7 @@ const BuyerLogin = () => {
                 </div>
             </div>
         </div>
-    );
+  );
 };
 
 export default BuyerLogin;

@@ -41,23 +41,53 @@
   padding: 1%;
 }
 
+/********* FAQCard ************/
+
+.FAQCardview {
+  background-color: #272727;
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.FAQCardview:hover {
+  cursor: pointer;
+}
+
+.FAQCardview:hover>.FAQCardview-title {
+  color: #cfabfd;
+}
+
+.FAQCardview-title {
+  font-weight: 500;
+}
+
 .HelpFAQ-ans {
   background-color: #2e2e2e;
+  height: 500px;
   flex: 3;
   margin: 2%;
   border-radius: 6px;
+  overflow-y: scroll;
 }
 
 .HelpFAQ-question {
   font-weight: 700;
   width: 90%;
-  margin-left: 5%;
+  margin-left: 3%;
+  color: #cfabfd !important;
 }
 
 .HelpFAQ-answer {
   width: 94%;
   margin-left: 3%;
 }
+
 
 /* Contact us page  */
 
@@ -154,4 +184,41 @@
 .ContactUs-image {
   font-size: 3rem;
   margin-top: 3%;
+}
+/* Sign out page */
+.SignOut-main {
+  height: 40vh;
+  width: 60vh;
+  margin: auto;
+  background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.SignOut-Title {
+  flex: 2;
+  font-size: 36px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.SignOut-namebody {
+  flex: 1;
+  font-size: 24px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.SignOut-Buttondiv {
+  flex: 2;
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+.SignOut-Buttons {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }

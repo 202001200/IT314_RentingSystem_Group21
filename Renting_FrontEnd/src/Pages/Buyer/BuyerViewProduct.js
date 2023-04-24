@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import TitleHeader from '../../components/header/TitleHeader';
 import logo from '../../Assets/logo512.png';
 import Button from '../../components/Button/Button';
@@ -9,6 +9,8 @@ import cartIcon from '@iconify-icons/mdi/cart';
 import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
 
 const BuyerViewProduct = (props) => {
+  let location = useLocation();
+  console.log(location.state);
   return (
     <div className='BuyerViewProduct-main'>
       <TitleHeader name={'View Product'} />
@@ -31,26 +33,30 @@ const BuyerViewProduct = (props) => {
           </div>
         </div>
         <div className='BuyerViewProduct-sub'>
-          <div className='BuyerViewProduct-title'>{props.title}</div>
+          <div className='BuyerViewProduct-title'>{location.state.title}</div>
           <div className='BuyerViewProduct-pricediv'>
           <hr />
           <div className='BuyerViewProduct-pricedivsub'>Price </div>
           <div className='BuyerViewProduct-formatprice'>
-          <span className='BuyerViewProduct-price'>{props.price} </span>{' '}
-              <span> {props.formatofPrice}</span>
+          <span className='BuyerViewProduct-price'>
+                {location.state.price}{' '}
+              </span>{' '}
+              <span> {location.state.formatofPrice}</span>
             </div>
           </div>
           <hr />
           <div className='BuyerViewProduct-category'>
             <div className='BuyerViewProduct-category-text'>{'Category'}</div>
             <div className='BuyerViewProduct-category-type'>
-              {props.category}
+            {location.state.category}
             </div>
           </div>
           <hr />
           <div className='BuyerViewProduct-seller-details'>
             <div className='BuyerViewProduct-seller'>{'Seller'}</div>
-            <div className='BuyerViewProduct-sellername'>{props.seller}</div>
+            <div className='BuyerViewProduct-sellername'>
+              {location.state.seller}
+            </div>
             <div className='BuyerViewProduct-seller-button'>
               <Button icon={mapMarkerPlus} name={'Request'} />
             </div>
@@ -61,7 +67,7 @@ const BuyerViewProduct = (props) => {
               {'Description'}
             </div>
             <div className='BuyerViewProduct-description-content'>
-              {props.description}
+              {location.state.description}
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { storage } from '../Firebase/index';
+import { optionsFormatofPrice, optionsCategory } from '../../Assets/Constant';
 import TitleHeader from '../../components/header/TitleHeader';
 import AddProductInput from '../../components/Input/AddProductInput';
 import layersOutline from '@iconify-icons/mdi/layers-outline';
@@ -7,37 +8,46 @@ import fileDocumentOutline from '@iconify-icons/mdi/file-document-outline';
 import cashMultiple from '@iconify-icons/mdi/cash-multiple';
 import Select from 'react-select';
 
-const optionsFormatofPrice = [
-    { value: '/day', label: 'Per day' },
-    { value: '/3-days', label: 'Per 3-days' },
-    { value: '/week', label: 'Per week' },
-    { value: '/15-days', label: 'Per 15-days' },
-    { value: '/month', label: 'Per month' },
-    { value: '/6-months', label: 'Per 6-months' },
-    { value: '/year', label: 'Per year' },
-];
-
-const optionsCategory = [
-    { value: 'Electronics', label: 'Electronics' },
-    { value: 'Furniture', label: 'Furniture' },
-    { value: 'Essential', label: 'Essential' },
-    { value: 'Gadget', label: 'Gadget' },
-    { value: 'Decor', label: 'Decor' },
-    { value: '2-wheel', label: '2-wheel' },
-    { value: '4-wheel', label: '4-wheel' },
-    { value: 'House', label: 'House' },
-];
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 
 // submit, seller, imagepath, availabe;
 
 const SellerAddProduct = () => {
-    const [selectedFile, setFile] = useState(null);
-    const [image, setImageURL] = useState(null);
-    const [imagepath, setImagepath] = useState(null);
+    const alert = useAlert();
+    let history = useHistory();
+
+    const [selectedFile, setFile] = useState(null); // for selected file
+    const [image, setImageURL] = useState(null); // for load image
     const [progress, setProgress] = useState(0);
-    const [term, setTerm] = useState(false);
+
+    const [imagepath, setImagepath] = useState(null); //for save in db
     const [fop, setFOP] = useState('');
     const [category, setCategory] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [seller, setSeller] = useState('');
+
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                    headers: {
+                        'auth-token': localStorage.getItem('auth_token'),
+                    },
+                })
+                .then((response) => {
+                    setSeller(response.data.seller[0]._id);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
+
+        fetch();
+    }, []);
 
     const handleInputChanges = (event) => {
         if (event.target.files[0]) {
@@ -47,7 +57,7 @@ const SellerAddProduct = () => {
     };
 
     const changeFOPoption = (event) => {
-        setFOP(event.label);
+        setFOP(event.value);
     };
 
     const changeCategoryoption = (event) => {
@@ -79,8 +89,8 @@ const SellerAddProduct = () => {
                         setImagepath(url);
                     });
             }
-        );
-    };
+                );
+                };
 
     const hiddenFileInput = React.useRef(null);
 
@@ -88,7 +98,44 @@ const SellerAddProduct = () => {
         hiddenFileInput.current.click();
     };
 
-    return (
+    const handleInputTitle = (event) => {
+        setTitle(event.target.value);
+    };
+
+    const handleInputDescription = (event) => {
+        setDescription(event.target.value);
+    };
+
+    const handleInputPrice = (event) => {
+        setPrice(event.target.value);
+    };
+
+    const handleOnSubmit = () => {
+        axios
+            .post('https://rentingsystem.herokuapp.com/product/seller', {
+                title: title,
+                description: description,
+                imagepath: imagepath,
+                price: price,
+                formatofprice: fop,
+                category: category,
+                seller: seller,
+            })
+            .then(function (response) {
+                const data = response.data;
+                if (data.error) {
+                    alert.error(data.msg);
+                } else {
+                    alert.success(data.msg);
+                    return history.push('./../');
+                                }
+                                })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+                        return (
         <div>
             <TitleHeader name={'Add Products'} />
             <div className='SellerAddproduct-main'>
@@ -106,7 +153,7 @@ const SellerAddProduct = () => {
                         </div>
 
                         <div className='SellerAddproduct-image-selecter'>
-                            {progress != 0 && (
+                            {progress !== 0 && (
                                 <progress
                                     value={progress}
                                     max='100'
@@ -141,17 +188,20 @@ const SellerAddProduct = () => {
                             icon={layersOutline}
                             placeholder={'Product Name, Title'}
                             type={'text'}
+                            handleInput={handleInputTitle}
                         />
                         <AddProductInput
                             icon={fileDocumentOutline}
                             placeholder={'Product Description'}
                             type={'text'}
+                            handleInput={handleInputDescription}
                         />
                         <hr />
                         <AddProductInput
                             icon={cashMultiple}
                             placeholder={'Product Price'}
-                            type={'text'}
+                            type={'number'}
+                            handleInput={handleInputPrice}
                         />
                         <Select
                             className='SellerAddProduct-option'
@@ -193,9 +243,6 @@ const SellerAddProduct = () => {
                             })}
                         />
                         <hr />
-                        {false && (
-                            <div className='SellerAddProduct-error'>error</div>
-                        )}
                         <div className='SellerLogin-remember'>
                             <input
                                 type='checkbox'
@@ -208,16 +255,16 @@ const SellerAddProduct = () => {
                         <div className='SellerAddProduct-upload-body'>
                             <div
                                 className='SellerAddProduct-upload'
-                                onClick={handleOnClick}
+                                onClick={handleOnSubmit}
                             >
                                 Upload Product
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    );
+                        </div>
+                </div>
+                        );
 };
 
 export default SellerAddProduct;

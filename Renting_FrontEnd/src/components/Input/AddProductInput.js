@@ -4,13 +4,14 @@ import { Icon } from '@iconify/react';
 import emailOutline from '@iconify-icons/mdi/email-outline';
 
 const AddProductInput = (props) => {
-    return (
+     return (
         <div className='AddProductInput-input-body'>
             <Icon icon={props.icon} className='AddProductInput-inputicon' />
             <input
                 type={props.type}
                 placeholder={props.placeholder}
                 className='AddProductInput-input'
+                onChange={props.handleInput}
             />
         </div>
     );
