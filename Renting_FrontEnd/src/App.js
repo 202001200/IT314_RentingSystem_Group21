@@ -5,6 +5,7 @@ import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
 import Drawer from './components/Drawer/Drawer';
 import Dashboard from './Pages/General/Dashboard';
 import Category from './Pages/General/Category';
+import CategoryPage from './Pages/General/CategoryPage';
 import SignOut from './Pages/General/SignOut';
 import HelFAQ from './Pages/General/HelpFAQ';
 import ContactUs from './Pages/General/ContactUs';
@@ -38,15 +39,15 @@ const optionsAlert = {
 };
 
 function App() {
-    
 
-    const [check, setCheck] = useState(1);
+
+    const [check, setCheck] = useState(0);
     const [buyer, setBuyer] = useState(false);
     const [seller, setSeller] = useState(false);
     const [auth_token, setAuthtoken] = useState('');
 
     useEffect(() => {
-       
+
         if (localStorage.getItem('buyer')) {
             setBuyer(true);
             setCheck(BUYER_LOGIN);
@@ -61,19 +62,19 @@ function App() {
     }, []);
 
     const handleChangeState = () => {
-       
+
         if (localStorage.getItem('buyer')) {
             setBuyer(true);
             setCheck(BUYER_LOGIN);
-           
+
         } else if (localStorage.getItem('seller')) {
             setSeller(true);
             setCheck(SELLER_LOGIN);
-           
+
         } else {
             setBuyer(false);
             setSeller(false);
-           
+
         }
     };
     const handleSignout = () => {
@@ -100,6 +101,9 @@ function App() {
                             <Route path='/category'>
                                 <Category />
                             </Route>
+                            <Route path='/categorypage'>
+                                <CategoryPage />
+                            </Route>
                             <Route path='/help'>
                                 <HelFAQ />
                             </Route>
@@ -123,7 +127,7 @@ function App() {
                                 <BuyerProfile />
                             </Route>
                             <Route path='/buyer/signout'>
-                            <SignOut handleClick={handleSignout} />
+                                <SignOut handleClick={handleSignout} />
                                 {/* we will implement function here  */}
                             </Route>
                             <Route path='/buyer/login'>
@@ -139,13 +143,11 @@ function App() {
                             <Route path='/buyer/checkout'>
                                 <BuyerCheckout />
                             </Route>
-                        {/* SellerRoutes */}
-                        <Route path='/seller/addproduct'>
+                            {/* SellerRoutes */}
+                            <Route path='/seller/addproduct'>
                                 <SellerAddProduct />
                             </Route>
-                            <Route path='/seller/manage'>
-                                <SellerManageProduct />
-                            </Route>
+                     
                             <Route path='/seller/active'>
                                 <SellerActiveProduct />
                             </Route>
@@ -159,7 +161,7 @@ function App() {
                                 <SellerProfile />
                             </Route>
                             <Route path='/seller/signout'>
-                            <SignOut handleClick={handleSignout} />
+                                <SignOut handleClick={handleSignout} />
                             </Route>
                             <Route path='/seller/login'>
                                 <SellerLogin handleClick={handleChangeState} />
@@ -168,6 +170,9 @@ function App() {
                                 <SellerSignup />
                             </Route>
                             {/* below are not in button  */}
+                            <Route path='/seller/manage'>
+                                <SellerManageProduct />
+                            </Route>
                             <Route path='/seller/product'>
                                 <SellerViewProduct />
                             </Route>
@@ -176,7 +181,7 @@ function App() {
                 </Router>
             </div>
         </Provider>
-  );
+    );
 }
 
 export default App;

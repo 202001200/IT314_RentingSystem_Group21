@@ -10,7 +10,7 @@ import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
 
 const BuyerViewProduct = (props) => {
   let location = useLocation();
-  console.log(location.state);
+ // console.log(location.state);
   return (
     <div className='BuyerViewProduct-main'>
       <TitleHeader name={'View Product'} />

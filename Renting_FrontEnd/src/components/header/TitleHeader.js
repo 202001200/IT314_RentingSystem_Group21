@@ -9,7 +9,7 @@ const TitleHeader = (props) => {
 };
 
 TitleHeader.defaultProps = {
-    name: 'Renting System',
+    name: 'Renting Buddy',
 };
 
 export default TitleHeader;
