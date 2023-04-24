@@ -49,7 +49,6 @@ router.get('/:id',async(req,res)=>{
         res.statusCode = 500;
         res.send({
             error:true,
-            msg:'Product Not Found'
         })
     }
 })
