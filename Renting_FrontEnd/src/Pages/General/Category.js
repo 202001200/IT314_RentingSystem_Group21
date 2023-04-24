@@ -27,7 +27,7 @@ const Category = () => {
     useEffect(() => {
       const fetch = () => {
         axios
-          .get('http://localhost:5000/product/')
+          .get('http://localhost:3001/products/')
           .then((response) => {
             setData(response.data.product);
           })
