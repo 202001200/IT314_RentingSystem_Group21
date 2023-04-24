@@ -140,4 +140,16 @@ router.post(
     }
 );
 
+router.get("/detail", authseller, async (req, res) => {
+  try {
+      const seller = await Seller.find(mongoose.Types.ObjectId(req.seller._id));
+      res.send(seller);
+  } catch (err) {
+      console.log(err);
+      res.status(500).send({
+          msg: err.message
+      });
+  }
+});
+
 module.exports = router;
