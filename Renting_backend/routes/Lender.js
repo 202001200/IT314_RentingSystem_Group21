@@ -15,7 +15,7 @@ router.post(
         check('firstname', 'Enter a valid Firstname').not().isEmpty(),
         check('lastname', 'Enter a valid Lirstname').not().isEmpty(),
         check('email', 'Enter a valid Email Address').isEmail(),
-        check('phone no.', 'Enter a valid Phone Number').isLength ({min: 10}),
+        check('idproof', 'Please Enter a Id-Proof').not().isEmpty(),
         check('address', 'Enter a valid Address').not().isEmpty(),
         check('password', 'Enter a valid Firstname').isLength ({min: 8})
     ],
@@ -44,7 +44,7 @@ router.post(
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                phone_no: req.body.phone_no,
+                idproof: req.body.idproof,
                 address: req.body.address,
                 password: req.body.password,
                 username: '',
@@ -142,6 +142,23 @@ router.get('/detail', authlender, async (req, res) => {
         res.send({
             error: false,
             lender: lender,
+        });
+    } catch (err) {
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
+
+router.post('/myproducts', async (req, res) => {
+    try {
+        let data = Product.find({ lender: req.body.lender_id }).then((data) => {
+            res.send({
+                error: false,
+                data: data,
+            });
         });
     } catch (err) {
         console.log(err);
