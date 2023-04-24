@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import CategoryCard from '../../components/Cardview/CategoryCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import warehouseIcon from '@iconify-icons/mdi/warehouse';
@@ -22,21 +23,37 @@ const optionsCategory = [
 ];
 
 const Category = () => {
+    const [Products, setData] = useState([]);
+    useEffect(() => {
+      const fetch = () => {
+        axios
+          .get('http://localhost:5000/product/')
+          .then((response) => {
+            setData(response.data.product);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      };
+  
+      fetch();
+    }, []);
+  
     const cards = [];
-  for (var i = 0; i < 8; i++) {
-        cards.push(
-            <CategoryCard
-                key={i}
-                category={optionsCategory[i].value}
-                icon={optionsCategory[i].icon}
-            />
-        );
+    for (var i = 0; i < 8; i++) {
+      cards.push(
+        <CategoryCard
+          key={i}
+          category={optionsCategory[i].value}
+          icon={optionsCategory[i].icon}
+        />
+      );
     }
     return (
-        <div className='BuyerWishlist-page'>
-      <TitleHeader name={'Categories'} />
-      <div className='Category-card'>{cards}</div>
-    </div>
+      <div className='BuyerWishlist-page'>
+        <TitleHeader name={'Categories'} />
+        <div className='Category-card'>{cards}</div>
+      </div>
     );
 };
 

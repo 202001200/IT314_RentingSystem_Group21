@@ -220,17 +220,23 @@
         font-size: 22px;
     }
     
-    .CategoryCard-main {
+    .CategoryCard-mainpage {
+      display: flex;
+      /* border: 1px solid red; */
+      margin: 1%;
+      border-radius: 6px;
         background-color: #2e2e2e;
+        font-family: Roboto;
+      }
+      .CategoryCard-main {
         height: 40vh;
         width: 30vh;
-        border-radius: 6px;
-        margin: 1%;
-        font-family: Roboto;
+     
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        color: white;
     }
     
     .CategoryCard-main-icon {
@@ -257,29 +263,6 @@
 
 /********* FAQCard ************/
 
-/* .FAQCardview {
-    background-color: #272727;
-    width: 70%;
-    margin: auto;
-    margin-top: 2%;
-    border-radius: 4px;
-    color: white;
-    text-align: center;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-  
-  .FAQCardview:hover {
-    cursor: pointer;
-  }
-  
-  .FAQCardview:hover > .FAQCardview-title {
-    color: #cfabfd;
-  }
-  
-  .FAQCardview-title {
-    font-weight: 500;
-  } */
   
   /* Request card  */
   

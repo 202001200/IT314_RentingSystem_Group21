@@ -10,7 +10,7 @@ const Dashboard = () => {
 useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/product')
+            .get('https://rentingsystem.herokuapp.com/product')
                 .then((response) => {
                     setData(response.data.product);
                 })
