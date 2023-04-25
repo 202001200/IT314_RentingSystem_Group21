@@ -207,4 +207,31 @@ router.post('/updatemyorder', async (req, res) => {
     }
 });
 
+// @desc    Add Order to Wishlist on clicking on 'Add to Wishlist' button
+// @route   GET /buyer/updateWishlist
+router.post('/updateWishlist', async (req, res) => {
+    try {
+        const update = {
+            $addToSet: {
+                wishlist: req.body.product_id,
+            },
+        };
+        await Buyer.findOneAndUpdate({ _id: req.body.buyer }, update, {
+            new: true,
+            runValidators: true,
+        }).then(
+            res.send({
+                error: false,
+                msg: 'Added to wishlist',
+            })
+        );
+    } catch (error) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+        });
+    }
+});
+
 module.exports = router;
