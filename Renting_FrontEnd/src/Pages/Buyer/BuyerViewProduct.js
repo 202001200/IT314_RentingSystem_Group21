@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './style.css';
 import { Link, useLocation } from 'react-router-dom';
@@ -12,34 +12,37 @@ import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
 const BuyerViewProduct = (props) => {
-  let location = useLocation();
-  let history = useHistory();
-  const alert = useAlert();
-  // console.log(location.state);
-  const Addtowishlist = () => {
-    axios
-      .get('https://rentingsystem.herokuapp.com/buyer/detail', {
-        headers: {
-          auth_token: localStorage.getItem('auth_token'),
-        },
-      })
-      .then((response) => {
-        axios.post('https://rentingsystem.herokuapp.com/buyer/updateWishlist', {
-          buyer: response.data.buyer[0]._id,
-          product_id: location.state._id,
-        });
-        const data = response.data;
-        if (data.error) {
-            alert.error('Error');
-        } else {
-            alert.success('Added to wishlist');
-            history.push('./wishlist');
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+    let location = useLocation();
+    const alert = useAlert();
+    let history = useHistory();
+    // console.log(location.state);
+    const Addtowishlist = () => {
+        axios
+            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                headers: {
+                    auth_token: localStorage.getItem('auth_token'),
+                },
+            })
+            .then((response) => {
+                axios.post(
+                    'https://rentingsystem.herokuapp.com/buyer/updateWishlist',
+                    {
+                        buyer: response.data.buyer[0]._id,
+                        product_id: location.state._id,
+                    }
+                );
+                const data = response.data;
+                if (data.error) {
+                    alert.error('Error');
+                } else {
+                    alert.success('Added to wishlist');
+                    history.push('./wishlist');
+                }
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
     return (
         <div className='BuyerViewProduct-main'>
             <TitleHeader name={'View Product'} />
@@ -53,13 +56,11 @@ const BuyerViewProduct = (props) => {
                         />
                         <div className='BuyerViewProduct-buttons'>
                             <div className='BuyerViewProduct-button'>
-                                {/* <Link to='./wishlist'> */}
                                 <Button
-                                icon={heartIcon}
-                                name={'Wishlist'}
-                                handleClick={Addtowishlist}
+                                    icon={heartIcon}
+                                    name={'Wishlist'}
+                                    handleClick={Addtowishlist}
                                 />
-                                {/* </Link> */}
                             </div>
                             <div className='BuyerViewProduct-button'>
                                 <Link to='./checkout'>
@@ -116,19 +117,20 @@ const BuyerViewProduct = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
+         );
+        };
         
-  );
-};
+        BuyerViewProduct.defaultProps = {
+            title: 'Sony Camera',
+            price: 50000,
+            formatofPrice: '/month',
+            category: 'Camera',
+            seller: 'Deep',
+            description: 'Best camera in segment.',
+        };
+        
+        export default BuyerViewProduct;
 
-BuyerViewProduct.defaultProps = {
-  title: 'Sony Camera',
-  price: 50000,
-  formatofPrice: '/month',
-  category: 'Camera',
-  seller: 'Deep',
-  description: 'Best camera in segment.',
-};
 
-export default BuyerViewProduct;
