@@ -98,3 +98,30 @@ router.get('/lender/:lenderid', async (request, response) => {
         });
     }
 });
+
+// Borrower get his or her order using his or her borrower id
+router.get('/borrower/:borrowerid', async (request, response) => {
+    try {
+        let orders = await Order.find({
+            borrowerid: {
+                $eq: request.params.borrowerid,
+            },
+        });
+        if (!orders) {
+            return res.send({
+                error: true,
+                msg: 'Orders not found',
+            });
+        }
+        response.send({
+            error: false,
+            orders: orders,
+        });
+    } catch (error) {
+        console.error(err);
+        response.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
