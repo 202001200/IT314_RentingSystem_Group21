@@ -33,5 +33,5 @@ app.use('/lender',require('./routes/Lender'));
 const PORT = process.env.PORT || 3000;
 
 app.listen(
-  PORT,'192.168.79.240', console.log('Server is running at port '+process.env.PORT)
+  PORT, console.log('Server is running at port '+process.env.PORT)
 );
