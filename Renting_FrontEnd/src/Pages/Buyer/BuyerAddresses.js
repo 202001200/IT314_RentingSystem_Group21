@@ -23,7 +23,6 @@ const BuyerAddresses = () => {
                 buyer: response.data.buyer[0]._id,
               })
               .then((response) => {
-                // console.log(response);
                 if (response.error) {
                   alert.error(response.error.msg);
                   setData([]);

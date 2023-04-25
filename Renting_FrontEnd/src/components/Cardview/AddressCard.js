@@ -9,6 +9,9 @@ const AddressCard = (props) => {
           {props.address.firstname + ' ' + props.address.lastname}
         </p>
             </div>
+            <div className='AddressCard-email-body'>
+            <p className='AddressCard-emal'>{props.address.email}</p>
+            </div>
             <div className='AddressCard-address-body'>
             <p className='AddressCard-address'>{props.address.address}</p>
             </div>

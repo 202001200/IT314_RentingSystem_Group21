@@ -17,6 +17,8 @@ const Button = (props) => {
             props.name === 'Request'
           ) {
               return;
+              } else if (props.name === 'Place Order') {
+                history.push('./order');
           }
           return history.push('./../');
       }

@@ -15,7 +15,8 @@ const BuyerViewProduct = (props) => {
   let location = useLocation();
   const alert = useAlert();
   let history = useHistory();
-  // console.log(location.state);
+  const passvar = location.state;
+  // console.log(passvar);
   const Addtowishlist = () => {
     axios
       .get('https://rentingsystem.herokuapp.com/buyer/detail', {
@@ -109,8 +110,8 @@ const BuyerViewProduct = (props) => {
                 />
               </div>
               <div className='BuyerViewProduct-button'>
-                <Link to='./checkout'>
-                  <Button icon={cartIcon} name={'Buy Now'} />
+                <Link to={{ pathname: './checkout', state: passvar }}>
+                  <Button icon={cartIcon} name={'Rent Now'} />
                 </Link>
               </div>
             </div>
