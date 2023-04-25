@@ -8,6 +8,7 @@ const router = express.Router();
 const Buyer = require("../models/Borrower.js");
 const Seller = require("../models/Lender.js");
 const authlender = require("../middleware/authlender.js");
+const authapikey = require("../middleware/authapikey.js");
 const Product = require("../models/Product.js");
 
 // Load config
@@ -142,7 +143,7 @@ router.post(
     }
 );
 
-router.get("/detail", [authlender,authlender], async (req, res) => {
+router.get("/detail", [authapikey,authlender], async (req, res) => {
   try {
       const seller = await Seller.find(mongoose.Types.ObjectId(req.seller._id));
       res.send(seller);
