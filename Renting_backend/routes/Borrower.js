@@ -263,3 +263,26 @@ router.post('/request', async (req, res) => {
 });
 
 module.exports = router;
+
+// @desc    Show all address
+// @route   post /buyer/address
+router.post('/address', async (req, res) => {
+    try {
+        let buyer = await Buyer.findById(req.body.buyer);
+        await Seller.find(
+            { _id: buyer.sellerdetail },
+            { firstname: 1, lastname: 1, address: 1,email:1, _id: 0 }
+        ).then((data) => {
+            res.send({
+                error: false,
+                data: data,
+            });
+        });
+    } catch (err) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+        });
+    }
+});
