@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './style.css';
 import { Icon } from '@iconify/react';
 import { useHistory } from 'react-router-dom';
@@ -7,13 +6,12 @@ const Button = (props) => {
     let history = useHistory();
   const click = () => {
     if (props.handleClick) {
-      if (props.name == 'Cancel') {
+      if (props.name === 'Cancel') {
         return history.push('./../');
       }
       props.handleClick();
-      if (props.name == 'Wishlist') {
-        return history.push('./wishlist');
-      }
+      if (props.name === 'Wishlist') {
+        return;}
       return history.push('./../');
     }
   };

@@ -3,10 +3,9 @@ import axios from 'axios';
 import GeneralCard from '../../components/Cardview/GeneralCard';
 import TitleHeader from '../../components/header/TitleHeader';
 
-
-
 const BuyerWishlist = () => {
   const [Products, setData] = useState([]);
+  let flag=1;
   useEffect(() => {
     const fetch = () => {
       axios
@@ -21,7 +20,16 @@ const BuyerWishlist = () => {
               buyer: response.data.buyer[0]._id,
             })
             .then((response) => {
-              setData(response.data.product);
+              if(response.data==='No items in the Wishlist')
+              {
+                  setData([]);
+              }
+              else
+              {
+              setData(response.data.data);
+              console.log(response.data)
+              }
+
             })
             .catch((e) => {
               console.log(e);
@@ -31,19 +39,21 @@ const BuyerWishlist = () => {
           console.log(e);
         });
     };
-
     fetch();
   }, []);
-return (
-  <div className='BuyerWishlist-page'>
-    <TitleHeader name={'My Wishlist'} />
-    <div className='BuyerWishlist-card'>
-        {Products.map((product) => {
-          return <GeneralCard key={product._id} product={product} />;
-        })}
+  return (
+    <div className='BuyerWishlist-page'>
+      <TitleHeader name={'My Wishlist'} />
+      <div className='BuyerWishlist-card'>
+       
+      {
+            Products.map((product) => {
+            return <GeneralCard key={product._id} product={product} />;
+          })}
       </div>
-  </div>
-);
-};
+    </div>
+  );
 
-export default BuyerWishlist;
+
+        };
+        export default BuyerWishlist;

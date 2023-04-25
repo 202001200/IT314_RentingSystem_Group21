@@ -26,13 +26,14 @@ const BuyerViewProduct = (props) => {
       .then((response) => {
         axios.post('https://rentingsystem.herokuapp.com/buyer/updateWishlist', {
           buyer: response.data.buyer[0]._id,
-          product: location.state._id,
+          product_id: location.state._id,
         });
         const data = response.data;
         if (data.error) {
-          alert.error(data.msg);
+            alert.error('Error');
         } else {
-          alert.success(data.msg);
+            alert.success('Added to wishlist');
+            history.push('./wishlist');
         }
       })
       .catch((e) => {
@@ -81,7 +82,7 @@ const BuyerViewProduct = (props) => {
                             <span className='BuyerViewProduct-price'>
                                 {location.state.price}{' '}
                             </span>{' '}
-                            <span> {location.state.formatofPrice}</span>
+                            <span> {location.state.formatofprice}</span>
                         </div>
                     </div>
                     <hr />

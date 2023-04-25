@@ -28,7 +28,7 @@ const CategoryPage = (props) => {
       <SearchHeader />
       <div className='Main-card'>
         {Products.map((product) => {
-          if (product.category == location.state)
+          if (product.category === location.state)
             return <ProductCard key={product._id} product={product} />;
         })}
       </div>
