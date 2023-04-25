@@ -286,3 +286,30 @@ router.post('/address', async (req, res) => {
         });
     }
 });
+
+// @desc    Add item to Wishlist on clicking on 'Add to Wishlist' button
+// @route   GET /buyer/getwishlist
+
+router.post('/getwishlist', async (req,res)=> {
+    try {
+        const buyer = await Buyer.findById(req.body.buyer)
+        if (buyer.wishlist.length === 0)
+        {
+            return res.send({
+                error: true,
+                msg :"No items in the Wishlist"})
+        }
+        await Product.find({_id : buyer.wishlist}).then(data=>{
+            res.send({
+                error : false,
+                data : data})
+        })
+        
+    } catch (error) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+    });
+    }
+});
