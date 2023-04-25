@@ -10,7 +10,11 @@ const Dashboard = () => {
 useEffect(() => {
         const fetch = () => {
             axios
-            .get('http://192.168.79.240:3001/products')
+            .get('https://rentbuddy.onrender.com/products',{
+                headers:{
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                }
+              })
                 .then((response) => {
                     setData(response.data.product);
                 })

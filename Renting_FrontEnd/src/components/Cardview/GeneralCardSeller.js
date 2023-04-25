@@ -18,7 +18,7 @@ const Cardview = (props) => {
     console.log(product._id + 'clicked');
     axios
       .delete(
-        'https://rentingsystem.herokuapp.com/product/seller/' + product._id
+        'https://rentbuddy.onrender.com/lender/myproducts' + product._id
       )
       .then(function (response) {
         const data = response.data;
