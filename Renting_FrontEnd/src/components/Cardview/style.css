@@ -15,7 +15,9 @@
 }
 
 .ProductCardview-imagediv {
-    flex: 3;
+    max-height: 30vh;
+      width: 30vh;
+      flex: 3;
 }
 
 .ProductCardview-image {
@@ -410,7 +412,7 @@
   
   .GeneralCardviewSeller-imagediv {
     flex: 2;
-    max-height: 25vh;
+    height: 25vh;
   }
   .GeneralCardviewSeller-image {
     margin: 5%;
@@ -460,6 +462,9 @@
     background-color: #cfabfd;
     border-radius: 4px;
   }
+    .GeneralCardviewSeller-button:hover {
+      cursor: pointer;
+    }
   .GeneralCardviewSeller-Buttonbody {
     display: flex;
     color: #994af1;

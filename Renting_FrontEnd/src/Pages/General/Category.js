@@ -23,21 +23,7 @@ const optionsCategory = [
 ];
 
 const Category = () => {
-    const [Products, setData] = useState([]);
-    useEffect(() => {
-      const fetch = () => {
-        axios
-          .get('http://localhost:5000/product/')
-          .then((response) => {
-            setData(response.data.product);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
-      };
-  
-      fetch();
-    }, []);
+    
   
     const cards = [];
     for (var i = 0; i < 8; i++) {

@@ -24,6 +24,7 @@
     background-color: #222222;
     border-radius: 4px;
     margin: 1%;
+    padding-bottom: 1%;
 }
 .BuyerViewProduct-imagediv {
     flex: 5;
