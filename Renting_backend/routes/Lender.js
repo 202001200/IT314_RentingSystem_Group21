@@ -167,12 +167,10 @@ router.post('/forgot',authapikey, async (req, res) => {
 
 router.get('/detail', [authapikey, authlender], async (req, res) => {
     try {
-        const lender = await Lender.find(
-            mongoose.Types.ObjectId(req.lender._id)
-        );
+        const lender = await Lender.findById(req.lender._id);
         res.send({
             error: false,
-            lender: lender,
+            lenderData: lender,
         });
     } catch (err) {
         console.log(err);
