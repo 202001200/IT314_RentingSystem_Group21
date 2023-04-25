@@ -57,9 +57,9 @@ const SellerAddProduct = () => {
 
     const changeFOPoption = (event) => {
         setFOP(event.value);
-    };
+        };
 
-    const changeCategoryoption = (event) => {
+        const changeCategoryoption = (event) => {
         setCategory(event.label);
     };
 
@@ -134,9 +134,9 @@ const SellerAddProduct = () => {
             });
     };
 
-                        return (
+                         return (
         <div>
-            <TitleHeader name={'Add Products'} />
+            <TitleHeader name={'Add Product'} />
             <div className='SellerAddproduct-main'>
                 <div className='SellerAddProduct-body'>
                     <div className='SellerAddProduct-left'>
@@ -261,9 +261,9 @@ const SellerAddProduct = () => {
                         </div>
                     </div>
                 </div>
-                        </div>
-                </div>
-                        );
+            </div>
+        </div>
+    );
 };
 
 export default SellerAddProduct;

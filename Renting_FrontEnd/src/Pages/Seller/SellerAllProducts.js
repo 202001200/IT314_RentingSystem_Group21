@@ -5,7 +5,6 @@ import TitleHeader from '../../components/header/TitleHeader';
 
 const SellerAllproducts = () => {
     const [Products, setData] = useState([]);
-    const [seller, setSeller] = useState('');
 
     useEffect(() => {
         const fetch = () => {
@@ -16,8 +15,6 @@ const SellerAllproducts = () => {
                     },
                 })
                 .then((response) => {
-                    setSeller(response.data.seller[0]._id);
-                    console.log(response.data.seller[0]._id);
                     axios
                         .post(
                             'https://rentingsystem.herokuapp.com/seller/myproducts',
@@ -42,7 +39,7 @@ const SellerAllproducts = () => {
     }, []);
     return (
         <div>
-            <TitleHeader name={'All Product'} />
+            <TitleHeader name={'My Products'} />
             <div className='BuyerMyOrder-card'>
                 {Products.map((product) => {
                     return (

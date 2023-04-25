@@ -43,7 +43,7 @@ const SellerHandleRequests = (props) => {
 
     return (
         <div className='BuyerAddresses-main'>
-            <TitleHeader name={'Handle Request'} />
+            <TitleHeader name={'Handle Requests'} />
             <div className='BuyerAddresses-main-card'>
                 {requests.map((request) => {
                     return (
