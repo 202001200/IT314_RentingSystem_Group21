@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product.js');
 const { check, validationResult } = require('express-validator');
-
-router.get('/:category',[authapikey, authlender], async(req,res)=>{
+const authapikey = require('../middleware/authapikey.js');
+router.get('/category/:category',authapikey, async(req,res)=>{
     try{
         const products = await Product.find({
             category:{
@@ -21,7 +21,7 @@ router.get('/:category',[authapikey, authlender], async(req,res)=>{
     }
 })
 
-router.get('/', [authapikey, authlender], async (req, res) => {
+router.get('/',authapikey, async (req, res) => {
     try {
         const products = await Product.find({}).sort({
             createdAt:'desc'
@@ -40,7 +40,7 @@ router.get('/', [authapikey, authlender], async (req, res) => {
     }
 });
 
-router.get('/:id',[authapikey, authlender], async(req,res)=>{
+router.get('/:id',authapikey, async(req,res)=>{
     try{
         const product = Product.findById(req.params.id);
         res.send(product);
