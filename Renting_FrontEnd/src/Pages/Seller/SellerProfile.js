@@ -11,6 +11,10 @@ import lockOutline from '@iconify-icons/mdi/lock-outline';
 
 const SellerProfile = () => {
   const [Seller, setData] = useState([]);
+  const [password, setPassword] = useState('');
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
   useEffect(() => {
     const fetch = () => {
       axios
@@ -29,6 +33,26 @@ const SellerProfile = () => {
 
     fetch();
   }, []);
+
+  const handleOnClick = () => {
+    axios
+        .post('https://rentingsystem.herokuapp.com/buyer/forgot', {
+          password : password,
+        })
+        .then(function (response) {
+            const data = response.data;
+            if (data.error) {
+                alert.error(data.msg);
+            } else {
+                alert.success(data.msg);
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+  };
+
+
 
 return (
         <div className='SellerProfile-page'>
@@ -108,13 +132,14 @@ return (
                 <div className='changepassword-buttonbody'>
                     <div className='change-input'>
                         <input
-                            type={'text'}
+                            type={'password'}
                             placeholder={'Enter a new Password'}
                             className='changepassword-input'
+                            handleInput={handlePassword}
                         />
                     </div>
                     <div className='changepassword-button'>
-                        <div className='changepassword-btn'>Update</div>
+                        <div className='changepassword-btn' onClick={handleOnClick}>Update</div>
                     </div>
                 </div>
             </div>
