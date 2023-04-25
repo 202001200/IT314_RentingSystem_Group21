@@ -125,3 +125,20 @@ router.get('/borrower/:borrowerid', async (request, response) => {
         });
     }
 });
+
+//Method to get all order 
+router.get('/', async (req, res) => {
+    try {
+        const orders = await Order.find({});
+        res.send({
+            error: false,
+            orders: orders,
+        });
+    } catch (err) {
+        console.error(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
