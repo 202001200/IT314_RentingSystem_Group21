@@ -367,3 +367,26 @@ router.get('/getmessage/:id',async(req,res)=>{
         });
     }
 })
+
+//@desc  Get the name of th ebuuyer from the id
+//@route  /buyer/getname
+
+router.get('/getname/:id',async(req,res)=>{
+    try{
+         await Buyer.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
+            res.send({
+                error : false,
+                data : data,
+            }
+            )
+        })
+    }catch(err){
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+})
+
+module.exports = router;
