@@ -197,4 +197,25 @@ router.post('/myproducts', async (req, res) => {
     }
 });
 
+router.post('/myrequest', async (req, res) => {
+    try {
+        let lender = await Lender.findById(req.body.lender);
+        await Borrower.find(
+            { _id: lender.requestforaddress },
+            { firstname: 1, lastname: 1, email: 1 }
+        ).then((data) => {
+            res.send({
+                error: false,
+                data: data,
+            });
+        });
+    } catch (err) {
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
+
 module.exports = router;
