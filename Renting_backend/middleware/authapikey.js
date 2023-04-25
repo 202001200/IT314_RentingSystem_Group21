@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-
+require('dotenv').config();
 module.exports = async(req,res,next)=>{
     if(!req.header("api-key")){
         res.statusCode = 403;
