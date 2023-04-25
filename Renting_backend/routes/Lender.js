@@ -218,4 +218,76 @@ router.post('/myrequest', async (req, res) => {
     }
 });
 
+router.post('/accept', async (req, res) => {
+    try {
+        const filter = { _id: req.body.borrower };
+        const update = {
+            $addToSet: {
+                lenderdetail: req.body.lender,
+            },
+        };
+
+        let accept = await Borrower.findOneAndUpdate(filter, update, {
+            new: false,
+        }).then(
+            res.send({
+                error: false,
+                msg: 'Borrower given access sucessfully',
+            })
+        );
+        await Lender.findOneAndUpdate(
+            {
+                _id: req.body.lender,
+            },
+            {
+                $pull: {
+                    requestforaddress: req.body.borrower,
+                },
+            }
+        );
+    } catch (err) {
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
+
+router.post('/decline',async(req,res)=>{
+    try{
+        let lender = await Lender.findOneAndUpdate(
+            {
+                _id: req.body.lender,
+            },
+            {
+                $pull: {
+                    requestforaddress: req.body.borrower,
+                },
+            }
+        );
+        const filter = { _id: req.body.borrower };
+        const update = {
+            $push: {
+                message: "The lender "+lender.firstname+" "+lender.lastname+" declined your request",
+            },
+        };
+        let accept = await Borrower.findOneAndUpdate(filter, update, {
+            new: true,
+        }).then(
+            res.send({
+                error: false,
+                msg: 'Borrower declined access sucessfully',
+            })
+        );
+
+    }catch(err){
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+})
+
 module.exports = router;
