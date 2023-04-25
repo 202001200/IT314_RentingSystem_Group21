@@ -7,7 +7,7 @@ const { check, validationResult } = require("express-validator");
 const router = express.Router();
 const Buyer = require("../models/Borrower.js");
 const Seller = require("../models/Lender.js");
-const authlender = require("../middleware/auth.js");
+const authlender = require("../middleware/authlender.js");
 const Product = require("../models/Product.js");
 
 // Load config
