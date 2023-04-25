@@ -8,6 +8,7 @@ const Borrower = require('../models/Borrower.js');
 const Lender = require('../models/Lender.js');
 const Product = require('../models/Product.js');
 const authlender = require('../middleware/authlender.js');
+const authapikey = require('../middleware/authapikey.js');
 const jwt = require('jsonwebtoken');
 dotenv.config({path:'../config/config.js'});
 
