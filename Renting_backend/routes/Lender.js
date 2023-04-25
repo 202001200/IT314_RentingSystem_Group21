@@ -290,4 +290,22 @@ router.post('/decline',async(req,res)=>{
     }
 })
 
+router.get('/getname/:id',async(req,res)=>{
+    try{
+         await Lender.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
+            res.send({
+                error : false,
+                data : data,
+            }
+            )
+        })
+    }catch(err){
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+})
+
 module.exports = router;
