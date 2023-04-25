@@ -25,7 +25,7 @@ const SellerLogin = (props) => {
 
     const handleOnClick = () => {
         axios
-            .post('http://localhost:3001/lender/login', {
+            .post('http://192.168.79.240:3001/lender/login', {
                 email: email,
                 password: password,
             })

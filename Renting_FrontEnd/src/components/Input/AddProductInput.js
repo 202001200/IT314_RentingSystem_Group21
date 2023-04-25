@@ -7,12 +7,22 @@ const AddProductInput = (props) => {
      return (
         <div className='AddProductInput-input-body'>
             <Icon icon={props.icon} className='AddProductInput-inputicon' />
-            <input
-                type={props.type}
-                placeholder={props.placeholder}
-                className='AddProductInput-input'
-                onChange={props.handleInput}
-            />
+            {props.value ? (
+                <input
+                    type={props.type}
+                    placeholder={props.placeholder}
+                    className='AddProductInput-input'
+                    onChange={props.handleInput}
+                    value={props.value}
+                />
+            ) : (
+                <input
+                    type={props.type}
+                    placeholder={props.placeholder}
+                    className='AddProductInput-input'
+                    onChange={props.handleInput}
+                />
+            )}
         </div>
     );
 };

@@ -10,7 +10,7 @@ const Dashboard = () => {
 useEffect(() => {
         const fetch = () => {
             axios
-            .get('https://localhost:3001/product')
+            .get('http://192.168.79.240:3001/products')
                 .then((response) => {
                     setData(response.data.product);
                 })
