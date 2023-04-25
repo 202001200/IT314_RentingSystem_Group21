@@ -180,4 +180,31 @@ router.post('/forgot', async (req, res) => {
     }
 });
 
+// @desc    Add Order to MyOrder on clicking on 'Buy Now' button
+// @route   GET /buyer/updatemyorder
+router.post('/updatemyorder', async (req, res) => {
+    try {
+        const update = {
+            $addToSet: {
+                myorder: req.body.orderid,
+            },
+        };
+        Buyer.findOneAndUpdate({ _id: req.body.buyer }, update, {
+            new: true,
+            runValidators: true,
+        }).then(
+            res.send({
+                error: false,
+                msg: 'Added to MyOrders',
+            })
+        );
+    } catch (error) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+        });
+    }
+});
+
 module.exports = router;
