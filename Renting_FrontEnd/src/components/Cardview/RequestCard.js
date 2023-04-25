@@ -20,6 +20,9 @@ const RequestCard = (props) => {
                 alert.error(data.msg);
             } else {
                 alert.success(data.msg);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             }
             console.log(response);
         })
@@ -40,6 +43,9 @@ const handleDecline = () => {
                 alert.error(data.msg);
             } else {
                 alert.success(data.msg);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             }
             console.log(response);
         })

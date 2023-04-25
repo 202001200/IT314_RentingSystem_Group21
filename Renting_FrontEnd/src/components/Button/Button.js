@@ -12,9 +12,9 @@ const Button = (props) => {
           props.handleClick();
           if (
             props.name === 'Wishlist' ||
+            props.name === 'Request' ||
             props.name === 'Accept' ||
-            props.name === 'Decline' ||
-            props.name === 'Request'
+            props.name === 'Decline'
           ) {
               return;
               } else if (props.name === 'Place Order') {

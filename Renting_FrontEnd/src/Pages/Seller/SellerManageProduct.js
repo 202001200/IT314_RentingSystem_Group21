@@ -268,11 +268,6 @@ const SellerManageProduct = () => {
   );
 };
 
-SellerManageProduct.defaultProps = {
-    title: 'Sony Camera',
-    price: '25$',
-    format: '/month',
-    category: 'Camera',
-  };
+
 
 export default SellerManageProduct;

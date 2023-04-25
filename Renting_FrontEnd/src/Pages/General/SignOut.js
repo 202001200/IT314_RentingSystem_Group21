@@ -8,27 +8,28 @@ import checkboxMarkedCircle from '@iconify-icons/mdi/checkbox-marked-circle';
 
   const SignOut = (props) => {
     return (
-        <div className='SignOut-main'>
+      <div className='SignOut-main'>
           <div className='SignOut-Title'>Sign Out</div>
           <div className='SignOut-namebody'>Are you sure ?</div>
           <div className='SignOut-Buttondiv'>
-            <div className='SignOut-Buttons'>
-              <Button
-                icon={closeCircleOutline}
-                name={'Cancel'}
-                handleClick={props.handleClick}
-              />
+              <div className='SignOut-Buttons'>
+                  <Button
+                      icon={closeCircleOutline}
+                      name={'Cancel'}
+                      handleClick={props.handleClick}
+                  />
+              </div>
+              <div className='SignOut-Buttons'>
+                  <Button
+                      icon={checkboxMarkedCircle}
+                      name={'Yes'}
+                      handleClick={props.handleClick}
+                  />
+              </div>
+          </div>
             </div>
         
-            <div className='SignOut-Buttons'>
-              <Button
-                icon={checkboxMarkedCircle}
-                name={'Yes'}
-                handleClick={props.handleClick}
-              />
-            </div>
-          </div>
-        </div>);
+    );
 };
 
 export default SignOut;

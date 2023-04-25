@@ -184,6 +184,7 @@
     width: 47%;
     margin: auto;
     margin-bottom: 2%;
+    border-radius: 6px;
 }
 
 .LiveProductCard-main {
@@ -191,7 +192,7 @@
     height: 100%;
     display: flex;
     color: white;
-
+    align-items: center;
 }
 
 .LiveProductCard:hover {
@@ -364,6 +365,7 @@
     height: 100%;
     display: flex;
     color: white;
+    align-items: center;
   }
   .SellerLiveProduct:hover {
     transition: 0.4s;

@@ -2,9 +2,11 @@ import SellerActiveProductCard from '../../components/Cardview/SellerActiveProdu
 import TitleHeader from '../../components/header/TitleHeader';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAlert } from 'react-alert';
 
 
 const SellerActiveProduct = () => {
+    const alert = useAlert();
      const [orders, setOrders] = useState([]);
     const [check, setCheck] = useState(false);
 
@@ -17,13 +19,23 @@ const SellerActiveProduct = () => {
                     },
                 })
                 .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
                     axios
                         .get(
                             'https://rentingsystem.herokuapp.com/order/seller/' +
                                 response.data.seller[0]._id
                         )
                         .then((response) => {
-                            setOrders(response.data.orders);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setOrders(response.data.orders);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -34,7 +46,7 @@ const SellerActiveProduct = () => {
                 });
         };
         fetch();
-    }, []);
+    }, [alert]);
 
     const handleCheck = () => {
         setCheck(!check);

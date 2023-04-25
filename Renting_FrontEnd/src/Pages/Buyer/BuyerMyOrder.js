@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import LiveProductCard from '../../components/Cardview/LiveProductCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import axios from 'axios';
+import { useAlert } from 'react-alert';
 
 const BuyerMyOrder = () => {
+    const alert = useAlert();
    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -15,13 +17,23 @@ const BuyerMyOrder = () => {
                     },
                 })
                 .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
                     axios
                         .get(
                             'https://rentingsystem.herokuapp.com/order/buyer/' +
                                 response.data.buyer[0]._id
                         )
                         .then((response) => {
-                            setOrders(response.data.orders);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setOrders(response.data.orders);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -32,7 +44,7 @@ const BuyerMyOrder = () => {
                 });
         };
         fetch();
-    }, []);
+    }, [alert]);
 
     return (
         <div className='BuyerMyOrder-page'>

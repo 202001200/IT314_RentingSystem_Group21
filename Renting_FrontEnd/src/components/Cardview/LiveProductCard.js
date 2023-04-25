@@ -15,14 +15,24 @@ const Cardview = (props) => {
                         props.order.productid
                 )
                 .then((response) => {
-                    setProduct(response.data.product);
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
+                    setProduct(data.product);
                     axios
                         .get(
                             'https://rentingsystem.herokuapp.com/seller/getname/' +
                                 response.data.product.seller
                         )
                         .then((response) => {
-                            setSeller(response.data.data[0]);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setSeller(data.data[0]);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -88,24 +98,27 @@ const Cardview = (props) => {
                                     {}
                                 </div>
                             </div>
-                            <div className='LiveProductCard-namediv'>
-                                <div className='LiveProductCard-name'>
-                                    {props.flag
-                                        ? 'Purchase Time'
-                                        : 'Return Time'}
+                            {props.flag && (
+                                <div className='LiveProductCard-namediv'>
+                                    <div className='LiveProductCard-name'>
+                                        {props.flag
+                                            ? 'Purchase Time'
+                                            : 'Return Time'}
+                                    </div>
+                                    <div className='LiveProductCard-value'>
+                                        {' '}
+                                        {props.flag
+                                            ? props.order.purchasedate
+                                                  .split('T')[1]
+                                                  .split('.')[0]
+                                            : props.order.returndate
+                                                  .split('T')[1]
+                                                  .split('.')[0]}
+                                        {}
+                                    </div>
                                 </div>
-                                <div className='LiveProductCard-value'>
-                                    {' '}
-                                    {props.flag
-                                        ? props.order.purchasedate
-                                              .split('T')[1]
-                                              .split('.')[0]
-                                        : props.order.returndate
-                                              .split('T')[1]
-                                              .split('.')[0]}
-                                    {}
-                                </div>
-                            </div>
+                        )}
+
                         </div>
                     </div>
                 </div>
