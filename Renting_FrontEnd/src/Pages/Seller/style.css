@@ -273,8 +273,11 @@
     display: flex;
     width: 100%;
   }
-  .SellerProfile-addressdiv {
+  .SellerProfile-addressdiv1 {
     flex: 2;
+  }
+  .SellerProfile-addressdiv2 {
+    flex: 1;
   }
   .SellerProfile-mobilenumberdiv {
     flex: 1;
