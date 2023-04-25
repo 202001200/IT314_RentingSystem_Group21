@@ -313,3 +313,38 @@ router.post('/getwishlist', async (req,res)=> {
     });
     }
 });
+
+// @desc  Remove an item from wishlist when clicked on remove from Wishlist
+// @route GET /buyer/removeWishlist
+router.put('/removeitem', async (req,res)=> {
+    try {
+        
+        const buyer = await Buyer.findOneAndUpdate({
+            _id : req.body.buyer
+        },
+        {
+            $pull :{
+                wishlist : req.body.product
+            }
+        }
+        )
+        if (buyer.wishlist.length === 0)
+        {
+            return res.send({
+                error: true,
+                msg :"No items in to remove from Wishlist"})
+        }
+        else
+        {
+            res.send({
+                error: false,
+                msg: "Product Removed"});
+        }
+    } catch (error) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+    });
+    }
+})
