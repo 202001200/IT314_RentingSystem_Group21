@@ -18,6 +18,7 @@ dotenv.config();
 router.post(
   "/signup",
   [
+    authapikey,
     check("firstname", "Please Enter a Valid Firstname").not().isEmpty(),
     check("lastname", "Please Enter a Valid Lastname").not().isEmpty(),
     check("address", "Please Enter a Valid Address").not().isEmpty(),
@@ -84,6 +85,7 @@ router.post(
 router.post(
     '/login',
     [
+        authapikey,
         check('email', 'Please enter a valid email').isEmail(),
         check('password', 'Please enter a valid password').isLength({
             min: 8,
@@ -140,7 +142,7 @@ router.post(
     }
 );
 
-router.get("/detail", authlender, async (req, res) => {
+router.get("/detail", [authlender,authlender], async (req, res) => {
   try {
       const seller = await Seller.find(mongoose.Types.ObjectId(req.seller._id));
       res.send(seller);
@@ -154,7 +156,7 @@ router.get("/detail", authlender, async (req, res) => {
 
 // @desc    change password
 // @route   GET /buyer/forgot
-router.post('/forgot', async (req, res) => {
+router.post('/forgot', authapikey, async (req, res) => {
     try {
         const buyer = await Buyer.findOne({_id : req.body.buyer});
         if (!Buyer) {
@@ -182,7 +184,7 @@ router.post('/forgot', async (req, res) => {
 
 // @desc    Add Order to MyOrder on clicking on 'Buy Now' button
 // @route   GET /buyer/updatemyorder
-router.post('/updatemyorder', async (req, res) => {
+router.post('/updatemyorder', authapikey, async (req, res) => {
     try {
         const update = {
             $addToSet: {
@@ -209,7 +211,7 @@ router.post('/updatemyorder', async (req, res) => {
 
 // @desc    Add Order to Wishlist on clicking on 'Add to Wishlist' button
 // @route   GET /buyer/updateWishlist
-router.post('/updateWishlist', async (req, res) => {
+router.post('/updateWishlist', authapikey, async (req, res) => {
     try {
         const update = {
             $addToSet: {
@@ -236,7 +238,7 @@ router.post('/updateWishlist', async (req, res) => {
 
 // @desc    Request address
 // @route   post /buyer/request
-router.post('/request', async (req, res) => {
+router.post('/request', authapikey, async (req, res) => {
     try {
         const filter = { _id: req.body.seller };
         const update = {
@@ -266,7 +268,7 @@ module.exports = router;
 
 // @desc    Show all address
 // @route   post /buyer/address
-router.post('/address', async (req, res) => {
+router.post('/address', authapikey, async (req, res) => {
     try {
         let buyer = await Buyer.findById(req.body.buyer);
         await Seller.find(
@@ -290,7 +292,7 @@ router.post('/address', async (req, res) => {
 // @desc    Add item to Wishlist on clicking on 'Add to Wishlist' button
 // @route   GET /buyer/getwishlist
 
-router.post('/getwishlist', async (req,res)=> {
+router.post('/getwishlist', authapikey, async (req,res)=> {
     try {
         const buyer = await Buyer.findById(req.body.buyer)
         if (buyer.wishlist.length === 0)
@@ -316,7 +318,7 @@ router.post('/getwishlist', async (req,res)=> {
 
 // @desc  Remove an item from wishlist when clicked on remove from Wishlist
 // @route GET /buyer/removeWishlist
-router.put('/removeitem', async (req,res)=> {
+router.put('/removeitem', authapikey, async (req,res)=> {
     try {
         
         const buyer = await Buyer.findOneAndUpdate({
@@ -351,7 +353,7 @@ router.put('/removeitem', async (req,res)=> {
 
 //@desc Get all declined messages for a given buyerid
 //@routes  /buyer/getmessage
-router.get('/getmessage/:id',async(req,res)=>{
+router.get('/getmessage/:id',[authapikey, authlender], async(req,res)=>{
     try{
         await Buyer.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
             res.send({
@@ -371,7 +373,7 @@ router.get('/getmessage/:id',async(req,res)=>{
 //@desc  Get the name of th ebuuyer from the id
 //@route  /buyer/getname
 
-router.get('/getname/:id',async(req,res)=>{
+router.get('/getname/:id',[authapikey, authlender],async(req,res)=>{
     try{
          await Buyer.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
             res.send({
