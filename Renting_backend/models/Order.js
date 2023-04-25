@@ -31,7 +31,7 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    duration: {
+    returndate: {
         type: Date,
         default: null,
     },
