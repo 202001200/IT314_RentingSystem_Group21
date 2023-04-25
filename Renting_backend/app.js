@@ -32,5 +32,5 @@ app.use('/borrower',require('./routes/Borrower'));
 const PORT = process.env.PORT || 3000;
 
 app.listen(
-  PORT, console.log('Server is running at port '+process.env.PORT)
+  PORT,'192.168.79.240', console.log('Server is running at port '+process.env.PORT)
 );

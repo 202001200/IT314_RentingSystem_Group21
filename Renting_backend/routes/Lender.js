@@ -10,7 +10,7 @@ const Product = require('../models/Product.js');
 dotenv.config();
 
 router.post(
-    '/register',
+    '/signup',
     [
         check('firstname', 'Enter a valid Firstname').not().isEmpty(),
         check('lastname', 'Enter a valid Lirstname').not().isEmpty(),
