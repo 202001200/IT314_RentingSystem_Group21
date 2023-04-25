@@ -234,4 +234,32 @@ router.post('/updateWishlist', async (req, res) => {
     }
 });
 
+// @desc    Request address
+// @route   post /buyer/request
+router.post('/request', async (req, res) => {
+    try {
+        const filter = { _id: req.body.seller };
+        const update = {
+            $addToSet: {
+                requestforaddress: req.body.buyer,
+            },
+        };
+
+        let seller = await Seller.findOneAndUpdate(filter, update, {
+            new: false,
+        }).then(
+            res.send({
+                error: false,
+                msg: 'Request Send to Seller',
+            })
+        );
+    } catch (err) {
+        console.log(error);
+        res.send({
+            error: true,
+            msg: error.message,
+        });
+    }
+});
+
 module.exports = router;
