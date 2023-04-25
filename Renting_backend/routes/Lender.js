@@ -136,6 +136,32 @@ router.post(
 
 );
 
+router.post('/forgot', async (req, res) => {
+    try {
+        const lender = await Lender.findOne({_id: req.body.lender});
+        if (!Lender) {
+            return res.send({
+                error: true,
+                msg: 'Enter a valid email',
+            });
+        }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        lender.password = hashedPassword;
+        await lender.save();
+        res.send({
+            error: false,
+            msg: 'Password Changed',
+        });
+    } catch (err) {
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
+
 router.get('/detail', authlender, async (req, res) => {
     try {
         const lender = await Lender.find(
