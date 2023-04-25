@@ -8,7 +8,7 @@ module.exports = async(req,res,next)=>{
     }
     else{
         try{
-            const v = await bcrypt.compare('secret',req.header("api-key"));
+            const v = await bcrypt.compare(process.env.API_SECRET,req.header("api-key"));
         if(!v){
             res.statusCode = 401;
             res.send({"error":"Invalid API Key"});
