@@ -14,6 +14,7 @@ dotenv.config({path:'../config/config.js'});
 router.post(
     '/signup',
     [
+        authapikey,
         check('firstname', 'Enter a valid Firstname').not().isEmpty(),
         check('lastname', 'Enter a valid Lirstname').not().isEmpty(),
         check('email', 'Enter a valid Email Address').isEmail(),
@@ -79,6 +80,7 @@ router.post(
 router.post(
     '/login',
     [
+        authapikey,
         check('email', 'Enter a valid Email Address').isEmail(),
         check('password', 'Enter a valid Firstname').isLength ({min: 8})
     ],
@@ -136,7 +138,7 @@ router.post(
 
 );
 
-router.post('/forgot', async (req, res) => {
+router.post('/forgot',authapikey, async (req, res) => {
     try {
         const lender = await Lender.findOne({_id: req.body.lender});
         if (!Lender) {
@@ -162,7 +164,7 @@ router.post('/forgot', async (req, res) => {
     }
 });
 
-router.get('/detail', authlender, async (req, res) => {
+router.get('/detail', [authapikey, authlender], async (req, res) => {
     try {
         const lender = await Lender.find(
             mongoose.Types.ObjectId(req.lender._id)
@@ -180,7 +182,7 @@ router.get('/detail', authlender, async (req, res) => {
     }
 });
 
-router.post('/myproducts', async (req, res) => {
+router.post('/myproducts', authapikey, async (req, res) => {
     try {
         let data = Product.find({ lender: req.body.lender_id }).then((data) => {
             res.send({
@@ -197,7 +199,7 @@ router.post('/myproducts', async (req, res) => {
     }
 });
 
-router.post('/myrequest', async (req, res) => {
+router.post('/myrequest', authapikey, async (req, res) => {
     try {
         let lender = await Lender.findById(req.body.lender);
         await Borrower.find(
@@ -218,7 +220,7 @@ router.post('/myrequest', async (req, res) => {
     }
 });
 
-router.post('/accept', async (req, res) => {
+router.post('/accept', authapikey, async (req, res) => {
     try {
         const filter = { _id: req.body.borrower };
         const update = {
@@ -254,7 +256,7 @@ router.post('/accept', async (req, res) => {
     }
 });
 
-router.post('/decline',async(req,res)=>{
+router.post('/decline',authapikey, async(req,res)=>{
     try{
         let lender = await Lender.findOneAndUpdate(
             {
@@ -290,7 +292,7 @@ router.post('/decline',async(req,res)=>{
     }
 })
 
-router.get('/getname/:id',async(req,res)=>{
+router.get('/getname/:id',[authapikey,authlender], async(req,res)=>{
     try{
          await Lender.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
             res.send({
