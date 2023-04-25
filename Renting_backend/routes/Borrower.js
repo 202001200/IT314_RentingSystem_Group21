@@ -348,3 +348,22 @@ router.put('/removeitem', async (req,res)=> {
     });
     }
 })
+
+//@desc Get all declined messages for a given buyerid
+//@routes  /buyer/getmessage
+router.get('/getmessage/:id',async(req,res)=>{
+    try{
+        await Buyer.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
+            res.send({
+                error:false,
+                data: data,
+            })
+        })
+    }catch(err){
+        console.log(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+})
