@@ -48,3 +48,26 @@ router.post(
         }
     }
 );
+
+//get order using the id 
+router.get('/:id', async (req, res) => {
+    try {
+        let order = await Order.findById(req.params.id);
+        if (!order) {
+            return res.send({
+                error: true,
+                msg: 'Order not found',
+            });
+        }
+        res.send({
+            error: false,
+            order: order,
+        });
+    } catch (err) {
+        console.error(err);
+        res.send({
+            error: true,
+            msg: err.message,
+        });
+    }
+});
