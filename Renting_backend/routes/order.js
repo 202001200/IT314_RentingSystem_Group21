@@ -8,6 +8,7 @@ const { check, validationResult } = require('express-validator');
 router.post(
     '/',
     [
+        authapikey,
         check('address', 'Please Enter a Valid Address').not().isEmpty(),
         check('totalprice', 'Please Enter a Valid Price').not().isEmpty(),
         check('borrowerid','Please enter a valid buyer id').not().isEmpty(),
@@ -50,7 +51,7 @@ router.post(
 );
 
 //get order using the id 
-router.get('/:id', async (req, res) => {
+router.get('/:id', [authapikey, authlender], async (req, res) => {
     try {
         let order = await Order.findById(req.params.id);
         if (!order) {
@@ -73,7 +74,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Lender getting his or her order using his or her lenderid
-router.get('/lender/:lenderid', async (request, response) => {
+router.get('/lender/:lenderid', [authapikey, authlender], async (request, response) => {
     try {
         let orders = await Order.find({
             lenderid: {
@@ -100,7 +101,7 @@ router.get('/lender/:lenderid', async (request, response) => {
 });
 
 // Borrower get his or her order using his or her borrower id
-router.get('/borrower/:borrowerid', async (request, response) => {
+router.get('/borrower/:borrowerid', [authapikey, authlender], async (request, response) => {
     try {
         let orders = await Order.find({
             borrowerid: {
@@ -127,7 +128,7 @@ router.get('/borrower/:borrowerid', async (request, response) => {
 });
 
 //Method to get all order 
-router.get('/', async (req, res) => {
+router.get('/', [authapikey, authlender], async (req, res) => {
     try {
         const orders = await Order.find({});
         res.send({
