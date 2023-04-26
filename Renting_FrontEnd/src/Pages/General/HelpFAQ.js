@@ -9,7 +9,7 @@ const FAQCategory = [
     {value: 'Buyer FAQs'},
     {value: 'Seller FAQs'},
     {value: 'Payment/Refund'},
-    {value: 'order'},
+    {value: 'Order'},
     {value: 'Other'},
 ];
 const QueAns = [
@@ -27,7 +27,7 @@ const QueAns = [
 {
     que: 'Points to remember while checking a product?',
     ans:
-        'you can look at the image of product provided by the seller, check if it is available or not, its working conditions, see the price carefully, look at the period of get the product on rent and if you want to be more secure then request seller details (it is provided in the system)',
+        'You can look at the image of product provided by the seller, check if it is available or not, its working conditions, see the price carefully, look at the period of get the product on rent and if you want to be more secure then request seller details (it is provided in the system)',
     type: 'Buyer',
 },
 {
@@ -75,7 +75,7 @@ const QueAns = [
 {
   que: 'Is COD option available for payment?',
   ans:
-      'No, the COD option for payment is not currently availablein the system.',
+      'No, the COD option for payment is not currently available in the system.',
   type: 'payment',
 },
 {
@@ -126,7 +126,7 @@ const HelpFAQ = () => {
   return (
     <div className='HelpFAQ-main'>
     <div className='HelpFAQ-image'>
-        <h1 className='HelpFAQ-title'>HIII! HOW CAN I HELP YOU?</h1>
+        <h1 className='HelpFAQ-title'>HI ! HOW CAN I HELP YOU?</h1>
             </div>
             <div className='HelpFAQ-body'>
                 <div className='HelpFAQ-que'>
@@ -224,7 +224,7 @@ const HelpFAQ = () => {
             <div className='ContactUs-div'>
                 <div className='ContactUs-imagediv'>
                     <a
-                        href='https://github.com/RentingSystemSE/6-RentingSystem/discussions'
+                        href='https://github.com/202001200/IT314_RentingSystem_Group21/discussions'
                         target='blank'
                     >
                         <Icon

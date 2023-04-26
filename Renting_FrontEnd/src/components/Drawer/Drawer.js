@@ -25,8 +25,8 @@ const Drawer = (props) => {
       <div>
         <Link to='/'>
           <div className='Drawer-header'>
-            <p className='Drawer-logo'>RS</p>
-            <p className='Drawer-title'>Renting System</p>
+            <p className='Drawer-logo'>RentBuddy</p>
+            <p className='Drawer-title'>Rent More, Worry Less</p>
           </div>
         </Link>
         <div className='Drawer-menu'>
@@ -41,9 +41,9 @@ const Drawer = (props) => {
               <Link to='/buyer/login'>
                 <DrawerButton icon={accountArrowRight} text={'Sign In'} />
               </Link>
-              <Link to='/buyer/register'>
+              {/* <Link to='/buyer/register'>
                 <DrawerButton icon={accountCog} text={'Sign Up'} />
-              </Link>
+              </Link> */}
             </React.Fragment>
           )}
           {props.page === BUYER_LOGIN && (
@@ -100,14 +100,14 @@ const Drawer = (props) => {
     </div>
      </div>
       <p className='Drawer-footer-text'>
-        Renting System <span className='Drawer-big'>&copy;</span> 2021
+        Renting System <span className='Drawer-big'>&copy;</span> 2023. All rights reserved.
       </p>
     </div>
   );
 };
 
 Drawer.defaultProps = {
-    page: BUYER_LOGIN,
+    page: NOT_LOGIN,
 };
 
 export default Drawer;

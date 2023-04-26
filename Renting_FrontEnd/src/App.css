@@ -13,6 +13,6 @@
     float: right;
     display: flex;
     flex-direction: column;
-    background-color: #2C3333;
-    color: white;
+    background-color: black;
+    color: #F6F1F1;
 }

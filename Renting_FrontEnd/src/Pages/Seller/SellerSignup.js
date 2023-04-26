@@ -128,7 +128,7 @@ const SellerSignup = () => {
                       handleInput={handleInputPassword}
                   />
                   <div className='SellerLogin-login' onClick={handleOnClick}>
-                      Sign up
+                    Seller Sign up
                   </div>
               </div>
           </div>

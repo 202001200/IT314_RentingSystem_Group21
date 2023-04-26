@@ -21,10 +21,10 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-    background: #383838;
+    background:    #146C94;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #cfabfd;
+    background: white;
     border-radius: 8px;
 }

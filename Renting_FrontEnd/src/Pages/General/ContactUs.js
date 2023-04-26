@@ -18,7 +18,7 @@ const ContactUs = () => {
             <div className='ContactUs-create'>
                 <a href='https://github.com/RentingSystemSE' target='blank'>
                     Renting System{' '}
-                    <span className='Drawer-big'>&copy;</span> 2021
+                    <span className='Drawer-big'>&copy;</span> 2023.  All rights reserved.
                 </a>
             </div>
             </div>
@@ -30,7 +30,7 @@ const ContactUs = () => {
                     <div className='ContactUs-div'>
                         <div className='ContactUs-imagediv'>
                             <a
-                                href='https://github.com/RentingSystemSE'
+                                href='https://github.com/202001200/IT314_RentingSystem_Group21.git'
                                 target='blank'
                             >
                                 <Icon
@@ -44,7 +44,7 @@ const ContactUs = () => {
                     <div className='ContactUs-div'>
                         <div className='ContactUs-imagediv'>
                             <a
-                                href='https://github.com/RentingSystemSE/6-RentingSystem/discussions'
+                                href='https://github.com/202001200/IT314_RentingSystem_Group21/discussions'
                                 target='blank'
                             >
                                 <Icon
@@ -58,7 +58,7 @@ const ContactUs = () => {
                     <div className='ContactUs-div'>
                         <div className='ContactUs-imagediv'>
                             <a
-                                href='mailto:renting.system.se@gmail.com'
+                                href='mailto:rentbuddy@gmail.com'
                                 target='blank'
                             >
                                 <Icon

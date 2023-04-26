@@ -55,7 +55,7 @@ const BuyerLogin = (props) => {
         <div className='BuyerLogin-body'>
             <div className='BuyerLogin-content'>
                 <div className='BuyerLogin-text-body'>
-                    <div className='BuyerLogin-text'>Sign in</div>
+                    <div className='BuyerLogin-text'>Buyer Sign in</div>
                 </div>
                 <div className='BuyerLogin-input-main'>
                     <LoginInput

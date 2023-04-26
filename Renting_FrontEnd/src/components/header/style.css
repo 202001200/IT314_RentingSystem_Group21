@@ -18,7 +18,7 @@
 .SearchHeader-search {
     flex: 9;
   background-color: #121212;
-  color: white;
+  color: #F6F1F1;
   font-size: 16px;
   padding: 1%;
   letter-spacing: 1px;
@@ -35,7 +35,7 @@
 
 .SearchHeader-search-icon {
     font-size: 1.75rem;
-  color: #bb86fc;
+  color: #19A7CE;
   flex: 1;
 }
 
@@ -55,5 +55,5 @@
   margin: auto;
   font-family: Roboto;
   font-size: 32px;
-  color: #cfabfd;
+  color: #19A7CE;
 }

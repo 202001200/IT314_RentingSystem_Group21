@@ -32,6 +32,7 @@
 
 .ProductCardview-title {
     font-size: 22px;
+    color: #F6F1F1;
     font-size: medium;
     font-family: Roboto;
     overflow: hidden;
@@ -46,7 +47,7 @@
 
     font-size: medium;
     text-align: center;
-    color: #CBE4DE;
+    color: #19A7CE;
 }
 
 /* Address card  */
@@ -72,7 +73,7 @@
     margin-left: 8px;
     margin-top: 8px;
     font-size: xx-large;
-    color: #bb86fc;
+    color: #146C94;
 }
 
 .AddressCard-email-body {
@@ -172,7 +173,7 @@
 .GeneralCardview-name {
     flex: 1;
     font-size: 18px;
-    color: #cfabfd;
+    color: #19A7CE;
 }
 
 .GeneralCardview-value {
@@ -247,7 +248,7 @@
 .LiveProductCard-name {
     flex: 2;
     font-size: 18px;
-    color: #cfabfd;
+    color: #19A7CE;
 }
 
 .LiveProductCard-value {
@@ -293,7 +294,7 @@
     }
     
     .CategoryCard-main:hover>.CategoryCard-main-icon {
-        color: #bb86fc;
+        color: #19A7CE;
 }
 
 /********* FAQCard ************/
@@ -330,7 +331,7 @@
     flex: 1;
     margin: 3%;
     margin-top: 0;
-    color: #cfabfd;
+    color: #19A7CE;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -419,7 +420,7 @@
   .SellerLiveProduct-name {
     flex: 2;
     font-size: 18px;
-    color: #cfabfd;
+    color: #19A7CE;
   }
   .SellerLiveProduct-value {
     flex: 4;
@@ -479,7 +480,7 @@
   .GeneralCardviewSeller-name {
     flex: 1;
     font-size: 18px;
-    color: #cfabfd;
+    color: #19A7CE;
   }
   .GeneralCardviewSeller-value {
     flex: 4;
@@ -497,8 +498,8 @@
     flex: 1;
     max-width: 35%;
     padding: 1%;
-    border: 3px solid #994af1;
-    background-color: #cfabfd;
+    border: 3px solid #146C94;
+    background-color: #19A7CE;
     border-radius: 4px;
   }
     .GeneralCardviewSeller-button:hover {
@@ -506,7 +507,7 @@
     }
   .GeneralCardviewSeller-Buttonbody {
     display: flex;
-    color: #994af1;
+    color: #146C94;
     font-size: 20px;
     justify-content: center;
   }

@@ -1,5 +1,5 @@
 .Drawer-body {
-    background-color: #2C3333;
+    background-color: #000000;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -13,21 +13,21 @@
     top: 0;
     position: sticky;
     z-index: 1;
-    background-color: #0E8388;
+    background-color:  #146C94 ;
 }
 
 .Drawer-logo {
     font-family: Roboto;
     font-size: 32px;
     text-align: center;
-    color: white;
+    color: #F6F1F1;
     padding-top: 5px;
 }
 
 .Drawer-title {
     font-family: Roboto;
     text-align: center;
-    color: white;
+    color: #F6F1F1;
     letter-spacing: 2px;
     font-size: 18px;
     padding-bottom: 8px;
@@ -35,7 +35,7 @@
 
 .Drawer-footer-text {
     margin: 5px;
-    color: white;
+    color: #F6F1F1;
     font-family: Roboto;
     font-size: small;
     text-align: center;
@@ -61,11 +61,11 @@
 
 .Drawer-button-icon {
     font-size: 2.75rem;
-    color: #CBE4DE;
+    color: #19A7CE;
 }
 
 .Drawer-button-text {
-    color: white;
+    color: #F6F1F1;
     font-size: medium;
     padding: 0;
     margin: 0;
@@ -74,7 +74,7 @@
 
 .Drawer-button-body:hover {
     cursor: pointer;
-    background-color: #0E8388;
+    background-color: #146C94;
 }
 
 .Drawer-button-body:hover > .Drawer-button-text {

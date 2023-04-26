@@ -49,7 +49,7 @@
     padding: 3%;}
 
 .BuyerViewProduct-pricediv {
-    color: #cfabfd;
+    color: #19A7CE;
   flex: 1;
   margin-left: 5%;
   width: 90%;
@@ -81,7 +81,7 @@
 
 .BuyerViewProduct-category-text {
     font-size: 16px;
-    color: #cfabfd;
+    color: #19A7CE;
     flex: 1}
 
 .BuyerViewProduct-category-type {
@@ -100,7 +100,7 @@
 
 .BuyerViewProduct-seller {
     font-size: 16px;
-  color: #cfabfd;
+  color: #19A7CE;
   flex: 3;
 }
 
@@ -115,7 +115,7 @@
 
 .BuyerViewProduct-description-title {
     font-size: 16px;
-  color: #cfabfd;
+  color: #19A7CE;
   width: 90%;
   margin-left: 5%;
 }
@@ -131,7 +131,7 @@
 .BuyerViewProduct-buttons {
     margin-top: 3%;
     display: flex;
-    color: #994af1;
+    color: #146C94;
     justify-content: center;
     align-items: center;
 }
@@ -163,7 +163,7 @@ hr {
 
 .BuyerCheckout-description-title {
     font-size: 16px;
-    color: #cfabfd;
+    color: #19A7CE;
     width: 94%;
     margin-left: 3%;
     margin-top: 1%;
@@ -187,7 +187,7 @@ hr {
 
 .BuyerCheckout-add {
     flex: 1;
-    color: #cfabfd;
+    color: #19A7CE;
 }
 
 .BuyerCheckout-Buyeraddress {
@@ -220,7 +220,7 @@ hr {
 
 .BuyerCheckout-total {
     flex: 2;
-    color: #e8d6ff;
+    color: #19A7CE;
     font-size: 16px;
 }
 
@@ -233,7 +233,7 @@ hr {
     
     .BuyerCheckoutPrice-priceformat {
         font-size: large;
-        color: #cfabfd;
+        color: #19A7CE;
         display: flex;
         align-items: baseline;
         /* border: red solid 2px; */
@@ -243,7 +243,7 @@ hr {
 }
 
 .BuyerCheckout-buttons {
-    color: #994af1;
+    color: #146C94;
     display: flex;
     width: 90%;
     margin-left: 5%;
@@ -267,7 +267,7 @@ hr {
     font-size: 30px;
     margin: 1%;
     display: flex;
-    color: #cfabfd;
+    color: #19A7CE;
   }
   .BuyerProfile-othermain {
     background-color: #222222;
@@ -282,7 +282,7 @@ hr {
     padding: 1%;
     padding-left: 5%;
     display: flex;
-    color: #e8d6ff;
+    color: #19A7CE;
 }
 .BuyerProfile-image {
     font-size: 2rem;
@@ -325,7 +325,7 @@ hr {
     justify-content: space-between;
 }
 .BuyerProfile-dis {
-    color: #cfabfd;
+    color: #19A7CE;
   font-size: 18px;
 }
 
@@ -343,12 +343,13 @@ hr {
         padding: 1%;
         padding-left: 5%;
         display: flex;
-        color: #e8d6ff;
+        color: #19A7CE;
         display: flex;
       }
       
       .changepassword-title {
         margin-left: 1%;
+        color: #19A7CE;
       }
       .change-input {
         flex: 2;
@@ -360,7 +361,7 @@ hr {
       }
       
       .change-input > input {
-        background-color: #e8d6ff;
+        background-color: #19A7CE;
         color: black;
         font-size: 18px;
         padding: 1%;
@@ -376,7 +377,7 @@ hr {
       .changepassword-btn {
         width: 20%;
         font-size: 18px;
-        background-color: #cfabfd;
+        background-color: #19A7CE;
         color: black;
         border-radius: 6px;
         text-align: center;
@@ -471,13 +472,13 @@ hr {
 .BuyerLogin-remember-text {
     flex: 9;
     font-family: Roboto;
-    color: #cfabfd;
+    color: #19A7CE;
 }
 
 .BuyerLogin-login {
     width: 20%;
     margin: auto;
-    background-color: #cfabfd;
+    background-color: #19A7CE;
     color: black;
     border-radius: 6px;
     text-align: center;
@@ -515,12 +516,12 @@ hr {
     font-weight: 300;
     text-align: center;
     padding-bottom: 1%;
-    color: #cfabfd;
+    color: #19A7CE;
     margin-top: 2%;
 }
 
 .BuyerLogin-create2 > a {
-    color: #cfabfd;
+    color: #19A7CE;
 }
 
 .BuyerLogin-create2:hover {

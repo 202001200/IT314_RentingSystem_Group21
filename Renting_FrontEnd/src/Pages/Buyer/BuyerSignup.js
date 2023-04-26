@@ -79,7 +79,7 @@ const BuyerSignup = (props) => {
           </div>
           <div className='BuyerLogin-content'>
               <div className='BuyerSignup-text-body'>
-                  <div className='BuyerLogin-text'>Sign up</div>
+                  <div className='BuyerLogin-text'>Buyer Sign up</div>
               </div>
               <div className='BuyerSignup-input-main'>
                   <LoginInput
