@@ -75,7 +75,7 @@ const Drawer = (props) => {
               </Link>
               
               <Link to='/seller/active'>
-                <DrawerButton icon={shoppingIcon} text={'Active Products'} />
+                <DrawerButton icon={shoppingIcon} text={'Sold Products'} />
               </Link>
               <Link to='/seller/myproducts'>
                 <DrawerButton icon={walletIcon} text={'My Products'} />

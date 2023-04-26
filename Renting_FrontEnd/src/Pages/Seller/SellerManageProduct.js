@@ -39,7 +39,7 @@ const SellerManageProduct = () => {
         setDescription(product.description);
         setPrice(product.price);
         setSeller(product.seller);
-    }, []);
+    }, [product]);
 
     const handleInputChanges = (event) => {
         if (event.target.files[0]) {
@@ -268,11 +268,6 @@ const SellerManageProduct = () => {
   );
 };
 
-SellerManageProduct.defaultProps = {
-    title: 'Sony Camera',
-    price: '25$',
-    format: '/month',
-    category: 'Camera',
-  };
+
 
 export default SellerManageProduct;

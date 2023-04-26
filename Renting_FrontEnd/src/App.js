@@ -42,47 +42,30 @@ function App() {
 
 
     const [check, setCheck] = useState(0);
-    const [buyer, setBuyer] = useState(false);
-    const [seller, setSeller] = useState(false);
-    const [auth_token, setAuthtoken] = useState('');
+
 
     useEffect(() => {
-
         if (localStorage.getItem('buyer')) {
-            setBuyer(true);
             setCheck(BUYER_LOGIN);
         }
         if (localStorage.getItem('seller')) {
-            setSeller(true);
             setCheck(SELLER_LOGIN);
-        }
-        if (localStorage.getItem('auth_token')) {
-            setAuthtoken(localStorage.getItem('auth_token'));
         }
     }, []);
 
     const handleChangeState = () => {
-
         if (localStorage.getItem('buyer')) {
-            setBuyer(true);
             setCheck(BUYER_LOGIN);
-
         } else if (localStorage.getItem('seller')) {
-            setSeller(true);
             setCheck(SELLER_LOGIN);
-
         } else {
-            setBuyer(false);
-            setSeller(false);
-
+            setCheck(NOT_LOGIN);
         }
     };
     const handleSignout = () => {
         localStorage.removeItem('buyer');
         localStorage.removeItem('auth_token');
         localStorage.removeItem('seller');
-        setBuyer(false);
-        setSeller(false);
         setCheck(NOT_LOGIN);
     };
     return (

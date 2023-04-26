@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css';
 import { Link, useLocation } from 'react-router-dom';
@@ -8,37 +8,96 @@ import Button from '../../components/Button/Button';
 import heartIcon from '@iconify-icons/mdi/heart';
 import cartIcon from '@iconify-icons/mdi/cart';
 import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
-import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
+import { useHistory } from 'react-router-dom';
 
 const BuyerViewProduct = (props) => {
-  let location = useLocation();
-  let history = useHistory();
-  const alert = useAlert();
-  // console.log(location.state);
-  const Addtowishlist = () => {
-    axios
-      .get('https://rentingsystem.herokuapp.com/buyer/detail', {
-        headers: {
-          auth_token: localStorage.getItem('auth_token'),
-        },
-      })
-      .then((response) => {
-        axios.post('https://rentingsystem.herokuapp.com/buyer/updateWishlist', {
-          buyer: response.data.buyer[0]._id,
-          product: location.state._id,
-        });
-        const data = response.data;
-        if (data.error) {
-          alert.error(data.msg);
-        } else {
-          alert.success(data.msg);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+    let location = useLocation();
+    const alert = useAlert();
+    let history = useHistory();
+    const passvar = location.state;
+
+    const [Seller, setData] = useState([]);
+
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get(
+                    'https://rentingsystem.herokuapp.com/seller/getname/' +
+                        location.state.seller
+                )
+                .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                    } else {
+                        setData(response.data.data[0]);
+                    }
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
+
+        fetch();
+    }, [location, alert]);
+
+    const Addtowishlist = () => {
+        axios
+            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                headers: {
+                    auth_token: localStorage.getItem('auth_token'),
+                },
+            })
+            .then((response) => {
+                axios.post(
+                    'https://rentingsystem.herokuapp.com/buyer/updateWishlist',
+                    {
+                        buyer: response.data.buyer[0]._id,
+                        product_id: location.state._id,
+                    }
+                );
+                const data = response.data;
+                if (data.error) {
+                    alert.error('Error');
+                } else {
+                    alert.success('Added to wishlist');
+                    history.push('./wishlist');
+                }
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
+    // Press Request Page for Get SELLER ADDRESS
+    const AddRequest = () => {
+        axios
+            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                headers: {
+                    auth_token: localStorage.getItem('auth_token'),
+                },
+            })
+            .then((response) => {
+                axios
+                    .post('https://rentingsystem.herokuapp.com/buyer/request', {
+                        buyer: response.data.buyer[0]._id,
+                        seller: location.state.seller,
+                    })
+                    .then((response) => {
+                        const data = response.data;
+                        if (data.error) {
+                            alert.error(data.msg);
+                        } else {
+                            alert.success(data.msg);
+                        }
+                    });
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
     return (
         <div className='BuyerViewProduct-main'>
             <TitleHeader name={'View Product'} />
@@ -52,17 +111,20 @@ const BuyerViewProduct = (props) => {
                         />
                         <div className='BuyerViewProduct-buttons'>
                             <div className='BuyerViewProduct-button'>
-                                {/* <Link to='./wishlist'> */}
                                 <Button
-                                icon={heartIcon}
-                                name={'Wishlist'}
-                                handleClick={Addtowishlist}
+                                    icon={heartIcon}
+                                    name={'Wishlist'}
+                                    handleClick={Addtowishlist}
                                 />
-                                {/* </Link> */}
                             </div>
                             <div className='BuyerViewProduct-button'>
-                                <Link to='./checkout'>
-                                    <Button icon={cartIcon} name={'Buy Now'} />
+                                <Link
+                                    to={{
+                                        pathname: './checkout',
+                                        state: passvar,
+                                    }}
+                                >
+                                    <Button icon={cartIcon} name={'Rent Now'} />
                                 </Link>
                             </div>
                         </div>
@@ -81,7 +143,7 @@ const BuyerViewProduct = (props) => {
                             <span className='BuyerViewProduct-price'>
                                 {location.state.price}{' '}
                             </span>{' '}
-                            <span> {location.state.formatofPrice}</span>
+                            <span> {location.state.formatofprice}</span>
                         </div>
                     </div>
                     <hr />
@@ -99,10 +161,14 @@ const BuyerViewProduct = (props) => {
                             {'Seller'}
                         </div>
                         <div className='BuyerViewProduct-sellername'>
-                            {location.state.seller}
+                            {Seller.firstname + ' ' + Seller.lastname}
                         </div>
                         <div className='BuyerViewProduct-seller-button'>
-                            <Button icon={mapMarkerPlus} name={'Request'} />
+                            <Button
+                                icon={mapMarkerPlus}
+                                name={'Request'}
+                                handleClick={AddRequest}
+                            />
                         </div>
                     </div>
                     <hr />
@@ -117,17 +183,7 @@ const BuyerViewProduct = (props) => {
                 </div>
             </div>
         </div>
-        
-  );
-};
-
-BuyerViewProduct.defaultProps = {
-  title: 'Sony Camera',
-  price: 50000,
-  formatofPrice: '/month',
-  category: 'Camera',
-  seller: 'Deep',
-  description: 'Best camera in segment.',
+    );
 };
 
 export default BuyerViewProduct;

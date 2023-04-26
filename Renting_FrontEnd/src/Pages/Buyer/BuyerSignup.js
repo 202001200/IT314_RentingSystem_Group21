@@ -38,13 +38,17 @@ const BuyerSignup = (props) => {
 
   const handleOnClick = () => {
       axios
-          .post('http://localhost:3001/borrower/signup', {
+          .post('https://rentbuddy.onrender.com/borrower/signup', {
               firstname: firstname,
               lastname: lastname,
               address: address,
               email: email,
               password: password,
-          })
+          },{
+            headers:{
+                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+            }
+              })
           .then(function (response) {
               const data = response.data;
               if (data.error) {

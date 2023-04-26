@@ -38,7 +38,12 @@ const SellerAddProduct = () => {
                     },
                 })
                 .then((response) => {
-                    setSeller(response.data.seller[0]._id);
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                    } else {
+                        setSeller(response.data.seller[0]._id);
+                    }
                 })
                 .catch((e) => {
                     console.log(e);
@@ -46,7 +51,7 @@ const SellerAddProduct = () => {
         };
 
         fetch();
-    }, []);
+    }, [alert]);
 
     const handleInputChanges = (event) => {
         if (event.target.files[0]) {
@@ -57,9 +62,9 @@ const SellerAddProduct = () => {
 
     const changeFOPoption = (event) => {
         setFOP(event.value);
-    };
+        };
 
-    const changeCategoryoption = (event) => {
+        const changeCategoryoption = (event) => {
         setCategory(event.label);
     };
 
@@ -134,9 +139,9 @@ const SellerAddProduct = () => {
             });
     };
 
-                        return (
+                         return (
         <div>
-            <TitleHeader name={'Add Products'} />
+            <TitleHeader name={'Add Product'} />
             <div className='SellerAddproduct-main'>
                 <div className='SellerAddProduct-body'>
                     <div className='SellerAddProduct-left'>
@@ -261,9 +266,9 @@ const SellerAddProduct = () => {
                         </div>
                     </div>
                 </div>
-                        </div>
-                </div>
-                        );
+            </div>
+        </div>
+    );
 };
 
 export default SellerAddProduct;

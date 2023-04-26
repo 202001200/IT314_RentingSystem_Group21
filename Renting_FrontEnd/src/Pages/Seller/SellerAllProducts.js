@@ -5,29 +5,30 @@ import TitleHeader from '../../components/header/TitleHeader';
 
 const SellerAllproducts = () => {
     const [Products, setData] = useState([]);
-    const [seller, setSeller] = useState('');
 
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                .get('https://rentbuddy.onrender.com/lender/detail', {
                     headers: {
                         'auth-token': localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
-                    setSeller(response.data.seller[0]._id);
-                    console.log(response.data.seller[0]._id);
                     axios
                         .post(
-                            'https://rentingsystem.herokuapp.com/seller/myproducts',
+                            'https://rentbuddy.onrender.com/lender/myproducts',
                             {
-                                seller_id: response.data.seller[0]._id,
+                                lender_id: response.data.lenderData._id,
                             }
-                        )
+                        ,{
+                            headers:{
+                                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                            }
+                          })
                         .then((response) => {
                             setData(response.data.data);
-                            console.log(response.data.data);
                         })
                         .catch((e) => {
                             console.log(e);
@@ -42,7 +43,7 @@ const SellerAllproducts = () => {
     }, []);
     return (
         <div>
-            <TitleHeader name={'All Product'} />
+            <TitleHeader name={'My Products'} />
             <div className='BuyerMyOrder-card'>
                 {Products.map((product) => {
                     return (

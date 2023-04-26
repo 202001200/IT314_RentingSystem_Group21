@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import CategoryCard from '../../components/Cardview/CategoryCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import warehouseIcon from '@iconify-icons/mdi/warehouse';
@@ -27,20 +26,20 @@ const Category = () => {
   
     const cards = [];
     for (var i = 0; i < 8; i++) {
-      cards.push(
-        <CategoryCard
-          key={i}
-          category={optionsCategory[i].value}
-          icon={optionsCategory[i].icon}
-        />
-      );
+        cards.push(
+            <CategoryCard
+                key={i}
+                category={optionsCategory[i].value}
+                icon={optionsCategory[i].icon}
+            />
+        );
     }
     return (
-      <div className='BuyerWishlist-page'>
-        <TitleHeader name={'Categories'} />
-        <div className='Category-card'>{cards}</div>
-      </div>
-    );
+        <div className='BuyerWishlist-page'>
+            <TitleHeader name={'Category Filter'} />
+            <div className='Category-card'>{cards}</div>
+        </div>
+      );
 };
 
 export default Category;

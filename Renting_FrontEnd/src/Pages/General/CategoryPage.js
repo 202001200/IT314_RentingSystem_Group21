@@ -4,8 +4,10 @@ import SearchHeader from '../../components/header/SearchHeader';
 import ProductCard from '../../components/Cardview/ProductCard';
 import './style.css';
 import { useLocation } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 const CategoryPage = (props) => {
   let location = useLocation();
+  const alert = useAlert();
 
   const [Products, setData] = useState([]);
   useEffect(() => {
@@ -13,7 +15,13 @@ const CategoryPage = (props) => {
       axios
         .get('http://localhost:5000/product/')
         .then((response) => {
-          setData(response.data.product);
+          const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        setData([]);
+                    } else {
+                        setData(response.data.product);
+                    }
         })
         .catch((e) => {
           console.log(e);
@@ -21,21 +29,22 @@ const CategoryPage = (props) => {
     };
 
     fetch();
-  }, []);
+  }, [alert]);
 
   return (
     <div className='Dashboard'>
-      <SearchHeader />
-      <div className='Main-card'>
-        {Products.map((product) => {
-          if (product.category == location.state)
-            return <ProductCard key={product._id} product={product} />;
-        })}
-      </div>
+        <SearchHeader />
+        <div className='Main-card'>
+            {Products.map((product) => {
+                return (
+                    product.category === location.state && (
+                        <ProductCard key={product._id} product={product} />
+                    )
+                );
+            })}
+        </div>
     </div>
-  );
+);
 };
-CategoryPage.defaultProps = {
-  category: 'House',
-};
+
 export default CategoryPage;
