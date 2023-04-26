@@ -8,6 +8,7 @@ const router = express.Router();
 const Buyer = require("../models/Borrower.js");
 const Seller = require("../models/Lender.js");
 const authlender = require("../middleware/authlender.js");
+const authborrower = require("../middleware/authborrower.js");
 const authapikey = require("../middleware/authapikey.js");
 const Product = require("../models/Product.js");
 
@@ -143,10 +144,10 @@ router.post(
     }
 );
 
-router.get("/detail", [authapikey,authlender], async (req, res) => {
+router.get("/detail", [authapikey,authborrower], async (req, res) => {
   try {
-      const seller = await Seller.find(mongoose.Types.ObjectId(req.seller._id));
-      res.send(seller);
+      const buyer = await Buyer.find(mongoose.Types.ObjectId(req.lender._id));
+      res.send(buyer);
   } catch (err) {
       console.log(err);
       res.status(500).send({
