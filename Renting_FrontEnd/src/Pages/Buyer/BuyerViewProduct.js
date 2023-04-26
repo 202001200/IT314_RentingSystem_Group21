@@ -23,7 +23,7 @@ const BuyerViewProduct = (props) => {
         const fetch = () => {
             axios
                 .get(
-                    'https://rentingsystem.herokuapp.com/seller/getname/' +
+                    'https://rentbuddy.onrender.com/lender/getname/' +
                         location.state.seller
                 )
                 .then((response) => {
@@ -44,14 +44,14 @@ const BuyerViewProduct = (props) => {
 
     const Addtowishlist = () => {
         axios
-            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+            .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
                 },
             })
             .then((response) => {
                 axios.post(
-                    'https://rentingsystem.herokuapp.com/buyer/updateWishlist',
+                    'https://rentbuddy.onrender.com/borrower/updateWishlist',
                     {
                         buyer: response.data.buyer[0]._id,
                         product_id: location.state._id,
@@ -73,14 +73,14 @@ const BuyerViewProduct = (props) => {
     // Press Request Page for Get SELLER ADDRESS
     const AddRequest = () => {
         axios
-            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+            .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
                 },
             })
             .then((response) => {
                 axios
-                    .post('https://rentingsystem.herokuapp.com/buyer/request', {
+                    .post('https://rentbuddy.onrender.com/borrower/request', {
                         buyer: response.data.buyer[0]._id,
                         seller: location.state.seller,
                     })

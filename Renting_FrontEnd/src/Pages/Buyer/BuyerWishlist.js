@@ -9,7 +9,7 @@ const BuyerWishlist = () => {
   useEffect(() => {
     const fetch = () => {
         axios
-            .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+            .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
                 },
@@ -22,7 +22,7 @@ const BuyerWishlist = () => {
                 }
                 axios
                     .post(
-                        'https://rentingsystem.herokuapp.com/buyer/getwishlist',
+                        'https://rentbuddy.onrender.com/borrower/getwishlist',
                         {
                             buyer: response.data.buyer[0]._id,
                         }
