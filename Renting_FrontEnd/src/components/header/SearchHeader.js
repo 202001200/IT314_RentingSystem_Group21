@@ -1,34 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import { Icon } from '@iconify/react';
 import magnifyIcon from '@iconify-icons/mdi/magnify';
 
-const SearchHeader = () => {
-    const [value, setValue] = useState('');
-
-    const handleInputChanges = (event) => {
-        setValue(event.target.value);
-    };
-
-    const handleOnClick = () => {
-        setValue('');
-    };
-
+const SearchHeader = (props) => {
     return (
         <div className='SearchHeader'>
           <div className='SearchHeader-body'>
+            
+          <Icon icon={magnifyIcon} className='SearchHeader-search-icon' />
             <input
               type='text'
-              value={value}
-              onChange={handleInputChanges}
+              onChange={(event) => props.handleChange(event)}
               placeholder='Search'
               className='SearchHeader-search'
             />
-            <Icon
-              icon={magnifyIcon}
-              onClick={handleOnClick}
-              className='SearchHeader-search-icon'
-            />
+           
           </div>
         </div>
       );
