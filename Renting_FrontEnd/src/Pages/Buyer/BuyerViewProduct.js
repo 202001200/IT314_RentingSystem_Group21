@@ -48,7 +48,9 @@ const BuyerViewProduct = (props) => {
 
     const Addtowishlist = () => {
         axios
+
             .get('https://rentbuddy.onrender.com/borrower/detail', {
+
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
                     "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
