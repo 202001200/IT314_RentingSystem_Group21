@@ -4,6 +4,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const authapikey = require('../middleware/authapikey.js');
 const authlender = require('../middleware/authlender.js');
+const authborrower = require('../middleware/authborrower.js');
 // @desc    System POST a order
 // @route   POST /order
 router.post(
