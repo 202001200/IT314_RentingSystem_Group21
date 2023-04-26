@@ -14,9 +14,10 @@ const BuyerAddresses = () => {
     useEffect(() => {
       const fetch = () => {
           axios
-              .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+              .get('https://rentbuddy.onrender.com/borrower/detail', {
                   headers: {
-                      auth_token: localStorage.getItem('auth_token'),
+                      'auth_token': localStorage.getItem('auth_token'),
+                      "api-key":'$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa'
                   },
               })
               .then((response) => {
@@ -25,14 +26,20 @@ const BuyerAddresses = () => {
                       alert.error(data.msg);
                       return;
                   }
+                  console.log(data);
                   axios
                       .post(
-                          'https://rentingsystem.herokuapp.com/buyer/address',
+                          'https://rentbuddy.onrender.com/borrower/address',
                           {
-                              buyer: response.data.buyer[0]._id,
+                              borrower: response.data._id
                           }
-                      )
+                      ,{
+                        headers:{
+                            "api-key":'$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa'
+                        }
+                      })
                       .then((response) => {
+                        console.log(response);
                           const data = response.data;
                           if (data.error) {
                               alert.error(data.msg);
