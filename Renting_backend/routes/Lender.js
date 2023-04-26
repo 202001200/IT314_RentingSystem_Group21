@@ -183,10 +183,10 @@ router.get('/detail', [authapikey, authlender], async (req, res) => {
 
 router.post('/myproducts', authapikey, async (req, res) => {
     try {
-        let data = await Product.find({ lender: req.body.lender_id }).then((data) => {
+        Product.find({ lender: req.body.lender_id }).then((d) => {
             res.send({
                 error: false,
-                data: data,
+                data: d,
             });
         });
     } catch (err) {
