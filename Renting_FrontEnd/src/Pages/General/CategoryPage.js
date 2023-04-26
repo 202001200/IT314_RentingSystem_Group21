@@ -13,7 +13,11 @@ const CategoryPage = (props) => {
   useEffect(() => {
     const fetch = () => {
       axios
-        .get('http://localhost:5000/product/')
+        .get('http://rentbuddy.onrender.com/products',{
+          headers:{
+              "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+          }
+          })
         .then((response) => {
           const data = response.data;
                     if (data.error) {
