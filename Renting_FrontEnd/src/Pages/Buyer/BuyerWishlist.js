@@ -11,11 +11,13 @@ const BuyerWishlist = () => {
         axios
             .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
-                    auth_token: localStorage.getItem('auth_token'),
+                    "auth_token": localStorage.getItem('auth_token'),
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                 },
             })
             .then((response) => {
                 const data = response.data;
+                console.log(response);
                 if (data.error) {
                     alert.error(data.msg);
                     return;
@@ -24,22 +26,25 @@ const BuyerWishlist = () => {
                     .post(
                         'https://rentbuddy.onrender.com/borrower/getwishlist',
                         {
-                            buyer: response.data.buyer[0]._id,
+                            buyer: response.data._id,
                         }
-                    )
+                    ,{
+                        headers:{
+                            "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                        }
+                })
                     .then((response) => {
                         if (response.data.error) {
                             alert.error(response.data.msg);
                             setData([]);
                         } else {
-                            setData(response.data.data);
+                            setData(response.data.wishlist);
                         }
                     })
                     .catch((e) => {
                         console.log(e);
                     });
-            })
-            .catch((e) => {
+            }).catch((e) => {
                 console.log(e);
             });
     };

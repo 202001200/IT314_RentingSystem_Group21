@@ -31,7 +31,7 @@ const productSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Category'
     },
-    seller: {
+    lender: {
         type: Schema.Types.ObjectId,
         ref: 'Lender'
     },
