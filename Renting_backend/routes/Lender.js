@@ -291,7 +291,7 @@ router.post('/decline',authapikey, async(req,res)=>{
     }
 })
 
-router.get('/getname/:id',[authapikey,authlender], async(req,res)=>{
+router.get('/getname/:id',authapikey, async(req,res)=>{
     try{
          await Lender.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
             res.send({
