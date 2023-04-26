@@ -146,7 +146,7 @@ router.post(
 
 router.get("/detail", [authapikey,authborrower], async (req, res) => {
   try {
-      const buyer = await Buyer.find(mongoose.Types.ObjectId(req.lender._id));
+      const buyer = await Buyer.find(mongoose.Types.ObjectId(req.borrower._id));
       res.send(buyer);
   } catch (err) {
       console.log(err);
