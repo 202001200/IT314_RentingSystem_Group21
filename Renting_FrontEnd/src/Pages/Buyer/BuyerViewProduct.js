@@ -25,7 +25,11 @@ const BuyerViewProduct = (props) => {
                 .get(
                     'https://rentbuddy.onrender.com/lender/getname/' +
                         location.state.seller
-                )
+                ,{
+                    headers:{
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                    }
+                  })
                 .then((response) => {
                     const data = response.data;
                     if (data.error) {
@@ -44,9 +48,13 @@ const BuyerViewProduct = (props) => {
 
     const Addtowishlist = () => {
         axios
-            .get('https://rentbuddy.onrender.com/lender/detail', {
+
+            .get('https://rentbuddy.onrender.com/borrower/detail', {
+
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+
                 },
             })
             .then((response) => {
@@ -56,7 +64,11 @@ const BuyerViewProduct = (props) => {
                         buyer: response.data.buyer[0]._id,
                         product_id: location.state._id,
                     }
-                );
+                ,{
+                    headers:{
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                    }
+                  });
                 const data = response.data;
                 if (data.error) {
                     alert.error('Error');
@@ -76,6 +88,7 @@ const BuyerViewProduct = (props) => {
             .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                 },
             })
             .then((response) => {
@@ -83,7 +96,11 @@ const BuyerViewProduct = (props) => {
                     .post('https://rentbuddy.onrender.com/borrower/request', {
                         buyer: response.data.buyer[0]._id,
                         seller: location.state.seller,
-                    })
+                    },{
+                        headers:{
+                            "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                        }
+                      })
                     .then((response) => {
                         const data = response.data;
                         if (data.error) {
