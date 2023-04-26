@@ -12,12 +12,9 @@ const BuyerWishlist = () => {
             .get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     auth_token: localStorage.getItem('auth_token'),
-                },
-            },{
-                headers:{
                     "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
-                }
-              })
+                },
+            })
             .then((response) => {
                 const data = response.data;
                 if (data.error) {
