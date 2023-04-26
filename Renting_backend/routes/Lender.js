@@ -142,7 +142,7 @@ router.post(
 router.post('/forgot',authapikey, async (req, res) => {
     try {
         const lender = await Lender.findOne({_id: req.body.lender});
-        if (!Lender) {
+        if (!lender) {
             return res.send({
                 error: true,
                 msg: 'Enter a valid email',
