@@ -39,7 +39,7 @@ const lenderschema = new Schema({
     requestforaddress: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Buyer',
+            ref: 'Lender',
         },
     ],
     productlist: [
