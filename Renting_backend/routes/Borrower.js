@@ -5,8 +5,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const router = express.Router();
-const Buyer = require("../models/Borrower.js");
-const Seller = require("../models/Lender.js");
+const Borrower = require("../models/Borrower.js");
+const Lender = require("../models/Lender.js");
 const authlender = require("../middleware/authlender.js");
 const authborrower = require("../middleware/authborrower.js");
 const authapikey = require("../middleware/authapikey.js");
@@ -16,7 +16,7 @@ const Product = require("../models/Product.js");
 dotenv.config();
 
 // @desc    SignUp
-// @route   POST /buyer/signup
+// @route   POST /borrower/signup
 router.post(
   "/signup",
   [
@@ -39,24 +39,24 @@ router.post(
     }
 
     try {
-      let buyer = await Buyer.findOne({
+      let borrower = await Borrower.findOne({
         email: req.body.email,
       });
-      if (buyer) {
+      if (borrower) {
         return res.send({
           error: true,
           msg: "User already exists",
         });
       }
 
-      buyer = new Buyer({
+      borrower = new Borrower({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         address: req.body.address,
         email: req.body.email,
         password: req.body.password,
         username: req.body.username,
-        sellerdetail: [],
+        lenderdetail: [],
         liveproduct: [],
         myorder: [],
         wishlist: [],
@@ -65,12 +65,12 @@ router.post(
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
       console.log(hashedPassword);
-      buyer.password = hashedPassword;
+      borrower.password = hashedPassword;
 
-      const savedBuyer = await buyer.save();
+      const savedBuyer = await borrower.save();
       res.send({
         error: false,
-        userid: buyer._id,
+        userid: borrower._id,
       });
     } catch (err) {
       console.log(err);
@@ -83,7 +83,7 @@ router.post(
 );
 
 // @desc    SignIn | Login
-// @route   POST /buyer/Login
+// @route   POST /borrower/Login
 router.post(
     '/login',
     [
@@ -103,10 +103,10 @@ router.post(
         }
 
         try {
-            const buyer = await Buyer.findOne({
+            const borrower = await Borrower.findOne({
                 email: req.body.email,
             });
-            if (!buyer) {
+            if (!borrower) {
                 return res.send({
                     error: true,
                     msg: 'User is not registered',
@@ -115,7 +115,7 @@ router.post(
 
             const validPassword = await bcrypt.compare(
                 req.body.password,
-                buyer.password
+                borrower.password
             );
             if (!validPassword) {
                 return res.send({
@@ -126,7 +126,7 @@ router.post(
 
             const token = jwt.sign(
                 {
-                    _id: buyer._id,
+                    _id: borrower._id,
                 },
                 process.env.TOKEN_SECRET
             );
@@ -146,8 +146,8 @@ router.post(
 
 router.get("/detail", [authapikey,authborrower], async (req, res) => {
   try {
-      const buyer = await Buyer.findById(req.borrower._id);
-      res.send(buyer);
+      const borrower = await Borrower.findById(req.borrower._id);
+      res.send(borrower);
   } catch (err) {
       console.log(err);
       res.status(500).send({
@@ -157,11 +157,11 @@ router.get("/detail", [authapikey,authborrower], async (req, res) => {
 });
 
 // @desc    change password
-// @route   GET /buyer/forgot
+// @route   GET /borrower/forgot
 router.post('/forgot', authapikey, async (req, res) => {
     try {
-        const buyer = await Buyer.findOne({_id : req.body.buyer});
-        if (!Buyer) {
+        const borrower = await Borrower.findOne({_id : req.body.borrower});
+        if (!borrower) {
             return res.send({
                 error: true,
                 msg: 'Enter a valid email',
@@ -169,8 +169,8 @@ router.post('/forgot', authapikey, async (req, res) => {
         }
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        buyer.password = hashedPassword;
-        await buyer.save()
+        borrower.password = hashedPassword;
+        await borrower.save()
         res.send({
             error: false,
             msg: 'Password Changed',
@@ -185,7 +185,7 @@ router.post('/forgot', authapikey, async (req, res) => {
 });
 
 // @desc    Add Order to MyOrder on clicking on 'Buy Now' button
-// @route   GET /buyer/updatemyorder
+// @route   GET /borrower/updatemyorder
 router.post('/updatemyorder', authapikey, async (req, res) => {
     try {
         const update = {
@@ -193,7 +193,7 @@ router.post('/updatemyorder', authapikey, async (req, res) => {
                 myorder: req.body.orderid,
             },
         };
-        Buyer.findOneAndUpdate({ _id: req.body.buyer }, update, {
+        Borrower.findOneAndUpdate({ _id: req.body.borrower }, update, {
             new: true,
             runValidators: true,
         }).then(
@@ -212,7 +212,7 @@ router.post('/updatemyorder', authapikey, async (req, res) => {
 });
 
 // @desc    Add Order to Wishlist on clicking on 'Add to Wishlist' button
-// @route   GET /buyer/updateWishlist
+// @route   GET /borrower/updateWishlist
 router.post('/updateWishlist', authapikey, async (req, res) => {
     try {
         const update = {
@@ -220,7 +220,7 @@ router.post('/updateWishlist', authapikey, async (req, res) => {
                 wishlist: req.body.product_id,
             },
         };
-        await Buyer.findOneAndUpdate({ _id: req.body.buyer }, update, {
+        await Borrower.findOneAndUpdate({ _id: req.body.borrower }, update, {
             new: true,
             runValidators: true,
         }).then(
@@ -239,42 +239,41 @@ router.post('/updateWishlist', authapikey, async (req, res) => {
 });
 
 // @desc    Request address
-// @route   post /buyer/request
+// @route   post /borrower/request
 router.post('/request', authapikey, async (req, res) => {
     try {
-        const filter = { _id: req.body.seller };
+        const filter = { _id: req.body.lender };
         const update = {
             $addToSet: {
-                requestforaddress: req.body.buyer,
+                requestforaddress: req.body.borrower,
             },
         };
 
-        let seller = await Seller.findOneAndUpdate(filter, update, {
+        let lender = Lender.findOneAndUpdate(filter, update, {
             new: false,
         }).then(
             res.send({
                 error: false,
-                msg: 'Request Send to Seller',
+                msg: 'Request SenLender',
             })
         );
     } catch (err) {
-        console.log(error);
+        console.log(err);
         res.send({
             error: true,
-            msg: error.message,
+            msg: err.message,
         });
     }
 });
 
-module.exports = router;
 
 // @desc    Show all address
-// @route   post /buyer/address
+// @route   post /borrower/address
 router.post('/address', authapikey, async (req, res) => {
     try {
-        let buyer = await Buyer.findById(req.body.buyer);
-        await Seller.find(
-            { _id: buyer.sellerdetail },
+        let borrower = await Borrower.findById(req.body.borrower);
+        Lender.find(
+            { _id: borrower.lenderdetail },
             { firstname: 1, lastname: 1, address: 1,email:1, _id: 0 }
         ).then((data) => {
             res.send({
@@ -292,18 +291,18 @@ router.post('/address', authapikey, async (req, res) => {
 });
 
 // @desc    Add item to Wishlist on clicking on 'Add to Wishlist' button
-// @route   GET /buyer/getwishlist
+// @route   GET /borrower/getwishlist
 
 router.post('/getwishlist', authapikey, async (req,res)=> {
     try {
-        const buyer = await Buyer.findById(req.body.buyer)
-        if (buyer.wishlist.length === 0)
+        const borrower = await Borrower.findById(req.body.borrower)
+        if (borrower.wishlist.length === 0)
         {
             return res.send({
                 error: true,
                 msg :"No items in the Wishlist"})
         }
-        await Product.find({_id : buyer.wishlist}).then(data=>{
+        await Product.find({_id : borrower.wishlist}).then(data=>{
             res.send({
                 error : false,
                 data : data})
@@ -319,12 +318,12 @@ router.post('/getwishlist', authapikey, async (req,res)=> {
 });
 
 // @desc  Remove an item from wishlist when clicked on remove from Wishlist
-// @route GET /buyer/removeWishlist
+// @route GET /borrower/removeWishlist
 router.put('/removeitem', authapikey, async (req,res)=> {
     try {
         
-        const buyer = await Buyer.findOneAndUpdate({
-            _id : req.body.buyer
+        const borrower = await Borrower.findOneAndUpdate({
+            _id : req.body.borrower
         },
         {
             $pull :{
@@ -332,7 +331,7 @@ router.put('/removeitem', authapikey, async (req,res)=> {
             }
         }
         )
-        if (buyer.wishlist.length === 0)
+        if (borrower.wishlist.length === 0)
         {
             return res.send({
                 error: true,
@@ -353,11 +352,11 @@ router.put('/removeitem', authapikey, async (req,res)=> {
     }
 })
 
-//@desc Get all declined messages for a given buyerid
-//@routes  /buyer/getmessage
+//@desc Get all declined messages for a given borrowerid
+//@routes  /borrower/getmessage
 router.get('/getmessage/:id',[authapikey, authlender], async(req,res)=>{
     try{
-        await Buyer.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
+        await Borrower.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
             res.send({
                 error:false,
                 data: data,
@@ -373,11 +372,11 @@ router.get('/getmessage/:id',[authapikey, authlender], async(req,res)=>{
 })
 
 //@desc  Get the name of th ebuuyer from the id
-//@route  /buyer/getname
+//@route  /borrower/getname
 
 router.get('/getname/:id',[authapikey, authlender],async(req,res)=>{
     try{
-         await Buyer.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
+         await Borrower.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
             res.send({
                 error : false,
                 data : data,

@@ -34,7 +34,7 @@ const borrowerSchema = new Schema({
     lenderdetail: [{
         lenderid: {
             type: Schema.Types.ObjectId,
-            ref: 'Seller'
+            ref: 'Lender'
         },
         lendername: {
             type: String,
@@ -51,7 +51,7 @@ const borrowerSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Order'
     }],
-    whishlist: [{
+    wishlist: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'
     }],
