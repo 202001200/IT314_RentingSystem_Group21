@@ -18,7 +18,7 @@ const Cardview = (props) => {
     const handleDelete = () => {
       axios
           .delete(
-              'https://rentbuddy.onrender.com/products/lender/' +
+              'https://rentbuddy.onrender.com/lender/products/' +
                   product._id
           ,{
             headers:{

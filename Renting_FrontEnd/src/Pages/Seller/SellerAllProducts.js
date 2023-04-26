@@ -16,11 +16,12 @@ const SellerAllproducts = () => {
                     },
                 })
                 .then((response) => {
+                    console.log(response);
                     axios
                         .post(
                             'https://rentbuddy.onrender.com/lender/myproducts',
                             {
-                                lender_id: response.data.lenderData._id,
+                                "lender_id": "644796ea6fa97d608e5a19f4",
                             }
                         ,{
                             headers:{
@@ -28,6 +29,7 @@ const SellerAllproducts = () => {
                             }
                           })
                         .then((response) => {
+                            console.log(response);
                             setData(response.data.data);
                         })
                         .catch((e) => {

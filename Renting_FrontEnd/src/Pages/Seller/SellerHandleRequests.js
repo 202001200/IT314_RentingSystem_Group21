@@ -13,25 +13,31 @@ const SellerHandleRequests = (props) => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                .get('https://rentbuddy.onrender.com/lender/detail', {
                     headers: {
                         'auth-token': localStorage.getItem('auth_token'),
+                        'api-key':'$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa'
                     },
                 })
                 .then((response) => {
                     const data = response.data;
+                    console.log(data);
                     if (data.error) {
                         alert.error(data.msg);
                         return;
                     }
-                    setSeller(response.data.seller[0]._id);
+                    setSeller(response.data.lenderData._id);
                     axios
                         .post(
-                            'https://rentingsystem.herokuapp.com/seller/myrequest',
+                            'https://rentbuddy.onrender.com/lender/myrequest',
                             {
-                                seller: response.data.seller[0]._id,
+                                lender: response.data.lenderData._id,
                             }
-                        )
+                        ,{
+                            headers:{
+                                'api-key':'$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa'
+                            }
+                        })
                         .then((response) => {
                             const data = response.data;
                             if (data.error) {

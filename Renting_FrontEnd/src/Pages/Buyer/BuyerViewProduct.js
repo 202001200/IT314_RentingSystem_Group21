@@ -21,17 +21,19 @@ const BuyerViewProduct = (props) => {
 
     useEffect(() => {
         const fetch = () => {
+            console.log(location.state);
             axios
                 .get(
-                    'https://rentbuddy.onrender.com/lender/getname/' +
-                        location.state.seller
+                    'https://rentbuddy.onrender.com/lender/getname/'+location.state.lender
                 ,{
                     headers:{
-                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa",
+                        'auth-token':localStorage.getItem('auth-token')
                     }
                   })
                 .then((response) => {
-                    const data = response.data;
+                    console.log(response.data);
+                    const data=response.data;
                     if (data.error) {
                         alert.error(data.msg);
                     } else {
@@ -47,22 +49,21 @@ const BuyerViewProduct = (props) => {
     }, [location, alert]);
 
     const Addtowishlist = () => {
-        axios
-
-            .get('https://rentbuddy.onrender.com/borrower/detail', {
-
+        axios.get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
-                    auth_token: localStorage.getItem('auth_token'),
+                    "auth_token": localStorage.getItem('auth_token'),
                     "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
 
                 },
             })
             .then((response) => {
+                console.log(response.data);
                 axios.post(
                     'https://rentbuddy.onrender.com/borrower/updateWishlist',
                     {
-                        buyer: response.data.buyer[0]._id,
+                        borrower: response.data._id,
                         product_id: location.state._id,
+                        
                     }
                 ,{
                     headers:{
@@ -72,7 +73,7 @@ const BuyerViewProduct = (props) => {
                 const data = response.data;
                 if (data.error) {
                     alert.error('Error');
-                } else {
+                } else {    
                     alert.success('Added to wishlist');
                     history.push('./wishlist');
                 }
@@ -92,10 +93,11 @@ const BuyerViewProduct = (props) => {
                 },
             })
             .then((response) => {
+                console.log((response.data));
                 axios
                     .post('https://rentbuddy.onrender.com/borrower/request', {
-                        buyer: response.data.buyer[0]._id,
-                        seller: location.state.seller,
+                        borrower: response.data._id,
+                        lender: location.state.lender,
                     },{
                         headers:{
                             "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"

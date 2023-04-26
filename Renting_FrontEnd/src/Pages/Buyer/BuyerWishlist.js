@@ -17,16 +17,16 @@ const BuyerWishlist = () => {
             })
             .then((response) => {
                 const data = response.data;
-                console.log(response);
                 if (data.error) {
                     alert.error(data.msg);
                     return;
                 }
+                console.log(response);
                 axios
                     .post(
                         'https://rentbuddy.onrender.com/borrower/getwishlist',
                         {
-                            buyer: response.data._id,
+                            borrower: response.data._id
                         }
                     ,{
                         headers:{
@@ -34,11 +34,12 @@ const BuyerWishlist = () => {
                         }
                 })
                     .then((response) => {
+                        console.log(response);
                         if (response.data.error) {
                             alert.error(response.data.msg);
-                            setData([]);
+                            setData();
                         } else {
-                            setData(response.data.wishlist);
+                            setData(response.data.data);
                         }
                     })
                     .catch((e) => {
