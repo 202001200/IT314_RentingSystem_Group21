@@ -13,6 +13,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetch = () => {
             axios
+
                 .get('https://rentbuddy.onrender.com/products',{
                     headers:{
                         "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"

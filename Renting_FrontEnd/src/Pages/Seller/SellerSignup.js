@@ -43,7 +43,9 @@ const SellerSignup = () => {
 
   const handleOnClick = () => {
       axios
+
           .post('https://rentbuddy.onrender.com/lender/signup', {
+
               firstname: firstname,
               lastname: lastname,
               address: address,

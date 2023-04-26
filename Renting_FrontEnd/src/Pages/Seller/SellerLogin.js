@@ -25,7 +25,9 @@ const SellerLogin = (props) => {
 
     const handleOnClick = () => {
         axios
+
             .post('https://rentbuddy.onrender.com/lender/login', {
+
                 email: email,
                 password: password,
             },{
