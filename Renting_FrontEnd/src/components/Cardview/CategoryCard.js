@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
-import shapeIcon from '@iconify-icons/mdi/shape';
 import { Link } from 'react-router-dom';
 import './style.css';
 
@@ -19,9 +18,5 @@ const CategoryCard = (props) => {
         </div>
     );
 };
-CategoryCard.defaultProps = {
-    category: 'electronics',
-    icon: shapeIcon,
-  };
 
 export default CategoryCard;
