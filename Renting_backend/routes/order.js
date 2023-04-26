@@ -102,7 +102,7 @@ router.get('/lender/:lenderid', [authapikey, authlender], async (request, respon
 });
 
 // Borrower get his or her order using his or her borrower id
-router.get('/borrower/:borrowerid', [authapikey, authlender], async (request, response) => {
+router.get('/borrower/:borrowerid', [authapikey, authborrower], async (request, response) => {
     try {
         let orders = await Order.find({
             borrowerid: {
