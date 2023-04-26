@@ -134,6 +134,7 @@
 .GeneralCardview-imagediv {
     flex: 2;
     max-height: 25vh;
+    min-width: 25%;
 }
 
 .GeneralCardview-image {
@@ -151,6 +152,11 @@
     font-size: 36px;
     padding: 2%;
     padding-left: 0%;
+    max-width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 5%;
 }
 
 .GeneralCardview-sub {
@@ -185,6 +191,7 @@
     margin: auto;
     margin-bottom: 2%;
     border-radius: 6px;
+    height: 30vh;
 }
 
 .LiveProductCard-main {
@@ -202,12 +209,13 @@
 
 .LiveProductCard-imagediv {
     flex: 2;
-    max-height: 25vh;
+    max-height: 28vh;
+    min-width: 25vh;
 }
 
 .LiveProductCard-image {
     margin: 5%;
-    height: 90%;
+    max-height: 25vh;
     width: 90%;
 }
 
@@ -220,6 +228,10 @@
     font-size: 36px;
     padding: 2%;
     padding-left: 0%;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .LiveProductCard-sub {
@@ -356,6 +368,7 @@
     background-color: #2e2e2e;
     font-family: Roboto;
     width: 47%;
+    height: 35vh;
     margin: auto;
     margin-bottom: 2%;
     border-radius: 4px;
@@ -374,13 +387,12 @@
   
   .SellerLiveProduct-imagediv {
     flex: 2;
-    max-height: 30vh;
-    width: 30vh;
+
   }
   .SellerLiveProduct-image {
     margin: 5%;
-    height: 90%;
-    width: 90%;
+    max-height: 30vh;
+    width: 25vh;
   }
   
   .SellerLiveProduct-info {
@@ -391,6 +403,10 @@
     font-size: 36px;
     padding: 2%;
     padding-left: 0%;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .SellerLiveProduct-sub {
     margin-bottom: 1%;

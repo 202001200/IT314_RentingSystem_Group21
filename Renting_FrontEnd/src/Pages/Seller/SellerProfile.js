@@ -8,9 +8,12 @@ import shoppingIcon from '@iconify-icons/mdi/shopping';
 import layersPlus from '@iconify-icons/mdi/layers-plus';
 import walletIcon from '@iconify-icons/mdi/wallet';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
+import { useAlert } from 'react-alert';
 
 const SellerProfile = () => {
+    const alert = useAlert();
   const [Seller, setData] = useState([]);
+  const [Password, setPassword] = useState('');
     useEffect(() => {
         const fetch = () => {
             axios
@@ -20,7 +23,12 @@ const SellerProfile = () => {
                     },
                 })
                 .then((response) => {
-                    setData(response.data.seller[0]);
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                    } else {
+                        setData(data.seller[0]);
+                    }
                 })
                 .catch((e) => {
                     console.log(e);
@@ -28,7 +36,32 @@ const SellerProfile = () => {
         };
 
     fetch();
-  }, []);
+  }, [alert]);
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+};
+const handleUpdate = () => {
+    if (Password.length < 8) {
+        alert.error('Min length of Password Should be 8');
+        return;
+    }
+    axios
+        .post('https://rentingsystem.herokuapp.com/seller/forgot', {
+            password: Password,
+            seller: Seller._id,
+        })
+        .then((response) => {
+            const data = response.data;
+            if (data.error) {
+                alert.error(data.msg);
+            } else {
+                alert.success(data.msg);
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+};
 
     return (
         <div className='SellerProfile-page'>
@@ -108,12 +141,17 @@ const SellerProfile = () => {
                 <div className='changepassword-buttonbody'>
                     <div className='change-input'>
                         <input
-                            type={'text'}
+                             type={'password'}
                             placeholder={'Enter a new Password'}
                             className='changepassword-input'
+                            onChange={handlePassword}
                         />
                     </div>
-                    <div className='changepassword-button'>
+                    <div
+                        className='changepassword-button'
+                        onClick={handleUpdate}
+                    >
+                   
                         <div className='changepassword-btn'>Update</div>
                     </div>
                 </div>
