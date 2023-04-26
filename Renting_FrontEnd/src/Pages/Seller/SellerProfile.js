@@ -11,50 +11,26 @@ import lockOutline from '@iconify-icons/mdi/lock-outline';
 
 const SellerProfile = () => {
   const [Seller, setData] = useState([]);
-  const [password, setPassword] = useState('');
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-  };
-  useEffect(() => {
-    const fetch = () => {
-      axios
-        .get('https://rentingsystem.herokuapp.com/seller/detail', {
-          headers: {
-            'auth-token': localStorage.getItem('auth_token'),
-          },
-        })
-        .then((response) => {
-          setData(response.data.seller[0]);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                    headers: {
+                        'auth-token': localStorage.getItem('auth_token'),
+                    },
+                })
+                .then((response) => {
+                    setData(response.data.seller[0]);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
 
     fetch();
   }, []);
 
-  const handleOnClick = () => {
-    axios
-        .post('https://rentingsystem.herokuapp.com/buyer/forgot', {
-          password : password,
-        })
-        .then(function (response) {
-            const data = response.data;
-            if (data.error) {
-                alert.error(data.msg);
-            } else {
-                alert.success(data.msg);
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-  };
-
-
-
-return (
+    return (
         <div className='SellerProfile-page'>
             <TitleHeader name={'My Profile'} />
             <div className='SellerProfile-main'>
@@ -86,8 +62,8 @@ return (
                         </div>
                     </div>
                 </div>
-            </div>
-           <div className='SellerProfile-othermain'>
+                        </div>
+                    <div className='SellerProfile-othermain'>
                 <Link to='./myproducts'>
                     <div className='SellerProfile-otherdiv'>
                         <Icon
@@ -97,8 +73,8 @@ return (
                         <div className='SellerProfile-title'>My Product</div>
                     </div>
                 </Link>
-            </div>
-            <div className='SellerProfile-othermain'>
+                        </div>
+                        <div className='SellerProfile-othermain'>
                 <Link to='./active'>
                     <div className='SellerProfile-otherdiv'>
                         <Icon
@@ -132,18 +108,18 @@ return (
                 <div className='changepassword-buttonbody'>
                     <div className='change-input'>
                         <input
-                            type={'password'}
+                            type={'text'}
                             placeholder={'Enter a new Password'}
                             className='changepassword-input'
-                            handleInput={handlePassword}
                         />
                     </div>
                     <div className='changepassword-button'>
-                        <div className='changepassword-btn' onClick={handleOnClick}>Update</div>
+                        <div className='changepassword-btn'>Update</div>
                     </div>
                 </div>
-            </div>
-          </div>
+                        </div>
+                    </div>
+                
 );
 };
 
