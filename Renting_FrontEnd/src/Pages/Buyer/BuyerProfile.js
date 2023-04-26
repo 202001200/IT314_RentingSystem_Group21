@@ -18,17 +18,19 @@ const BuyerProfile = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                .get('https://rentbuddy.onrender.com/borrower/detail', {
                     headers: {
                         auth_token: localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
+                    console.log(response);
                     const data = response.data;
                     if (data.error) {
                         alert.error(data.msg);
                     } else {
-                        setData(data.buyer[0]);
+                        setData(data);
                     }
                 })
                 .catch((e) => {
@@ -46,9 +48,13 @@ const BuyerProfile = () => {
             return;
         }
         axios
-            .post('https://rentingsystem.herokuapp.com/buyer/forgot', {
+            .post('https://rentbuddy.onrender.com/borrower/forgot', {
                 password: Password,
-                buyer: Buyer._id,
+                borrower: Buyer._id,
+            },{
+                headers:{
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                }
             })
             .then((response) => {
                 const data = response.data;

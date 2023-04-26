@@ -11,7 +11,7 @@ const Cardview = (props) => {
         const fetch = () => {
             axios
                 .get(
-                    'https://rentingsystem.herokuapp.com/product/' +
+                    'https://rentbuddy.onrender.com/product/' +
                         props.order.productid
                 )
                 .then((response) => {
@@ -23,8 +23,8 @@ const Cardview = (props) => {
                     setProduct(data.product);
                     axios
                         .get(
-                            'https://rentingsystem.herokuapp.com/seller/getname/' +
-                                response.data.product.seller
+                            'https://rentbuddy.onrender.com/lender/getname/' +
+                                response.data.product.lender
                         )
                         .then((response) => {
                             const data = response.data;

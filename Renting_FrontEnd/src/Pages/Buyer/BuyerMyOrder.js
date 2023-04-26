@@ -11,9 +11,10 @@ const BuyerMyOrder = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                .get('https://rentbuddy.onrender.com/borrower/detail', {
                     headers: {
                         auth_token: localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
@@ -24,11 +25,16 @@ const BuyerMyOrder = () => {
                     }
                     axios
                         .get(
-                            'https://rentingsystem.herokuapp.com/order/buyer/' +
-                                response.data.buyer[0]._id
-                        )
+                            'https://rentbuddy.onrender.com/order/borrower/' +response.data._id
+                        ,{
+                            headers:{
+                                auth_token:localStorage.getItem('auth_token'),
+                                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                            }
+                        })
                         .then((response) => {
                             const data = response.data;
+                            console.log(data);
                             if (data.error) {
                                 alert.error(data.msg);
                             } else {
