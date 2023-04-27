@@ -11,9 +11,10 @@ const BuyerLiveProduct = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                .get('https://rentbuddy.onrender.com/borrower/detail', {
                     headers: {
                         auth_token: localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
@@ -24,10 +25,15 @@ const BuyerLiveProduct = () => {
                     }
                     axios
                         .get(
-                            'https://rentingsystem.herokuapp.com/order/buyer/' +
-                                response.data.buyer[0]._id
+                            'https://rentbuddy.onrender.com/order/borrower/' + response.data._id,{
+                                headers:{
+                                    auth_token: localStorage.getItem('auth_token'),
+                                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                                }
+                            }
                         )
                         .then((response) => {
+                            console.log(response);
                             const data = response.data;
                             if (data.error) {
                                 alert.error(data.msg);
@@ -52,8 +58,9 @@ const BuyerLiveProduct = () => {
                 {orders.map((order) => {
                     var dt1 = new Date(order.returndate);
                     var dt2 = new Date();
+                    console.log(dt1);
                     return (
-                        dt1 - dt2 > 0 && (
+                        dt1 >= dt2 && (
                             <LiveProductCard
                                 key={order._id}
                                 order={order}

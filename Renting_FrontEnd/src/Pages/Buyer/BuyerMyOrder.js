@@ -19,13 +19,13 @@ const BuyerMyOrder = () => {
                 })
                 .then((response) => {
                     const data = response.data;
-                    if (data.error) {
+                    if (data.msg) {
                         alert.error(data.msg);
                         return;
                     }
                     axios
                         .get(
-                            'https://rentbuddy.onrender.com/order/borrower/' +response.data._id
+                            'https://rentbuddy.onrender.com/order/borrower/' +data._id
                         ,{
                             headers:{
                                 auth_token:localStorage.getItem('auth_token'),
