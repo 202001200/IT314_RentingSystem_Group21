@@ -28,8 +28,8 @@ const productSchema = Schema({
         trim: true
     },
     category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category'
+        type: String,
+        trim: true
     },
     lender: {
         type: Schema.Types.ObjectId,
