@@ -2,8 +2,9 @@ const express = require('express');
 const Order = require('../models/Order');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const authapikey = require('../middlware/authapikey.js');
+const authapikey = require('../middleware/authapikey.js');
 const authlender = require('../middleware/authlender.js');
+const authborrower = require('../middleware/authborrower.js');
 // @desc    System POST a order
 // @route   POST /order
 router.post(
@@ -102,7 +103,7 @@ router.get('/lender/:lenderid', [authapikey, authlender], async (request, respon
 });
 
 // Borrower get his or her order using his or her borrower id
-router.get('/borrower/:borrowerid', [authapikey, authlender], async (request, response) => {
+router.get('/borrower/:borrowerid', [authapikey, authborrower], async (request, response) => {
     try {
         let orders = await Order.find({
             borrowerid: {
@@ -144,3 +145,5 @@ router.get('/', [authapikey, authlender], async (req, res) => {
         });
     }
 });
+
+module.exports = router;

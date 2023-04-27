@@ -12,7 +12,7 @@ const SellerActiveProductCard = (props) => {
         const fetch = () => {
             axios
                 .get(
-                    'https://rentingsystem.herokuapp.com/product/' +
+                    'https://rentbuddy.onrender.com/product/' +
                         props.order.productid
                 )
                 .then((response) => {
