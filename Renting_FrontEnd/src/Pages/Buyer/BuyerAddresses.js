@@ -31,7 +31,8 @@ const BuyerAddresses = () => {
                       .post(
                           'https://rentbuddy.onrender.com/borrower/address',
                           {
-                              borrower: response.data._id
+                            
+                              borrower: data._id
                           }
                       ,{
                         headers:{

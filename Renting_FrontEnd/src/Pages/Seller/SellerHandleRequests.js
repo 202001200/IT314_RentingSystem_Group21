@@ -58,6 +58,7 @@ const SellerHandleRequests = (props) => {
         fetch();
     }, [alert]);
 
+    
     return (
         <div className='BuyerAddresses-main'>
             <TitleHeader name={'Handle Requests'} />
