@@ -13,9 +13,10 @@ const SellerActiveProduct = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                .get('https://rentbuddy.onrender.com/lender/detail', {
                     headers: {
                         'auth-token': localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
@@ -26,9 +27,13 @@ const SellerActiveProduct = () => {
                     }
                     axios
                         .get(
-                            'https://rentingsystem.herokuapp.com/order/seller/' +
-                                response.data.seller[0]._id
-                        )
+                            'https://rentbuddy.onrender.com/order/lender/' +
+                                response.data.lenderData._id
+                        ,{
+                            headers:{
+                                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                            }
+                        })
                         .then((response) => {
                             const data = response.data;
                             if (data.error) {

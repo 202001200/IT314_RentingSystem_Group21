@@ -12,24 +12,32 @@ const SellerActiveProductCard = (props) => {
         const fetch = () => {
             axios
                 .get(
-                    'https://rentbuddy.onrender.com/product/' +
-                        props.order.productid
-                )
+                    'https://rentbuddy.onrender.com/products/' +props.order.productid
+                ,{
+                    headers:{
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                    }
+                })
                 .then((response) => {
                     const data = response.data;
                     if (data.error) {
                         alert.error(data.msg);
                         return;
                     }
-                    setProduct(data.product);
+                    setProduct(data);
                     axios
                         .get(
-                            'https://rentingsystem.herokuapp.com/buyer/getname/' +
-                                props.order.buyerid
-                        )
+                            'https://rentbuddy.onrender.com/borrower/getname/' +
+                                props.order.borrowerid
+                        ,{
+                            headers:{
+                                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                            }
+                        })
                         .then((response) => {
                             const data = response.data;
-                            if (data.error) {
+                            console.log(data);
+                            if (data.msg) {
                                 alert.error(data.msg);
                             } else {
                                 setBuyer(data.data[0]);
