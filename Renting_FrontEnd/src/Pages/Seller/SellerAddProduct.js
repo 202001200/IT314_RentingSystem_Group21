@@ -32,9 +32,10 @@ const SellerAddProduct = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingsystem.herokuapp.com/seller/detail', {
+                .get('https://rentingbuddy.onrender.com/lender/detail', {
                     headers: {
                         'auth-token': localStorage.getItem('auth_token'),
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     },
                 })
                 .then((response) => {
@@ -70,9 +71,11 @@ const SellerAddProduct = () => {
 
     const handleOnClick = () => {
         if (!selectedFile) return;
-        const uploadTask = storage
-            .ref(`Products/${selectedFile.name}`)
+        console.log(storage);
+        const uploadTask =storage
+            .ref(`Product/${selectedFile.name}`)
             .put(selectedFile);
+            console.log("TEST");
         uploadTask.on(
             'state_changed',
             (snapshot) => {
@@ -90,6 +93,7 @@ const SellerAddProduct = () => {
                     .child(selectedFile.name)
                     .getDownloadURL()
                     .then((url) => {
+                        console.log(url);
                         setImagepath(url);
                     });
             }
