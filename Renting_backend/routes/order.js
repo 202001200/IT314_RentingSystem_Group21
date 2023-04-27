@@ -29,7 +29,7 @@ router.post(
         try {
             const order = new Order({
                 borrowerid: req.body.borrowerid,
-                sellerid: req.body.sellerid,
+                productid: req.body.productid,
                 lenderid: req.body.lenderid,
                 address: req.body.address,
                 totalprice: req.body.price,
