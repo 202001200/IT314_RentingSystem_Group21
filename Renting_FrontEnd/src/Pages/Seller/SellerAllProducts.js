@@ -21,7 +21,7 @@ const SellerAllproducts = () => {
                         .post(
                             'https://rentbuddy.onrender.com/lender/myproducts',
                             {
-                                "lender_id": "644796ea6fa97d608e5a19f4",
+                                "lender_id": response.data.lenderData._id,
                             }
                         ,{
                             headers:{

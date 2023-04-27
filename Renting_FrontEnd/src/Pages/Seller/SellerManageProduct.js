@@ -105,7 +105,7 @@ const SellerManageProduct = () => {
     const handleUpdate = () => {
         axios
             .put(
-                'https://rentingsystem.herokuapp.com/product/seller/' +
+                'https://rentbuddy.onrender.com/products/lender/' +
                     product._id,
                 {
                     title: title,
@@ -114,7 +114,11 @@ const SellerManageProduct = () => {
                     price: price,
                     formatofprice: fop,
                     category: category,
-                    seller: seller,
+                    lender: seller,
+                },{
+                    headers:{
+                        'api-key':'$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa'
+                    }
                 }
                 )
             .then(function (response) {

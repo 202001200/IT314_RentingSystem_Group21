@@ -114,7 +114,12 @@ const SellerAddProduct = () => {
     };
 
     const handleInputPrice = (event) => {
-        setPrice(event.target.value);
+        if(event.target.value < 0)
+        {
+            alert.error("please enter invlid prize");
+        }
+        else{
+        setPrice(event.target.value);}
     };
 
     const handleOnSubmit = () => {
