@@ -140,7 +140,7 @@ router.delete('/lender/:id', async (req, res) => {
                 msg: 'Product Not Found',
             });
         }
-        await Product.remove({
+        await Product.deleteOne({
             _id: req.params.id,
         });
         res.send({
