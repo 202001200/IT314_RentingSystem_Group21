@@ -144,7 +144,7 @@ router.post(
     }
 );
 
-router.get("/detail", authapikey, async (req, res) => {
+router.get("/detail", [authapikey,authborrower], async (req, res) => {
   try {
       const borrower = await Borrower.findById(req.borrower._id);
       res.send(borrower);
