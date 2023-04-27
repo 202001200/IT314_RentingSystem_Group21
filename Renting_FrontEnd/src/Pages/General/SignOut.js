@@ -13,7 +13,7 @@ import checkboxMarkedCircle from '@iconify-icons/mdi/checkbox-marked-circle';
           <div className='SignOut-namebody'>Are you sure ?</div>
           <div className='SignOut-Buttondiv'>
               <div className='SignOut-Buttons'>
-                  <Button
+                  <Button 
                       icon={closeCircleOutline}
                       name={'Cancel'}
                       handleClick={props.handleClick}

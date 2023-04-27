@@ -2,7 +2,7 @@ Button-main {
   width: 100%;
 }
 .Button-body {
-  width: 90%;
+  width: 100%;
   margin: auto;
   background-color: #19A7CE;
   cursor: pointer;
