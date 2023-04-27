@@ -29,7 +29,7 @@ router.post(
         try {
             const order = new Order({
                 borrowerid: req.body.borrowerid,
-                sellerid: req.body.sellerid,
+                productid: req.body.productid,
                 lenderid: req.body.lenderid,
                 address: req.body.address,
                 totalprice: req.body.price,
@@ -76,7 +76,7 @@ router.get('/:id', [authapikey, authlender], async (req, res) => {
 });
 
 // Lender getting his or her order using his or her lenderid
-router.get('/lender/:lenderid', [authapikey, authlender], async (request, response) => {
+router.get('/lender/:lenderid', authapikey, async (request, response) => {
     try {
         let orders = await Order.find({
             lenderid: {

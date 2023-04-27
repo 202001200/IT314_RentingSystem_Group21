@@ -144,7 +144,7 @@ router.post(
     }
 );
 
-router.get("/detail", [authapikey,authborrower], async (req, res) => {
+router.get("/detail", authapikey, async (req, res) => {
   try {
       const borrower = await Borrower.findById(req.borrower._id);
       res.send(borrower);
@@ -354,7 +354,7 @@ router.put('/removeitem', authapikey, async (req,res)=> {
 
 //@desc Get all declined messages for a given borrowerid
 //@routes  /borrower/getmessage
-router.get('/getmessage/:id',[authapikey, authlender], async(req,res)=>{
+router.get('/getmessage/:id',authapikey, async(req,res)=>{
     try{
         await Borrower.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
             res.send({
@@ -374,7 +374,7 @@ router.get('/getmessage/:id',[authapikey, authlender], async(req,res)=>{
 //@desc  Get the name of th ebuuyer from the id
 //@route  /borrower/getname
 
-router.get('/getname/:id',[authapikey, authlender],async(req,res)=>{
+router.get('/getname/:id',authapikey,async(req,res)=>{
     try{
          await Borrower.find({_id: req.params.id},{firstname:1,lastname:1,_id:0}).then(data=>{
             res.send({

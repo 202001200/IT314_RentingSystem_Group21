@@ -42,7 +42,7 @@ router.get('/',authapikey, async (req, res) => {
 
 router.get('/:id',authapikey, async(req,res)=>{
     try{
-        const product = Product.findById(req.params.id);
+        const product = await Product.findById(req.params.id);
         res.send(product);
     }
     catch(err){
