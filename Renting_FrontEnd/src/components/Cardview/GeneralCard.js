@@ -15,8 +15,11 @@ const Cardview = (props) => {
     const fetch = () => {
         axios
             .get(
-                'https://rentingsystem.herokuapp.com/seller/getname/' +
-                    product.seller
+                'https://rentbuddy.onrender.com/lender/getname/' +product.lender,{
+                    headers:{
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                    }
+                }
             )
             .then((response) => {
                 const data = response.data;
@@ -67,7 +70,7 @@ return (
                         </div>
                         <div className='GeneralCardview-namediv'>
                             <div className='GeneralCardview-name'>
-                                Seller
+                                Lender
                             </div>
                             <div className='GeneralCardview-value'>
                                 {Seller.firstname + ' ' + Seller.lastname}

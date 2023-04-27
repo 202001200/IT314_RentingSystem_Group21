@@ -32,7 +32,7 @@ const SellerAddProduct = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-                .get('https://rentingbuddy.onrender.com/lender/detail', {
+                .get('https://rentbuddy.onrender.com/lender/detail', {
                     headers: {
                         'auth-token': localStorage.getItem('auth_token'),
                         "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
@@ -43,7 +43,7 @@ const SellerAddProduct = () => {
                     if (data.error) {
                         alert.error(data.msg);
                     } else {
-                        setSeller(response.data.seller[0]._id);
+                        setSeller(response.data.lenderData._id);
                     }
                 })
                 .catch((e) => {
@@ -66,30 +66,29 @@ const SellerAddProduct = () => {
         };
 
         const changeCategoryoption = (event) => {
+            console.log(event.label);
         setCategory(event.label);
     };
 
     const handleOnClick = () => {
         if (!selectedFile) return;
         console.log(storage);
-        const uploadTask =storage
-            .ref(`Product/${selectedFile.name}`)
-            .put(selectedFile);
-            console.log("TEST");
+        const uploadTask =storage.ref(`Product/${selectedFile.name}`).put(selectedFile);
         uploadTask.on(
             'state_changed',
             (snapshot) => {
                 const progress = Math.round(
                     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
-                setProgress(progress);
+                    );
+                    setProgress(progress);
+
             },
             (error) => {
                 console.log(error);
             },
             () => {
                 storage
-                    .ref('Products')
+                    .ref('Product')
                     .child(selectedFile.name)
                     .getDownloadURL()
                     .then((url) => {
@@ -120,17 +119,22 @@ const SellerAddProduct = () => {
 
     const handleOnSubmit = () => {
         axios
-            .post('https://rentingsystem.herokuapp.com/product/seller', {
+            .post('https://rentbuddy.onrender.com/products/lender', {
                 title: title,
                 description: description,
                 imagepath: imagepath,
                 price: price,
                 formatofprice: fop,
                 category: category,
-                seller: seller,
+                lender: seller,
+            },{
+                headers:{
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                }
             })
             .then(function (response) {
                 const data = response.data;
+                console.log(data);
                 if (data.error) {
                     alert.error(data.msg);
                 } else {
