@@ -64,7 +64,7 @@ router.post('/lender',[
     check('lender','Please Login').not().isEmpty()
     ],async(req,res)=>{
         const errors = validationResult(req);
-        if(!error.isEmpty()){
+        if(!errors.isEmpty()){
             return res.send({
                 error:true,
                 msg:errors.errors[0].msg
