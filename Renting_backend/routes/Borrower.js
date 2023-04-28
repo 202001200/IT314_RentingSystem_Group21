@@ -274,7 +274,7 @@ router.post('/address', authapikey, async (req, res) => {
         let borrower = await Borrower.findById(req.body.borrower);
         const ids = await borrower.lenderdetails.map((lender)=>lender.lenderid);
         Lender.find(
-            { _id: {$in:ids}}
+            { _id: {$in:ids}},
             { firstname: 1, lastname: 1, address: 1,email:1, _id: 0 }
         ).then((data) => {
             res.send({
