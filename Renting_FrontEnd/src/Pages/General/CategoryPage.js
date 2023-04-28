@@ -10,27 +10,26 @@ const CategoryPage = (props) => {
   const alert = useAlert();
   const [Products, setData] = useState([]);
   const [filter, setFilter] = useState([]);
+
   useEffect(() => {
     const fetch = () => {
+      console.log(location.state);
       axios
-        .get('http://rentbuddy.onrender.com/products',{
+        .get('https://rentbuddy.onrender.com/products/category/'+location.state,{
           headers:{
               "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
           }
           })
+
         .then((response) => {
           const data = response.data;
                     if (data.error) {
                         alert.error(data.msg);
                         setData([]);
                     } else {
-                      setData(
-                        response.data.product.filter((product) => {
-                            return product.category === location.state;
-                        })
-                    );
+                      setData(response.data);
                     setFilter(
-                        response.data.product.filter((product) => {
+                        response.data.filter((product) => {
                             return product.category === location.state;
                         })
                     );

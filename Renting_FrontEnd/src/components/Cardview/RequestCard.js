@@ -39,7 +39,7 @@ const RequestCard = (props) => {
 
 const handleDecline = () => {
     axios
-        .post('https://redntbuddy.onrender.com/lender/decline', {
+        .post('https://rentbuddy.onrender.com/lender/decline', {
             borrower: props.buyer._id,
             lender: props.seller,
         },{
