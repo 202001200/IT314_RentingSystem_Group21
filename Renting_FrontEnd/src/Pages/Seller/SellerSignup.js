@@ -10,6 +10,7 @@ import shieldAccountVariantOutline from '@iconify-icons/mdi/shield-account-varia
 import LoginInput from '../../components/Input/LoginInput';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const SellerSignup = () => {
   const alert = useAlert();
@@ -21,7 +22,7 @@ const SellerSignup = () => {
   const [idproof, setIdproof] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [s,setS] = useState(false);
   const handleInputFname = (event) => {
       setFirstname(event.target.value);
   };
@@ -42,10 +43,8 @@ const SellerSignup = () => {
   };
 
   const handleOnClick = () => {
-      axios
-
-          .post('https://rentbuddy.onrender.com/lender/signup', {
-
+    setS(true);
+    axios.post('https://rentbuddy.onrender.com/lender/signup', {
               firstname: firstname,
               lastname: lastname,
               address: address,
@@ -59,6 +58,7 @@ const SellerSignup = () => {
           })
           .then(function (response) {
               const data = response.data;
+              setS(false);
               if (data.error) {
                   alert.error(data.msg);
               } else {
@@ -91,6 +91,7 @@ const SellerSignup = () => {
                   <div className='SellerLogin-text'>Seller sign up</div>
               </div>
               <div className='SellerSignup-input-main'>
+              <div style={{'margin-left':'40%'}}><DNA visible={s} height={70}/></div>
                   <LoginInput
                       icon={accountOutline}
                       placeholder={'Firstname'}

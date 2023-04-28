@@ -3,11 +3,12 @@ import LiveProductCard from '../../components/Cardview/LiveProductCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const BuyerLiveProduct = () => {
     const alert = useAlert();
     const [orders, setOrders] = useState([]);
-
+    const [s,setS] = useState(true);
     useEffect(() => {
         const fetch = () => {
             axios
@@ -33,7 +34,7 @@ const BuyerLiveProduct = () => {
                             }
                         )
                         .then((response) => {
-                            console.log(response);
+                            setS(false);
                             const data = response.data;
                             if (data.error) {
                                 alert.error(data.msg);
@@ -55,6 +56,7 @@ const BuyerLiveProduct = () => {
         <div>
             <TitleHeader name={'Live Order'} />
             <div className='BuyerMyOrder-card'>
+            <DNA visible={s}/>
                 {orders.map((order) => {
                     var dt1 = new Date(order.returndate);
                     var dt2 = new Date();

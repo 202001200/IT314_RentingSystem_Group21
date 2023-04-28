@@ -8,6 +8,7 @@ import LoginInput from '../../components/Input/LoginInput';
 
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const SellerLogin = (props) => {
     const alert = useAlert();
@@ -15,7 +16,7 @@ const SellerLogin = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [s,setS] = useState(false);
     const handleInputEmail = (event) => {
         setEmail(event.target.value);
     };
@@ -24,10 +25,8 @@ const SellerLogin = (props) => {
     };
 
     const handleOnClick = () => {
-        axios
-
-            .post('https://rentbuddy.onrender.com/lender/login', {
-
+        setS(true);
+        axios.post('https://rentbuddy.onrender.com/lender/login', {
                 email: email,
                 password: password,
             },{
@@ -37,6 +36,7 @@ const SellerLogin = (props) => {
               })
             .then(function (response) {
                 const data = response.data;
+                setS(false);
                 if (data.error) {
                     alert.error(data.msg);
                     localStorage.removeItem('seller');
@@ -61,6 +61,7 @@ const SellerLogin = (props) => {
                     <div className='SellerLogin-text'>Seller sign in</div>
                 </div>
                 <div className='SellerLogin-input-main'>
+                <div style={{'margin-left':'40%'}}><DNA visible={s} height={70}/></div>
                     <LoginInput
                         icon={emailOutline}
                         placeholder={'E-mail'}

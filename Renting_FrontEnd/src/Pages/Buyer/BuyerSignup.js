@@ -9,6 +9,7 @@ import LoginInput from '../../components/Input/LoginInput';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
 import './style.css';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const BuyerSignup = (props) => {
   const alert = useAlert();
@@ -19,7 +20,7 @@ const BuyerSignup = (props) => {
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [s,setS] = useState(false);
   const handleInputFname = (event) => {
       setFirstname(event.target.value);
   };
@@ -37,6 +38,7 @@ const BuyerSignup = (props) => {
   };
 
   const handleOnClick = () => {
+    setS(true);
       axios
           .post('https://rentbuddy.onrender.com/borrower/signup', {
               firstname: firstname,
@@ -51,6 +53,7 @@ const BuyerSignup = (props) => {
               })
           .then(function (response) {
               const data = response.data;
+              setS(false);
               if (data.error) {
                   alert.error(data.msg);
               } else {
@@ -82,6 +85,7 @@ const BuyerSignup = (props) => {
                   <div className='BuyerLogin-text'>Buyer Sign up</div>
               </div>
               <div className='BuyerSignup-input-main'>
+              <div style={{'margin-left':'40%'}}><DNA visible={s} height={70}/></div>
                   <LoginInput
                       icon={accountOutline}
                       placeholder={'Firstname'}

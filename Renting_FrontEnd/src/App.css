@@ -16,3 +16,7 @@
     background-color: black;
     color: #F6F1F1;
 }
+
+.Main-body *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

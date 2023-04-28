@@ -7,11 +7,12 @@ import signinposter from '../../Assets/signinposter.png';
 import LoginInput from '../../components/Input/LoginInput';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const BuyerLogin = (props) => {
   const alert = useAlert();
   let history = useHistory();
-
+  const [s,setS]=useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,6 +24,7 @@ const BuyerLogin = (props) => {
   };
 
   const handleOnClick = () => {
+    setS(true);
     axios
       .post('https://rentbuddy.onrender.com/borrower/login', {
         email: email,
@@ -34,6 +36,7 @@ const BuyerLogin = (props) => {
           })
       .then(function (response) {
         const data = response.data;
+        setS(false);
         if (data.error) {
           alert.error(data.msg);
           localStorage.removeItem('buyer');
@@ -58,6 +61,7 @@ const BuyerLogin = (props) => {
                     <div className='BuyerLogin-text'>Buyer Sign in</div>
                 </div>
                 <div className='BuyerLogin-input-main'>
+                <div style={{'margin-left':'40%'}}><DNA visible={s} height={70}/></div>
                     <LoginInput
                         icon={emailOutline}
                         placeholder={'E-mail'}

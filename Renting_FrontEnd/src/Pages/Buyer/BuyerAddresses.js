@@ -66,10 +66,10 @@ const BuyerAddresses = () => {
       <div className='BuyerAddresses-main'>
           <TitleHeader name={'Seller Address'} />
           <div className='BuyerAddresses-main-card'>
+          <DNA visible={s} />
               {Addresses.map((product, index) => {
                   return <AddressCard key={index} address={product} />;
               })}
-              <DNA visible={s}/>
           </div>
       </div>
   );

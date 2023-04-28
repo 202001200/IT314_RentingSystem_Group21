@@ -3,13 +3,14 @@ import TitleHeader from '../../components/header/TitleHeader';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 
 const SellerActiveProduct = () => {
     const alert = useAlert();
-     const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [check, setCheck] = useState(false);
-
+    const [s,setS] = useState(true);
     useEffect(() => {
         const fetch = () => {
             axios
@@ -35,6 +36,7 @@ const SellerActiveProduct = () => {
                             }
                         })
                         .then((response) => {
+                            setS(false);
                             const data = response.data;
                             if (data.error) {
                                 alert.error(data.msg);
@@ -72,6 +74,7 @@ const SellerActiveProduct = () => {
                 </span>
             </div>
             <div className='BuyerMyOrder-card'>
+            <DNA visible={s} />
                 {!check
                     ? orders.map((order) => {
                           return (
