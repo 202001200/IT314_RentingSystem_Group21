@@ -7,11 +7,12 @@ import Button from '../../components/Button/Button';
 import checkboxMarkedCircleOutline from '@iconify-icons/mdi/checkbox-marked-circle-outline';
 import backspaceOutline from '@iconify-icons/mdi/backspace-outline';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const BuyerCheckout = (props) => {
   let location = useLocation();
   const alert = useAlert();
-
+  const [s,setS] = useState(true);
   const [check, setCheck] = useState(false);
   const [Buyer, setData] = useState({});
 
@@ -26,6 +27,7 @@ const BuyerCheckout = (props) => {
         })
         .then((response) => {
           setData(response.data);
+          setS(false);
         })
         .catch((e) => {
           console.log(e);
@@ -89,6 +91,12 @@ const BuyerCheckout = (props) => {
         <div>
             <TitleHeader name={'Checkout Product'} />
             <div className='BuyerCheckout-main'>
+            <DNA visible={s} wrapperStyle={{
+                margin:'auto',
+                align:'center',
+                justifyContent:'center',
+                alignItems:'center'
+            }}/>
                 <div className='BuyerCheckout-title'>
                     {location.state.title}
                 </div>
@@ -117,7 +125,7 @@ const BuyerCheckout = (props) => {
                         defaultChecked={false}
                     />
                     <span className='BuyerCheckout-confirm'>
-                        Confirm Paymant
+                        Confirm Payment
                     </span>
                     <span className='BuyerCheckout-total'>{'Total'}</span>
                     <div className='BuyerCheckoutPrice'>

@@ -3,8 +3,10 @@ import axios from 'axios';
 import GeneralCard from '../../components/Cardview/GeneralCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import { useAlert } from 'react-alert';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 const BuyerWishlist = () => {
   const alert = useAlert();
+  const [spinner,setSpinner] = useState(true);
   const [Products, setData] = useState([]);
   useEffect(() => {
     const fetch = () => {
@@ -35,6 +37,7 @@ const BuyerWishlist = () => {
                 })
                     .then((response) => {
                         console.log(response);
+                        setSpinner(false);
                         if (response.data.error) {
                             alert.error(response.data.msg);
                             setData();
@@ -56,6 +59,7 @@ return (
     <div className='BuyerWishlist-page'>
         <TitleHeader name={'My Wishlist'} />
         <div className='BuyerWishlist-card'>
+        <DNA visible={spinner}/>
             {Products.map((product) => {
                 return <GeneralCard key={product._id} product={product} />;
             })}

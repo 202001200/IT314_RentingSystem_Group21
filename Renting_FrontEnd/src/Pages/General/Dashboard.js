@@ -5,9 +5,11 @@ import ProductCard from '../../components/Cardview/ProductCard';
 import './style.css';
 import { useAlert } from 'react-alert';
 
+import DNA from 'react-loader-spinner/dist/loader/Dna';
+
 const Dashboard = () => {
     const alert = useAlert();
-  
+    const [spinner,setSpinner] =useState(true);
     const [Products, setData] = useState([]);
     const [filter, setFilter] = useState([]);
 
@@ -28,6 +30,7 @@ const Dashboard = () => {
                         setData([]);
                     } else {
                         setData(response.data.product);
+                        setSpinner(false);
                         setFilter(response.data.product);
                     }
                 })
@@ -71,6 +74,7 @@ const Dashboard = () => {
         <div className='Dashboard'>
          <SearchHeader handleChange={handleInputChanges} />
             <div className='Main-card'>
+            <DNA visible={spinner}/>
                 {Products.map((product) => {
                     return <ProductCard key={product._id} product={product} />;
                 })}

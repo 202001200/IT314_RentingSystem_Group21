@@ -4,13 +4,14 @@ import AddressCard from '../../components/Cardview/AddressCard';
 import TitleHeader from '../../components/header/TitleHeader';
 import { useAlert } from 'react-alert';
 import './style.css';
+import DNA from 'react-loader-spinner/dist/loader/Dna';
 
 const BuyerAddresses = () => {
     const cards = [];
     const alert = useAlert();
   
     const [Addresses, setData] = useState([]);
-  
+    const [s,setS] =useState(true);
     useEffect(() => {
       const fetch = () => {
           axios
@@ -40,7 +41,7 @@ const BuyerAddresses = () => {
                         }
                       })
                       .then((response) => {
-                        console.log(response);
+                        setS(false);
                           const data = response.data;
                           if (data.error) {
                               alert.error(data.msg);
@@ -68,6 +69,7 @@ const BuyerAddresses = () => {
               {Addresses.map((product, index) => {
                   return <AddressCard key={index} address={product} />;
               })}
+              <DNA visible={s}/>
           </div>
       </div>
   );

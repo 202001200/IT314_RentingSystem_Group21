@@ -4,7 +4,7 @@ import './style.css';
 import logo from '../../Assets/logo512.png';
 import { Link } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-
+import LinearLoader from 'react-linear-loader';
 const Cardview = (props) => {
   const alert = useAlert();
 
@@ -35,7 +35,8 @@ const Cardview = (props) => {
     };
     fetch();
 }, [product, alert]);
-
+const data=Seller.length!==0?<div className='GeneralCardview-value'>
+{Seller.firstname + ' ' + Seller.lastname}</div>:<div className='GeneralCardview-value'>Loading...</div>;
 return (
     <div className='GeneralCardview'>
         <Link to={{ pathname: '/buyer/product', state: product }}>
@@ -72,9 +73,7 @@ return (
                             <div className='GeneralCardview-name'>
                                 Lender
                             </div>
-                            <div className='GeneralCardview-value'>
-                                {Seller.firstname + ' ' + Seller.lastname}
-                            </div>
+                                {data}
                         </div>
                         <div className='GeneralCardview-namediv'>
                             <div className='GeneralCardview-name'>
