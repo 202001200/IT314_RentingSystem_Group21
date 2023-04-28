@@ -26,7 +26,7 @@ const SellerHandleRequests = (props) => {
                         alert.error(data.msg);
                         return;
                     }
-                    setSeller(response.data.lenderData._id);
+                    setSeller(response.data.lenderData);
                     axios
                         .post(
                             'https://rentbuddy.onrender.com/lender/myrequest',
