@@ -21,7 +21,7 @@ router.post(
         check('email', 'Enter a valid Email Address').isEmail(),
         check('idproof', 'Please Enter a Id-Proof').not().isEmpty(),
         check('address', 'Enter a valid Address').not().isEmpty(),
-        check('password', 'Enter a valid Firstname').isLength ({min: 8})
+        check('password', 'Enter a valid Password').isLength ({min: 8})
     ],
     
     async (req, res) => {
@@ -83,7 +83,7 @@ router.post(
     [
         authapikey,
         check('email', 'Enter a valid Email Address').isEmail(),
-        check('password', 'Enter a valid Firstname').isLength ({min: 8})
+        check('password', 'Enter a valid Password').isLength ({min: 8})
     ],
     
     async (req, res) => {
