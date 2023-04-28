@@ -223,7 +223,10 @@ router.post('/accept', authapikey, async (req, res) => {
         const filter = { _id: req.body.borrower };
         const update = {
             $addToSet: {
-                lenderdetail: req.body.lender,
+                lenderdetail:{
+                lenderid:req.body.lender._id,
+                lendername:req.body.lender.firstname+' '+req.body.lender.lastname,
+                lenderaddress:req.body.lender.address
             },
         };
 
