@@ -7,7 +7,7 @@ import DNA from 'react-loader-spinner/dist/loader/Dna';
 const BuyerMyOrder = () => {
     const alert = useAlert();
    const [orders, setOrders] = useState([]);
-   const [s,setS] = usestate(true);
+   const [s,setS] = useState(true);
     useEffect(() => {
         const fetch = () => {
             axios
@@ -34,6 +34,7 @@ const BuyerMyOrder = () => {
                         })
                         .then((response) => {
                             const data = response.data;
+                            setS(false);
                             console.log(data);
                             if (data.error) {
                                 alert.error(data.msg);

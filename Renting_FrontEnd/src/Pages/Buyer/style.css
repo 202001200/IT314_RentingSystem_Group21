@@ -16,7 +16,7 @@
 
 .BuyerViewProduct-body {
     display: flex;
-  font-family: Roboto;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .BuyerViewProduct-sub {
