@@ -283,10 +283,9 @@ router.post('/address', authapikey, async (req, res) => {
             });
         });
     } catch (err) {
-        console.log(error);
         res.send({
-            error: true,
-            msg: error.message,
+            err: true,
+            msg: err.message,
         });
     }
 });
