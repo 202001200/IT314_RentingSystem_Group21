@@ -57,7 +57,7 @@ const BuyerViewProduct = (props) => {
             .then((response) => {
                 console.log(response.data);
                 axios.post(
-                    'https://rentbuddy.onrender.com/borrower/removeitem',
+                    'https://rentbuddy.onrender.com/borrower/updateWishlist',
                     {
                         borrower: response.data._id,
                         product: location.state._id,
@@ -71,7 +71,7 @@ const BuyerViewProduct = (props) => {
                 if (data.error) {
                     alert.error('Error');
                 } else {    
-                    alert.success('Removed from wishlist');
+                    alert.success('Added to wishlist');
                     history.push('./wishlist');
                 }
             })
