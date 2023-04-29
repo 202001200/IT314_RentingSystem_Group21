@@ -143,7 +143,7 @@ router.delete('/lender/:id', async (req, res) => {
         }
         const isLive = await Order.find({productid:req.params.id});
         if(isLive.length){
-            res.send({
+            rturn res.send({
                 error: true,
                 msg: 'Product Already Lent!'
             })
@@ -153,7 +153,7 @@ router.delete('/lender/:id', async (req, res) => {
         });
         res.send({
             error: false,
-            msg: 'Succsessfully Deleted',
+            msg: 'Successfully Deleted',
         });
     } catch (err) {
         console.error(err);
