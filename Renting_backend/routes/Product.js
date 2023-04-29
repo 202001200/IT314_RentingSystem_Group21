@@ -143,7 +143,7 @@ router.delete('/lender/:id', async (req, res) => {
         }
         const isLive = await Order.find({productid:req.params.id});
         if(isLive.length){
-            rturn res.send({
+            return res.send({
                 error: true,
                 msg: 'Product Already Lent!'
             })
