@@ -56,14 +56,12 @@ const CategoryPage = (props) => {
         })
     );
 };
-const style={
-  margin:'auto'
-}
+
 return ( 
   <div className='Dashboard'>
        <SearchHeader handleChange={handleInputChanges} />
       <div className='Main-card'>
-       <DNA visible={spinner} height={100} width={100} wrapperStyle={style}/>
+       <DNA visible={spinner} height={100} width={100} wrapperStyle={{'margin-top':'20%'}}/>
       {filter.map((product) => {
                   return <ProductCard key={product._id} product={product} />;
           })}

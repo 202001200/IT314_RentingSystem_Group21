@@ -53,9 +53,16 @@ const BuyerLogin = (props) => {
         console.log(error);
       });
   };
-
+  const add=()=>{
+  document.getElementsByClassName('BuyerLogin-body')[0].addEventListener('keypress',(event)=>{
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        document.getElementsByClassName('BuyerLogin-login')[0].click();;
+    }
+});
+  }
   return (
-        <div className='BuyerLogin-body'>
+        <div className='BuyerLogin-body' onLoad={add}>
             <div className='BuyerLogin-content'>
                 <div className='BuyerLogin-text-body'>
                     <div className='BuyerLogin-text'>Buyer Sign in</div>

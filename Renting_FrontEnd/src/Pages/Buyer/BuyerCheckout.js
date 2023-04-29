@@ -15,9 +15,16 @@ const BuyerCheckout = (props) => {
   const [s,setS] = useState(true);
   const [check, setCheck] = useState(false);
   const [Buyer, setData] = useState({});
-
+  const [ava, setAva] = useState();
   useEffect(() => {
     const fetch = () => {
+        axios.get('https://rentbuddy.onrender.com/products/'+location.state._id,{
+            headers:{
+                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+            }
+        }).then((response)=>{
+            setAva(response.data.available);
+        })
       axios
         .get('https://rentbuddy.onrender.com/borrower/detail', {
           headers: {
@@ -37,7 +44,7 @@ const BuyerCheckout = (props) => {
   fetch();
     }, [alert]);
 
-    const confirmpaymant = () => {
+    const confirmpayment = () => {
       let returndate = new Date();
       let k = 0;
       if (location.state.formatofprice === '/day') {
@@ -56,7 +63,6 @@ const BuyerCheckout = (props) => {
           k = 365;
         }
 
-        
         returndate.setDate(returndate.getDate() + k);
         axios
             .post('https://rentbuddy.onrender.com/order', {
@@ -87,13 +93,16 @@ const BuyerCheckout = (props) => {
     const handlechange = () => {
         setCheck(!check);
     };
+    const Details=ava===undefined?"":ava===true?"AVAILABLE":"UNAVAILABLE";
     return (
         <div>
             <TitleHeader name={'Checkout Product'} />
             <div className='BuyerCheckout-main'>
-            <div tyle={{'margin-top':'20%'}}><DNA visible={s} /></div>
-                <div className='BuyerCheckout-title'>
+            <DNA visible={s} height={100} width={100} wrapperStyle={{'margin-top':'20'}}/>
+                <div style={{'display':'flex'}}><div className='BuyerCheckout-title'>
                     {location.state.title}
+                </div>
+                <div style={{'margin-left':'75%','margin-top':'40px'}}>{Details}</div>
                 </div>
                 <hr />
                 <div className='BuyerChekout-description'>
@@ -136,12 +145,13 @@ const BuyerCheckout = (props) => {
                             <Button icon={backspaceOutline} name={'Cancel'} />
                         </Link>
                     </div>
+
                     <div className='BuyerCheckout-button BuyerCheckout-placeorder'>
-                        {check && (
+                        {check && ava && (
                             <Button
                                 icon={checkboxMarkedCircleOutline}
                                 name={'Place Order'}
-                                handleClick={confirmpaymant}
+                                handleClick={confirmpayment}
                             />
                         )}
                     </div>

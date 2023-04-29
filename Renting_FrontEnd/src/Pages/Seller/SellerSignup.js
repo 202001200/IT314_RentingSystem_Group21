@@ -70,9 +70,16 @@ const SellerSignup = () => {
               console.log(error);
           });
   };
-
+  const add=()=>{
+    document.getElementsByClassName('SellerLogin-body')[0].addEventListener('keypress',(event)=>{
+        if(event.key === 'Enter'){
+            event.preventDefault();
+            document.getElementsByClassName('SellerLogin-login')[0].click();
+        }
+    });
+}
   return (
-      <div className='SellerLogin-body'>
+      <div className='SellerLogin-body' onLoad={add}>
           <div className='SellerLogin-logo'>
               <img
                   src={signupposter2}

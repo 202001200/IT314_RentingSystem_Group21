@@ -16,7 +16,6 @@ const Dashboard = () => {
     useEffect(() => {
         const fetch = () => {
             axios
-
                 .get('https://rentbuddy.onrender.com/products',{
                     headers:{
                         "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
@@ -74,7 +73,7 @@ const Dashboard = () => {
         <div className='Dashboard'>
          <SearchHeader handleChange={handleInputChanges} />
             <div className='Main-card'>
-            <DNA visible={spinner}/>
+<DNA visible={spinner} wrapperStyle={{'margin-top':'20%'}}/>
                 {Products.map((product) => {
                     return <ProductCard key={product._id} product={product} />;
                 })}

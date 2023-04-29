@@ -16,9 +16,7 @@ const BuyerViewProduct = (props) => {
     const alert = useAlert();
     let history = useHistory();
     const passvar = location.state;
-
-    const [Seller, setData] = useState([]);
-
+    const [Seller, setData] = useState('');
     useEffect(() => {
         const fetch = () => {
             console.log(location.state);
@@ -48,7 +46,7 @@ const BuyerViewProduct = (props) => {
         fetch();
     }, [location, alert]);
 
-    const Addtowishlist = () => {
+    const Removefromwishlist = () => {
         axios.get('https://rentbuddy.onrender.com/borrower/detail', {
                 headers: {
                     "auth_token": localStorage.getItem('auth_token'),
@@ -59,11 +57,10 @@ const BuyerViewProduct = (props) => {
             .then((response) => {
                 console.log(response.data);
                 axios.post(
-                    'https://rentbuddy.onrender.com/borrower/updateWishlist',
+                    'https://rentbuddy.onrender.com/borrower/removeitem',
                     {
                         borrower: response.data._id,
-                        product_id: location.state._id,
-                        
+                        product: location.state._id,
                     }
                 ,{
                     headers:{
@@ -74,7 +71,7 @@ const BuyerViewProduct = (props) => {
                 if (data.error) {
                     alert.error('Error');
                 } else {    
-                    alert.success('Added to wishlist');
+                    alert.success('Removed from wishlist');
                     history.push('./wishlist');
                 }
             })
@@ -116,7 +113,7 @@ const BuyerViewProduct = (props) => {
                 console.log(e);
             });
     };
-
+    const name=Seller.length===0?'Loading...':Seller.firstname+' '+Seller;
     return (
         <div className='BuyerViewProduct-main'>
             <TitleHeader name={'View Product'} />
@@ -132,8 +129,8 @@ const BuyerViewProduct = (props) => {
                             <div className='BuyerViewProduct-button'>
                                 <Button
                                     icon={heartIcon}
-                                    name={'Wishlist'}
-                                    handleClick={Addtowishlist}
+                                    name={'Remove'}
+                                    handleClick={Removefromwishlist}
                                 />
                             </div>
                             <div className='BuyerViewProduct-button'>
@@ -180,7 +177,7 @@ const BuyerViewProduct = (props) => {
                             {'Seller'}
                         </div>
                         <div className='BuyerViewProduct-sellername'>
-                            {Seller.firstname + ' ' + Seller.lastname}
+                            {name}
                         </div>
                         <div className='BuyerViewProduct-seller-button'>
                             <Button

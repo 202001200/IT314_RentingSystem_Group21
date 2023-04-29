@@ -16,10 +16,8 @@ const ContactUs = () => {
                 className='ContactUs-poster'
             />
             <div className='ContactUs-create'>
-                <a href='https://github.com/RentingSystemSE' target='blank'>
                     Renting System{' '}
                     <span className='Drawer-big'>&copy;</span> 2023.  All rights reserved.
-                </a>
             </div>
             </div>
             <div className='ContactUs-content'>

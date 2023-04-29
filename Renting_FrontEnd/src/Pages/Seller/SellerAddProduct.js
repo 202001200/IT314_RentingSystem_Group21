@@ -123,6 +123,12 @@ const SellerAddProduct = () => {
     };
 
     const handleOnSubmit = () => {
+        const val=document.getElementsByClassName('SellerLogin-checkbox')[0].value;
+        console.log(val);
+        if(val==='on'){
+            alert.error("Please Accept Terms & Conditions!")
+            return;
+        }
         axios
             .post('https://rentbuddy.onrender.com/products/lender', {
                 title: title,
@@ -170,7 +176,7 @@ const SellerAddProduct = () => {
                         </div>
 
                         <div className='SellerAddproduct-image-selecter'>
-                            {progress !== 0 || progress!==100 && (
+                            {progress !== 0 && progress!==100 && (
                                 <progress
                                     value={progress}
                                     max='100'

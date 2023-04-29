@@ -65,8 +65,16 @@ const BuyerSignup = (props) => {
               console.log(error);
           });
   };
+  const add=()=>{
+  document.getElementsByClassName('BuyerLogin-body')[0].body.addEventListener('keypress',(event)=>{
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        document.getElementsByClassName('BuyerLogin-login')[0].click();
+    }
+});
+  }
   return (
-      <div className='BuyerLogin-body'>
+      <div className='BuyerLogin-body' onLoad={add}>
           <div className='BuyerLogin-logo'>
               <img
                   src={signupposter}

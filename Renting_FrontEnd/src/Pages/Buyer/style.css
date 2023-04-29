@@ -6,6 +6,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+*{
+    text-transform: capitalize;
+}
 .BuyerAddresses-main-card {
     padding-bottom: 1%;
     flex-wrap: wrap;
@@ -17,6 +20,7 @@
 .BuyerViewProduct-body {
     display: flex;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
 }
 
 .BuyerViewProduct-sub {
