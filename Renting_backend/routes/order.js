@@ -1,5 +1,6 @@
 const express = require('express');
 const Order = require('../models/Order');
+const Product = require('../models/Product');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const authapikey = require('../middleware/authapikey.js');
@@ -37,6 +38,7 @@ router.post(
                 returndate: req.body.returndate,
             });
             const ordersaved = await order.save();
+            await Product.findAndUpdate({_id:req.body.productid},{available:false});
             res.send({
                 error: false,
                 msg: 'Succsessfully Order Placed',
