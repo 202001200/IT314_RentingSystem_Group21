@@ -57,7 +57,7 @@ const BuyerMyOrder = () => {
         <div className='BuyerMyOrder-page'>
             <TitleHeader name={'My Order'} />
             <div className='BuyerMyOrder-card'>
-            <DNA visible={s}/>
+            <div style={{'margin-top':'20%'}}><DNA visible={s}/></div>
                 {orders.map((order) => {
                     return (
                         <LiveProductCard

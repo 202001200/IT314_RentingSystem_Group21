@@ -8,6 +8,7 @@ const BuyerWishlist = () => {
   const alert = useAlert();
   const [spinner,setSpinner] = useState(true);
   const [Products, setData] = useState([]);
+
   useEffect(() => {
     const fetch = () => {
         axios
@@ -40,7 +41,7 @@ const BuyerWishlist = () => {
                         setSpinner(false);
                         if (response.data.error) {
                             alert.error(response.data.msg);
-                            setData();
+                            setData([]);
                         } else {
                             setData(response.data.data);
                         }
@@ -54,12 +55,11 @@ const BuyerWishlist = () => {
     };
     fetch();
 }, [alert]);
-
 return (
     <div className='BuyerWishlist-page'>
         <TitleHeader name={'My Wishlist'} />
         <div className='BuyerWishlist-card'>
-        <DNA visible={spinner}/>
+        <div style={{'margin-top':'20%'}}><DNA visible={spinner}/></div>
             {Products.map((product) => {
                 return <GeneralCard key={product._id} product={product} />;
             })}

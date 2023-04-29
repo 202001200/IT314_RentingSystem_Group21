@@ -9,67 +9,45 @@ const LiveProductCard = (props) => {
     const [seller, setSeller] = useState({});
     useEffect(() => {
         const fetch = () => {
-            console.log(props.order);
-            Promise.all([
-                axios.get('https://rentbuddy.onrender.com/products/' +props.order.productid,{
-                    headers:{
-                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
-                    }
-                }),
-                axios.get('https://rentbuddy.onrender.com/lender/getname/' +props.order.lenderid,{
+            axios
+                .get(
+                    'https://rentbuddy.onrender.com/products/' +props.order.productid
+                ,{
                     headers:{
                         "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
                     }
                 })
-            ]).then(async([response1, response2])=>{
-                let data = response1.data;
-                    if (!data) {
-                        alert.error(data.msg);
-                        return;
-                    }
-                    let data2= response2.data;
-                    if (!data2) {
-                        alert.error(data2.msg);
-                        return;
-                    }
-                    console.log(data2.data);
-                    setProduct(data);
-                    setSeller(data2.data[0]);
-            })
-            // axios
-            //     .get(
-            //         'https://rentbuddy.onrender.com/products/' +props.order.productid
-            //     ,{
-            //         headers:{
-            //             "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
-            //         }
-            //     })
-            //     .then((response) => {
-                    
-            //         axios
-            //             .get(
-            //                 'https://rentbuddy.onrender.com/lender/getname/' +
-            //                     response.data.lender
-            //             )
-            //             .then((response) => {
-            //                 const data = response.data;
-            //                 if (data.error) {
-            //                     alert.error(data.msg);
-            //                 } else {
-            //                     setSeller(data.data[0]);
-            //                 }
-            //             })
-            //             .catch((e) => {
-            //                 console.log(e);
-            //             });
-            //     })
-            //     .catch((e) => {
-            //         console.log(e);
-            //     });
+                .then((response) => {
+                    console.log(props.order.productid);
+                    setProduct(response.data);
+                    console.log(response.data);
+                    axios
+                        .get(
+                            'https://rentbuddy.onrender.com/lender/getname/' +
+                                response.data.lender
+                        ,{
+                            headers:{
+                                "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                            }
+                        })
+                        .then((response) => {
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setSeller(data.data[0]);
+                            }
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                        });
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
         };
         fetch();
     }, [props.order]);
-    if(seller.firstname===undefined) return null;
     return (
         <div className='LiveProductCard'>
             <Link to={{ pathname: '/buyer/product', state: product }}>

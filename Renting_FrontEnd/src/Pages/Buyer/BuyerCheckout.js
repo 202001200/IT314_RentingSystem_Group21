@@ -91,12 +91,7 @@ const BuyerCheckout = (props) => {
         <div>
             <TitleHeader name={'Checkout Product'} />
             <div className='BuyerCheckout-main'>
-            <DNA visible={s} wrapperStyle={{
-                margin:'auto',
-                align:'center',
-                justifyContent:'center',
-                alignItems:'center'
-            }}/>
+            <div tyle={{'margin-top':'20%'}}><DNA visible={s} /></div>
                 <div className='BuyerCheckout-title'>
                     {location.state.title}
                 </div>

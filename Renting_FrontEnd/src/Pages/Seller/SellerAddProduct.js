@@ -170,7 +170,7 @@ const SellerAddProduct = () => {
                         </div>
 
                         <div className='SellerAddproduct-image-selecter'>
-                            {progress !== 0 && (
+                            {progress !== 0 || progress!==100 && (
                                 <progress
                                     value={progress}
                                     max='100'

@@ -61,12 +61,14 @@ const BuyerAddresses = () => {
 
       fetch();
   }, [alert]);
-
+const loader = s?<div style={{'margin-top':'20%','margin-left':'47%'}}>
+<DNA visible={s}/>
+</div>:<></>;
   return (
       <div className='BuyerAddresses-main'>
           <TitleHeader name={'Seller Address'} />
           <div className='BuyerAddresses-main-card'>
-          <DNA visible={s} />
+            {loader}
               {Addresses.map((product, index) => {
                   return <AddressCard key={index} address={product} />;
               })}
