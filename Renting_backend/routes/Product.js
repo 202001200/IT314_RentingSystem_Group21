@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product.js');
+const Order = require('../models/Order.js');
 const { check, validationResult } = require('express-validator');
 const authapikey = require('../middleware/authapikey.js');
 router.get('/category/:category',authapikey, async(req,res)=>{
@@ -140,12 +141,19 @@ router.delete('/lender/:id', async (req, res) => {
                 msg: 'Product Not Found',
             });
         }
+        const isLive = await Order.find({productid:req.params.id});
+        if(isLive.length){
+            return res.send({
+                error: true,
+                msg: 'Product Already Lent!'
+            })
+        }
         await Product.deleteOne({
             _id: req.params.id,
         });
         res.send({
             error: false,
-            msg: 'Succsessfully Deleted',
+            msg: 'Successfully Deleted',
         });
     } catch (err) {
         console.error(err);

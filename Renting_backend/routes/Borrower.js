@@ -254,7 +254,7 @@ router.post('/request', authapikey, async (req, res) => {
         }).then(
             res.send({
                 error: false,
-                msg: 'Request SenLender',
+                msg: 'Request Sent to Lender',
             })
         );
     } catch (err) {
