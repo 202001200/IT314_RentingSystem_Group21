@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product.js');
+const Order = require('../models/Order.js');
 const { check, validationResult } = require('express-validator');
 const authapikey = require('../middleware/authapikey.js');
 router.get('/category/:category',authapikey, async(req,res)=>{
