@@ -38,7 +38,7 @@ router.post(
                 returndate: req.body.returndate,
             });
             const ordersaved = await order.save();
-            await Product.findAndUpdate({_id:req.body.productid},{available:false});
+            await Product.findByIdAndUpdate({_id:req.body.productid},{available:false});
             res.send({
                 error: false,
                 msg: 'Succsessfully Order Placed',
