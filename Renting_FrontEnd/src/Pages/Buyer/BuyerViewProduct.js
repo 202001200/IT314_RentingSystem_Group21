@@ -113,7 +113,7 @@ const BuyerViewProduct = (props) => {
                 console.log(e);
             });
     };
-    const name=Seller.length===0?'Loading...':Seller.firstname+' '+Seller;
+    const name=Seller.length===0?'Loading...':Seller.firstname+' '+Seller.lastname;
     return (
         <div className='BuyerViewProduct-main'>
             <TitleHeader name={'View Product'} />

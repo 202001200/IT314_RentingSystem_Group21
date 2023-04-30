@@ -4,15 +4,48 @@ import SearchHeader from '../../components/header/SearchHeader';
 import ProductCard from '../../components/Cardview/ProductCard';
 import './style.css';
 import { useAlert } from 'react-alert';
-
 import DNA from 'react-loader-spinner/dist/loader/Dna';
+import { useLocation } from 'react-router-dom';
 
 const Dashboard = () => {
     const alert = useAlert();
     const [spinner,setSpinner] =useState(true);
     const [Products, setData] = useState([]);
     const [filter, setFilter] = useState([]);
-
+    const location = useLocation();
+    useEffect(()=>{
+        if(true){
+            axios.get("https://rentbuddy.onrender.com/borrower/detail",{
+                headers:{
+                    "auth_token":localStorage.getItem("auth_token"),
+                    "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                }
+            }).then((response)=>{
+                axios.get("https://rentbuddy.onrender.com/borrower/getmessage/"+response.data._id,
+                {
+                    headers:{
+                        "api-key":"$2b$10$LTVtuByThv1ese85aE1D..pDz0VHzR4VZ59IIAG292b13TgaQhZaa"
+                    }
+                }).then((response)=>{
+                    if(response.error){
+                        alert.error("Please check your internet connection!");
+                    }
+                    else{
+                        const messages=response.data.data;
+                        let t=0;
+                        const tId = setInterval(()=>{
+                            if(t<messages[0].message.length){
+                                console.log(t);
+                                alert.info(messages[0].message[t]);
+                                t=t+1;
+                            }
+                            else clearInterval(tId);
+                        },1000);
+                    }
+                })
+            })
+        }
+    },[])
     useEffect(() => {
         const fetch = () => {
             axios
