@@ -356,11 +356,12 @@ router.put('/removeitem', authapikey, async (req,res)=> {
 //@routes  /borrower/getmessage
 router.get('/getmessage/:id',authapikey, async(req,res)=>{
     try{
-        await Borrower.find({_id:req.params.id},{message:1,_id:0}).then(data=>{
-            res.send({
-                error:false,
-                data: data,
-            })
+        let messages=await Borrower.find({_id:req.params.id},{message:1,_id:0});
+        await Borrower.findOneAndUpdate({_id:req.params.id},{$pullAll:{}});
+        res.send({
+          error:false,
+          data:messages
+        })
         })
     }catch(err){
         console.log(err);
