@@ -362,7 +362,6 @@ router.get('/getmessage/:id',authapikey, async(req,res)=>{
           error:false,
           data:messages
         })
-        })
     }catch(err){
         console.log(err);
         res.send({
