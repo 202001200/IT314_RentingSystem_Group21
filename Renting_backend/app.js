@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 const cors = require('cors');
-const connectDB = require('./config/app')
+const connectDB = require('./Config/app')
 
 dotenv.config({path:'./config/config.env'});
 
@@ -31,8 +31,8 @@ app.use('/products',require('./routes/Product'));
 app.use('/borrower',require('./routes/Borrower'));
 app.use('/lender',require('./routes/Lender'));
 app.use('/order',require('./routes/order'));
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.listen(
-  PORT, console.log('Server is running at port '+process.env.PORT)
+  PORT,"192.168.210.30", console.log('Server is running at port '+PORT)
 );
